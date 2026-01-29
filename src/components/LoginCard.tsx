@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { useAuth } from '../context/AuthContext';
 import { useRouter } from 'next/navigation';
+import Logo from './Logo';
 
 export default function LoginCard() {
   const [email, setEmail] = useState('');
@@ -39,19 +39,7 @@ export default function LoginCard() {
       <div className="lg:w-1/2 flex items-center justify-center p-8 lg:p-12">
         <div className="max-w-xl text-center">
           <div className="mb-8" style={{ background: 'transparent' }}>
-            <Image
-              src="/logo.png"
-              alt="Nok Logo"
-              width={300}
-              height={120}
-              className="mx-auto"
-              style={{ 
-                background: 'transparent',
-                mixBlendMode: 'screen',
-                filter: 'brightness(1.2)'
-              }}
-              priority
-            />
+            <Logo size="large" />
           </div>
           <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
             The Strategic Advisory Board.
