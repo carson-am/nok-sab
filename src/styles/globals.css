@@ -35,6 +35,16 @@ body {
   border-radius: 0.75rem;
 }
 
+/* Button Glow Effect */
+.btn-glow {
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px 2px rgba(59, 130, 246, 0.6);
+  filter: brightness(1.1);
+}
+
 /* Utility Classes */
 .bg-radial-gradient {
   background: radial-gradient(circle at center, var(--nok-navy-center) 0%, var(--nok-navy-edge) 100%);

@@ -37,21 +37,22 @@ export default function LoginCard() {
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Column - Branding */}
       <div className="lg:w-1/2 flex items-center justify-center p-8 lg:p-12">
-        <div className="max-w-lg text-center lg:text-left">
+        <div className="max-w-lg text-center">
           <div className="mb-8">
             <Image
               src="/logo.png"
               alt="Nok Logo"
               width={200}
               height={80}
-              className="mx-auto lg:mx-0"
+              className="mx-auto mix-blend-screen"
+              style={{ background: 'transparent' }}
               priority
             />
           </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">
             The Strategic Advisory Board.
           </h1>
-          <p className="text-lg lg:text-xl text-slate-400 leading-relaxed">
+          <p className="text-xl lg:text-2xl text-slate-400 leading-loose">
             Architecting the future of recommerce. An exclusive forum for industry leaders to redefine the circular economy.
           </p>
         </div>
@@ -62,7 +63,7 @@ export default function LoginCard() {
         <div className="glass-card p-8 w-full max-w-md rounded-xl">
           {!showPasswordRecovery ? (
             <>
-              <div className="mb-6">
+              <div className="mb-6 text-center">
                 <h2 className="text-2xl font-bold text-white mb-2">Welcome!</h2>
                 <p className="text-slate-400 text-sm">
                   Provide your credentials to access the Strategic Advisory Board portal.
@@ -104,7 +105,7 @@ export default function LoginCard() {
 
                 <button
                   type="submit"
-                  className="w-full bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200"
+                  className="w-full bg-nok-blue text-white font-semibold py-3 px-4 rounded-lg btn-glow"
                 >
                   Sign In
                 </button>
@@ -122,7 +123,7 @@ export default function LoginCard() {
             </>
           ) : (
             <>
-              <div className="mb-6">
+              <div className="mb-6 text-center">
                 <h2 className="text-2xl font-bold text-white mb-2">Reset Password</h2>
                 <p className="text-slate-400 text-sm">
                   Enter your email address and we'll send you a link to reset your password.
@@ -146,7 +147,7 @@ export default function LoginCard() {
 
                 <button
                   type="submit"
-                  className="w-full bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200"
+                  className="w-full bg-nok-blue text-white font-semibold py-3 px-4 rounded-lg btn-glow"
                 >
                   Send Reset Link
                 </button>
