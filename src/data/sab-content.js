@@ -1,17 +1,32 @@
+export const overviewWelcome = {
+  title: "Welcome",
+  subtitle: "Your command center for board resources, meetings, and impact."
+};
+
 export const overviewContent = {
   mission: {
     title: "Mission",
-    content: "The Nok Strategic Advisory Board serves as a cornerstone of excellence, bringing together industry leaders and visionaries to guide our strategic direction. Our mission is to leverage collective expertise and foster innovation in the recommerce ecosystem, driving sustainable growth and transformative impact across the reverse logistics landscape."
+    content: "The Nok Strategic Advisory Board serves as a cornerstone of excellence, bringing together industry leaders and visionaries to guide our strategic direction. Our mission is to leverage collective expertise and foster innovation in the recommerce ecosystem, driving sustainable growth and transformative impact across the reverse logistics landscape.",
+    highlight: "Our mission is to leverage collective expertise and foster innovation in the recommerce ecosystem"
   },
   boardPurpose: {
     title: "Board Purpose",
-    content: "The Strategic Advisory Board provides strategic guidance, industry insights, and thought leadership to advance Nok's mission of revolutionizing recommerce. Board members contribute their deep expertise in logistics, sustainability, technology, and business strategy to help shape our vision, validate our approach, and accelerate our impact in creating a more circular economy."
+    content: "The Strategic Advisory Board provides strategic guidance, industry insights, and thought leadership to advance Nok's mission of revolutionizing recommerce. Board members contribute their deep expertise in logistics, sustainability, technology, and business strategy to help shape our vision, validate our approach, and accelerate our impact in creating a more circular economy.",
+    highlight: "advance Nok's mission of revolutionizing recommerce"
   },
   memberImpact: {
     title: "Member Impact",
-    content: "Each member of the Strategic Advisory Board brings unique perspectives and decades of experience to our organization. Through quarterly deep dives, monthly executive roundtables, and ongoing strategic counsel, our members help ensure that Nok remains at the forefront of innovation while maintaining operational excellence and sustainable business practices."
+    content: "Each member of the Strategic Advisory Board brings unique perspectives and decades of experience to our organization. Through quarterly deep dives, monthly executive roundtables, and ongoing strategic counsel, our members help ensure that Nok remains at the forefront of innovation while maintaining operational excellence and sustainable business practices.",
+    highlight: "our members help ensure that Nok remains at the forefront of innovation"
   }
 };
+
+export const boardStatus = [
+  { label: "Active Members", value: "15" },
+  { label: "Next Quarter", value: "Deep Dive" },
+  { label: "Current Workstream", value: "GTM Positioning" },
+  { label: "Next Meeting", value: "Executive Roundtable" }
+];
 
 export const calendarEvents = [
   {
