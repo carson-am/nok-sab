@@ -72,31 +72,66 @@ export const meetings = [
     id: 1,
     title: "Q4 2025 Strategic Review",
     date: "2025-12-10",
-    summary: "Comprehensive review of Q4 performance metrics, strategic initiatives, and market positioning. Discussion included analysis of holiday season performance, operational efficiency improvements, and preparation for 2026 strategic priorities."
+    summary: "Comprehensive review of Q4 performance metrics, strategic initiatives, and market positioning. Discussion included analysis of holiday season performance, operational efficiency improvements, and preparation for 2026 strategic priorities.",
+    takeaways: [
+      "Q4 performance exceeded targets with 15% growth in key metrics",
+      "Strategic focus for Q1 2026: market expansion and technology infrastructure",
+      "Board alignment on GTM positioning and partnership strategy"
+    ],
+    recordingLink: "https://example.com/recording/q4-2025",
+    deckLink: "https://example.com/deck/q4-2025-review.pdf"
   },
   {
     id: 2,
     title: "Technology Roadmap Deep Dive",
     date: "2025-11-15",
-    summary: "Detailed presentation and discussion of technology infrastructure, automation opportunities, and innovation initiatives. Board members provided valuable feedback on scalability, security, and user experience enhancements."
+    summary: "Detailed presentation and discussion of technology infrastructure, automation opportunities, and innovation initiatives. Board members provided valuable feedback on scalability, security, and user experience enhancements.",
+    takeaways: [
+      "Technology infrastructure roadmap approved for next 18 months",
+      "Prioritization of automation and AI initiatives for reverse logistics",
+      "Security and scalability requirements documented for platform evolution"
+    ],
+    recordingLink: "https://example.com/recording/tech-roadmap-2025",
+    deckLink: "https://example.com/deck/technology-roadmap.pdf"
   },
   {
     id: 3,
     title: "Market Expansion Strategy",
     date: "2025-10-08",
-    summary: "Strategic discussion on market expansion opportunities, partnership strategies, and competitive landscape analysis. Members shared insights on market entry approaches and growth acceleration tactics."
+    summary: "Strategic discussion on market expansion opportunities, partnership strategies, and competitive landscape analysis. Members shared insights on market entry approaches and growth acceleration tactics.",
+    takeaways: [
+      "Market expansion priorities identified for North America and Europe",
+      "Partnership strategy refined for key verticals",
+      "Competitive positioning and differentiation themes agreed"
+    ],
+    recordingLink: "https://example.com/recording/market-expansion",
+    deckLink: null
   },
   {
     id: 4,
     title: "Sustainability & ESG Initiatives",
     date: "2025-09-20",
-    summary: "Review of sustainability metrics, ESG reporting, and environmental impact initiatives. Discussion focused on circular economy principles, carbon footprint reduction, and stakeholder engagement strategies."
+    summary: "Review of sustainability metrics, ESG reporting, and environmental impact initiatives. Discussion focused on circular economy principles, carbon footprint reduction, and stakeholder engagement strategies.",
+    takeaways: [
+      "ESG reporting framework aligned with industry standards",
+      "Carbon footprint reduction targets set for 2026",
+      "Circular economy metrics integrated into operational dashboards"
+    ],
+    recordingLink: null,
+    deckLink: "https://example.com/deck/sustainability-esg-2025.pdf"
   },
   {
     id: 5,
     title: "Operational Excellence Review",
     date: "2025-08-14",
-    summary: "Comprehensive operational review covering logistics efficiency, quality metrics, and process improvements. Board members provided guidance on optimization opportunities and best practices from their respective industries."
+    summary: "Comprehensive operational review covering logistics efficiency, quality metrics, and process improvements. Board members provided guidance on optimization opportunities and best practices from their respective industries.",
+    takeaways: [
+      "Operational KPIs and benchmarks established across key functions",
+      "Process improvement roadmap for logistics and quality",
+      "Best practices shared from member organizations"
+    ],
+    recordingLink: "https://example.com/recording/ops-excellence",
+    deckLink: "https://example.com/deck/operational-excellence.pdf"
   }
 ];
 
