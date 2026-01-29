@@ -37,22 +37,25 @@ export default function LoginCard() {
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Column - Branding */}
       <div className="lg:w-1/2 flex items-center justify-center p-8 lg:p-12">
-        <div className="max-w-lg text-center">
-          <div className="mb-8">
+        <div className="max-w-xl text-center">
+          <div className="mb-8" style={{ background: 'transparent' }}>
             <Image
               src="/logo.png"
               alt="Nok Logo"
-              width={200}
-              height={80}
-              className="mx-auto mix-blend-screen"
-              style={{ background: 'transparent' }}
+              width={300}
+              height={120}
+              className="mx-auto"
+              style={{ 
+                background: 'transparent',
+                mixBlendMode: 'plus-lighter'
+              }}
               priority
             />
           </div>
-          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
             The Strategic Advisory Board.
           </h1>
-          <p className="text-xl lg:text-2xl text-slate-400 leading-loose">
+          <p className="text-base lg:text-lg text-slate-400 leading-relaxed">
             Architecting the future of recommerce. An exclusive forum for industry leaders to redefine the circular economy.
           </p>
         </div>
