@@ -5,17 +5,14 @@ import { useRouter } from 'next/navigation';
 
 interface AuthContextType {
   isLoggedIn: boolean;
-  login: (username: string, password: string) => boolean;
+  login: (email: string, password: string) => boolean;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Hardcoded credentials
-const VALID_CREDENTIALS = {
-  username: 'admin',
-  password: 'nok2026'
-};
+// Email validation regex
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,8 +24,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsLoggedIn(loggedIn);
   }, []);
 
-  const login = (username: string, password: string): boolean => {
-    if (username === VALID_CREDENTIALS.username && password === VALID_CREDENTIALS.password) {
+  const login = (email: string, password: string): boolean => {
+    // Accept any valid email format + any non-empty password
+    const isValidEmail = emailRegex.test(email);
+    const hasPassword = password.length > 0;
+
+    if (isValidEmail && hasPassword) {
       setIsLoggedIn(true);
       sessionStorage.setItem('isLoggedIn', 'true');
       return true;

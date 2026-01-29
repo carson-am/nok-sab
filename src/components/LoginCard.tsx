@@ -1,13 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useAuth } from '../context/AuthContext';
 import { useRouter } from 'next/navigation';
 
 export default function LoginCard() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [showPasswordRecovery, setShowPasswordRecovery] = useState(false);
+  const [recoveryEmail, setRecoveryEmail] = useState('');
   const { login } = useAuth();
   const router = useRouter();
 
@@ -15,65 +18,155 @@ export default function LoginCard() {
     e.preventDefault();
     setError('');
 
-    if (login(username, password)) {
+    if (login(email, password)) {
       router.push('/dashboard');
     } else {
-      setError('Invalid username or password');
+      setError('Invalid email or password');
     }
   };
 
+  const handlePasswordRecovery = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Dummy flow - just show success message or reset view
+    setShowPasswordRecovery(false);
+    setRecoveryEmail('');
+    // Could add a toast notification here
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="glass-card p-8 w-full max-w-md rounded-xl">
-        <div className="mb-8 flex flex-col items-center">
-          <div className="mb-4">
-            <h1 className="text-4xl font-bold text-white mb-2">nok</h1>
-            <p className="text-lg text-nok-orange font-semibold">RECOMMERCE</p>
+    <div className="min-h-screen flex flex-col lg:flex-row">
+      {/* Left Column - Branding */}
+      <div className="lg:w-1/2 flex items-center justify-center p-8 lg:p-12">
+        <div className="max-w-lg text-center lg:text-left">
+          <div className="mb-8">
+            <Image
+              src="/logo.png"
+              alt="Nok Logo"
+              width={200}
+              height={80}
+              className="mx-auto lg:mx-0"
+              priority
+            />
           </div>
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            The Strategic Advisory Board.
+          </h1>
+          <p className="text-lg lg:text-xl text-slate-400 leading-relaxed">
+            Architecting the future of recommerce. An exclusive forum for industry leaders to redefine the circular economy.
+          </p>
         </div>
-        
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="username" className="block text-sm font-medium text-white mb-2">
-              Username
-            </label>
-            <input
-              id="username"
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-nok-blue focus:ring-1 focus:ring-nok-blue"
-              placeholder="Enter your username"
-              required
-            />
-          </div>
-          
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
-              Password
-            </label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-nok-blue focus:ring-1 focus:ring-nok-blue"
-              placeholder="Enter your password"
-              required
-            />
-          </div>
+      </div>
 
-          {error && (
-            <div className="text-red-400 text-sm">{error}</div>
+      {/* Right Column - Login Card */}
+      <div className="lg:w-1/2 flex items-center justify-center p-8">
+        <div className="glass-card p-8 w-full max-w-md rounded-xl">
+          {!showPasswordRecovery ? (
+            <>
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-white mb-2">Welcome!</h2>
+                <p className="text-slate-400 text-sm">
+                  Provide your credentials to access the Strategic Advisory Board portal.
+                </p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white focus:outline-none focus:border-nok-blue focus:ring-1 focus:ring-nok-blue"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
+                    Password
+                  </label>
+                  <input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white focus:outline-none focus:border-nok-blue focus:ring-1 focus:ring-nok-blue"
+                    required
+                  />
+                </div>
+
+                {error && (
+                  <div className="text-red-400 text-sm">{error}</div>
+                )}
+
+                <button
+                  type="submit"
+                  className="w-full bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200"
+                >
+                  Sign In
+                </button>
+
+                <div className="text-center">
+                  <button
+                    type="button"
+                    onClick={() => setShowPasswordRecovery(true)}
+                    className="text-slate-400 hover:text-white text-sm transition-colors duration-200"
+                  >
+                    Forgot Password?
+                  </button>
+                </div>
+              </form>
+            </>
+          ) : (
+            <>
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-white mb-2">Reset Password</h2>
+                <p className="text-slate-400 text-sm">
+                  Enter your email address and we'll send you a link to reset your password.
+                </p>
+              </div>
+
+              <form onSubmit={handlePasswordRecovery} className="space-y-6">
+                <div>
+                  <label htmlFor="recovery-email" className="block text-sm font-medium text-white mb-2">
+                    Email
+                  </label>
+                  <input
+                    id="recovery-email"
+                    type="email"
+                    value={recoveryEmail}
+                    onChange={(e) => setRecoveryEmail(e.target.value)}
+                    className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white focus:outline-none focus:border-nok-blue focus:ring-1 focus:ring-nok-blue"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200"
+                >
+                  Send Reset Link
+                </button>
+
+                <div className="text-center">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowPasswordRecovery(false);
+                      setRecoveryEmail('');
+                    }}
+                    className="text-slate-400 hover:text-white text-sm transition-colors duration-200"
+                  >
+                    Back to Sign In
+                  </button>
+                </div>
+              </form>
+            </>
           )}
-
-          <button
-            type="submit"
-            className="w-full bg-nok-orange hover:bg-[#e55a2b] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200"
-          >
-            Login
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   );
