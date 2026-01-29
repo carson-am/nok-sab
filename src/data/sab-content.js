@@ -139,32 +139,62 @@ export const presentations = [
   {
     id: 1,
     title: "Q4 2025 Performance Review",
-    filename: "q4-2025-performance-review.pdf"
+    filename: "q4-2025-performance-review.pdf",
+    category: "Quarterly Reviews",
+    description: "Comprehensive analysis of Q4 2025 performance metrics, including revenue growth, operational efficiency, and strategic milestone achievements.",
+    fileType: "PDF",
+    fileSize: "2.8 MB",
+    downloadLink: "/downloads/q4-2025-performance-review.pdf"
   },
   {
     id: 2,
     title: "2026 Strategic Roadmap",
-    filename: "2026-strategic-roadmap.pdf"
+    filename: "2026-strategic-roadmap.pdf",
+    category: "Strategy & Roadmaps",
+    description: "Detailed strategic roadmap outlining key initiatives, market positioning, and growth strategies for 2026 and beyond.",
+    fileType: "PDF",
+    fileSize: "3.2 MB",
+    downloadLink: "/downloads/2026-strategic-roadmap.pdf"
   },
   {
     id: 3,
     title: "Technology & Innovation Overview",
-    filename: "technology-innovation-overview.pdf"
+    filename: "technology-innovation-overview.pdf",
+    category: "Technology & Innovation",
+    description: "Overview of technology infrastructure, innovation initiatives, and digital transformation strategies driving operational excellence.",
+    fileType: "PDF",
+    fileSize: "2.5 MB",
+    downloadLink: "/downloads/technology-innovation-overview.pdf"
   },
   {
     id: 4,
     title: "Market Analysis & Competitive Landscape",
-    filename: "market-analysis-competitive-landscape.pdf"
+    filename: "market-analysis-competitive-landscape.pdf",
+    category: "Market Research",
+    description: "In-depth market analysis covering industry trends, competitive positioning, and market opportunity assessments.",
+    fileType: "PDF",
+    fileSize: "4.1 MB",
+    downloadLink: "/downloads/market-analysis-competitive-landscape.pdf"
   },
   {
     id: 5,
     title: "Sustainability & ESG Report 2025",
-    filename: "sustainability-esg-report-2025.pdf"
+    filename: "sustainability-esg-report-2025.pdf",
+    category: "Sustainability & ESG",
+    description: "Comprehensive ESG report detailing sustainability initiatives, environmental impact metrics, and corporate responsibility programs.",
+    fileType: "PDF",
+    fileSize: "3.7 MB",
+    downloadLink: "/downloads/sustainability-esg-report-2025.pdf"
   },
   {
     id: 6,
     title: "Operational Excellence Metrics",
-    filename: "operational-excellence-metrics.pdf"
+    filename: "operational-excellence-metrics.pdf",
+    category: "Operations",
+    description: "Key operational metrics, efficiency benchmarks, and process improvement initiatives across logistics and supply chain operations.",
+    fileType: "PDF",
+    fileSize: "2.3 MB",
+    downloadLink: "/downloads/operational-excellence-metrics.pdf"
   }
 ];
 
