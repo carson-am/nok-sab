@@ -11,17 +11,17 @@ export default function OverviewPage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-3">
-        <div className="glass-card p-6 rounded-xl">
+        <div className="glass-card p-6 rounded-xl card-glow">
           <h2 className="text-2xl font-bold text-white mb-4">{overviewContent.mission.title}</h2>
           <p className="text-slate-400 leading-relaxed">{overviewContent.mission.content}</p>
         </div>
 
-        <div className="glass-card p-6 rounded-xl">
+        <div className="glass-card p-6 rounded-xl card-glow">
           <h2 className="text-2xl font-bold text-white mb-4">{overviewContent.boardPurpose.title}</h2>
           <p className="text-slate-400 leading-relaxed">{overviewContent.boardPurpose.content}</p>
         </div>
 
-        <div className="glass-card p-6 rounded-xl">
+        <div className="glass-card p-6 rounded-xl card-glow">
           <h2 className="text-2xl font-bold text-white mb-4">{overviewContent.memberImpact.title}</h2>
           <p className="text-slate-400 leading-relaxed">{overviewContent.memberImpact.content}</p>
         </div>

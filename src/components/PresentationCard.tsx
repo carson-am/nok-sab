@@ -18,7 +18,7 @@ export default function PresentationCard({ title, filename }: PresentationCardPr
   };
 
   return (
-    <div className="glass-card p-6 rounded-xl flex flex-col h-full">
+    <div className="glass-card p-6 rounded-xl flex flex-col h-full card-glow">
       <div className="flex items-start gap-4 mb-4">
         <div className="flex-shrink-0">
           <FileText className="text-nok-blue" size={32} />
@@ -30,7 +30,7 @@ export default function PresentationCard({ title, filename }: PresentationCardPr
       <div className="mt-auto">
         <button
           onClick={handleDownload}
-          className="w-full bg-nok-orange hover:bg-[#e55a2b] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+          className="w-full bg-nok-orange hover:bg-[#e55a2b] text-white font-semibold py-3 px-4 rounded-lg btn-glow flex items-center justify-center gap-2"
         >
           <Download size={18} />
           Download PDF

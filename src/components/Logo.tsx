@@ -1,10 +1,10 @@
 interface LogoProps {
-  size?: 'large' | 'small';
+  size?: 'large' | 'medium' | 'small';
 }
 
 export default function Logo({ size = 'large' }: LogoProps) {
-  const nokFontSize = size === 'large' ? '4rem' : '1.5rem';
-  const recommerceFontSize = size === 'large' ? '1.4rem' : '0.525rem';
+  const nokFontSize = size === 'large' ? '4rem' : size === 'medium' ? '2.5rem' : '1.5rem';
+  const recommerceFontSize = size === 'large' ? '1.4rem' : size === 'medium' ? '0.875rem' : '0.525rem';
   
   return (
     <div className="flex flex-col items-center" style={{ background: 'transparent' }}>

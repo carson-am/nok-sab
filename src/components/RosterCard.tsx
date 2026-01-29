@@ -1,3 +1,5 @@
+import { User } from 'lucide-react';
+
 interface RosterCardProps {
   name: string;
   title: string;
@@ -7,13 +9,27 @@ interface RosterCardProps {
 
 export default function RosterCard({ name, title, company, onContact }: RosterCardProps) {
   return (
-    <div className="glass-card p-6 rounded-xl">
+    <div className="glass-card p-6 rounded-xl card-glow text-center">
+      {/* Headshot */}
+      <div className="mb-4 flex justify-center">
+        <div className="w-20 h-20 rounded-full bg-slate-700 flex items-center justify-center">
+          <User className="text-slate-400" size={40} />
+        </div>
+      </div>
+      
+      {/* Name */}
       <h3 className="text-xl font-bold text-white mb-2">{name}</h3>
+      
+      {/* Title */}
       <p className="text-slate-400 mb-1">{title}</p>
+      
+      {/* Company */}
       <p className="text-slate-400 mb-4">{company}</p>
+      
+      {/* Button */}
       <button
         onClick={onContact}
-        className="w-full bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
+        className="w-full bg-nok-blue text-white font-semibold py-2 px-4 rounded-lg btn-glow"
       >
         Contact Member
       </button>

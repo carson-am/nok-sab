@@ -23,7 +23,7 @@ export default function CalendarPage() {
 
       <div className="space-y-4">
         {calendarEvents.map((event, index) => (
-          <div key={event.id} className="glass-card p-6 rounded-xl">
+          <div key={event.id} className="glass-card p-6 rounded-xl card-glow">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 mt-1">
                 <CalendarIcon className="text-nok-blue" size={24} />

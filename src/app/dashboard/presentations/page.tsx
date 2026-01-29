@@ -7,7 +7,7 @@ export default function PresentationsPage() {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-white mb-4">Presentations</h1>
+        <h1 className="text-4xl font-bold text-white mb-4">Strategic Resources</h1>
         <p className="text-slate-400 text-lg">
           Download presentations, reports, and strategic documents from past meetings and sessions.
         </p>

@@ -22,7 +22,7 @@ export default function MeetingsPage() {
 
       <div className="space-y-4">
         {meetings.map((meeting) => (
-          <div key={meeting.id} className="glass-card p-6 rounded-xl">
+          <div key={meeting.id} className="glass-card p-6 rounded-xl card-glow">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 mt-1">
                 <Video className="text-nok-blue" size={24} />

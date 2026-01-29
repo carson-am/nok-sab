@@ -3,20 +3,22 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Calendar, Video, FileText, Users, Menu, X, MessageSquare } from 'lucide-react';
+import { Home, Calendar, Video, FileText, Users, Menu, X, MessageSquare, LogOut } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import Logo from './Logo';
 
 const navigation = [
   { name: 'Overview', href: '/dashboard', icon: Home },
   { name: 'Calendar', href: '/dashboard/calendar', icon: Calendar },
   { name: 'Meetings', href: '/dashboard/meetings', icon: Video },
-  { name: 'Presentations', href: '/dashboard/presentations', icon: FileText },
+  { name: 'Strategic Resources', href: '/dashboard/presentations', icon: FileText },
   { name: 'Roster', href: '/dashboard/roster', icon: Users },
 ];
 
 export default function Sidebar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { logout } = useAuth();
 
   return (
     <>
@@ -40,7 +42,7 @@ export default function Sidebar() {
         <div className="flex flex-col h-full">
           {/* Logo */}
           <div className="p-6 border-b border-white/10" style={{ background: 'transparent' }}>
-            <Logo size="small" />
+            <Logo size="medium" />
           </div>
 
           {/* Navigation */}
@@ -69,6 +71,20 @@ export default function Sidebar() {
               );
             })}
           </nav>
+
+          {/* Sign Out Button */}
+          <div className="p-4 border-t border-white/10">
+            <button
+              onClick={() => {
+                logout();
+                setIsMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 transition-colors duration-200"
+            >
+              <LogOut size={18} />
+              <span className="font-medium">Sign Out</span>
+            </button>
+          </div>
 
           {/* Slack Button */}
           <div className="p-4 border-t border-white/10">
