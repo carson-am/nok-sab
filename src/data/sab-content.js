@@ -118,6 +118,12 @@ export const presentations = [
   }
 ];
 
+export const rosterPageCopy = {
+  headerDescription: "View the current Strategic Advisory Board roster. Select 'Details' to access member profiles and contact information."
+};
+
+export const rosterButtonLabel = "Details";
+
 export const rosterMembers = [
   {
     id: 1,
@@ -126,7 +132,8 @@ export const rosterMembers = [
     company: "Global Logistics Solutions",
     bio: "Sarah brings over 20 years of experience in supply chain optimization and reverse logistics. She has led transformation initiatives at Fortune 500 companies and is recognized as a thought leader in sustainable logistics practices.",
     email: "sarah.chen@example.com",
-    phone: "+1 (555) 123-4567"
+    phone: "+1 (555) 123-4567",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 2,
@@ -135,7 +142,8 @@ export const rosterMembers = [
     company: "TechForward Industries",
     bio: "Michael is a technology visionary with expertise in automation, AI, and digital transformation. He has architected scalable platforms serving millions of users and brings deep technical insight to strategic technology decisions.",
     email: "michael.rodriguez@example.com",
-    phone: "+1 (555) 234-5678"
+    phone: "+1 (555) 234-5678",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 3,
@@ -144,7 +152,8 @@ export const rosterMembers = [
     company: "GreenCircle Consulting",
     bio: "Dr. Watson is a leading expert in circular economy principles and sustainable business practices. With a PhD in Environmental Science, she advises organizations on ESG strategies and environmental impact reduction.",
     email: "emily.watson@example.com",
-    phone: "+1 (555) 345-6789"
+    phone: "+1 (555) 345-6789",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 4,
@@ -153,7 +162,8 @@ export const rosterMembers = [
     company: "Strategic Ventures Capital",
     bio: "James has over 25 years of experience in venture capital and strategic consulting. He specializes in scaling high-growth companies and brings extensive network and market insights to the board.",
     email: "james.thompson@example.com",
-    phone: "+1 (555) 456-7890"
+    phone: "+1 (555) 456-7890",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 5,
@@ -162,7 +172,8 @@ export const rosterMembers = [
     company: "Brand Dynamics Group",
     bio: "Lisa is a marketing strategist with expertise in brand positioning, customer experience, and digital marketing. She has launched successful campaigns for major brands and understands the nuances of B2B and B2C markets.",
     email: "lisa.park@example.com",
-    phone: "+1 (555) 567-8901"
+    phone: "+1 (555) 567-8901",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 6,
@@ -171,7 +182,8 @@ export const rosterMembers = [
     company: "Retail Operations Corp",
     bio: "Robert brings deep expertise in retail operations, inventory management, and customer experience. He has led large-scale operational transformations and understands the complexities of modern retail logistics.",
     email: "robert.kim@example.com",
-    phone: "+1 (555) 678-9012"
+    phone: "+1 (555) 678-9012",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 7,
@@ -180,7 +192,8 @@ export const rosterMembers = [
     company: "Data Insights Solutions",
     bio: "Amanda is a data science expert specializing in predictive analytics, machine learning, and business intelligence. She helps organizations leverage data to drive strategic decisions and operational efficiency.",
     email: "amanda.foster@example.com",
-    phone: "+1 (555) 789-0123"
+    phone: "+1 (555) 789-0123",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 8,
@@ -189,7 +202,8 @@ export const rosterMembers = [
     company: "Financial Strategy Advisors",
     bio: "David is a financial strategist with expertise in corporate finance, M&A, and strategic planning. He brings analytical rigor and financial discipline to strategic decision-making processes.",
     email: "david.martinez@example.com",
-    phone: "+1 (555) 890-1234"
+    phone: "+1 (555) 890-1234",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 9,
@@ -198,7 +212,8 @@ export const rosterMembers = [
     company: "Innovation Labs",
     bio: "Jennifer is a product innovation leader with a track record of bringing successful products to market. She combines user-centric design thinking with technical expertise to create impactful solutions.",
     email: "jennifer.lee@example.com",
-    phone: "+1 (555) 901-2345"
+    phone: "+1 (555) 901-2345",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 10,
@@ -207,7 +222,8 @@ export const rosterMembers = [
     company: "Supply Chain Excellence",
     bio: "Christopher specializes in supply chain optimization, vendor management, and operational efficiency. He has implemented cost-saving initiatives worth millions and brings practical operational expertise.",
     email: "christopher.brown@example.com",
-    phone: "+1 (555) 012-3456"
+    phone: "+1 (555) 012-3456",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 11,
@@ -216,7 +232,8 @@ export const rosterMembers = [
     company: "Talent Leadership Group",
     bio: "Patricia is an HR and organizational development expert focused on building high-performing teams and cultures. She brings insights on talent strategy, leadership development, and organizational effectiveness.",
     email: "patricia.wilson@example.com",
-    phone: "+1 (555) 123-4568"
+    phone: "+1 (555) 123-4568",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 12,
@@ -225,7 +242,8 @@ export const rosterMembers = [
     company: "Strategic Growth Partners",
     bio: "Daniel is a growth strategist specializing in market expansion, partnerships, and business development. He has facilitated strategic partnerships and market entry initiatives across multiple industries.",
     email: "daniel.anderson@example.com",
-    phone: "+1 (555) 234-5679"
+    phone: "+1 (555) 234-5679",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 13,
@@ -234,7 +252,8 @@ export const rosterMembers = [
     company: "Customer Excellence Solutions",
     bio: "Maria is a customer success leader with expertise in building customer-centric organizations and driving retention. She understands the importance of customer experience in competitive differentiation.",
     email: "maria.garcia@example.com",
-    phone: "+1 (555) 345-6780"
+    phone: "+1 (555) 345-6780",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 14,
@@ -243,7 +262,8 @@ export const rosterMembers = [
     company: "Cloud Infrastructure Systems",
     bio: "Thomas is a cloud infrastructure and security expert with deep technical knowledge of scalable architectures. He brings expertise in platform reliability, security, and technical architecture decisions.",
     email: "thomas.white@example.com",
-    phone: "+1 (555) 456-7891"
+    phone: "+1 (555) 456-7891",
+    linkedin: "https://linkedin.com/in/placeholder"
   },
   {
     id: 15,
@@ -252,6 +272,7 @@ export const rosterMembers = [
     company: "Strategic Communications",
     bio: "Rachel is a communications and public relations expert specializing in brand reputation, stakeholder engagement, and strategic messaging. She helps organizations communicate effectively with diverse audiences.",
     email: "rachel.green@example.com",
-    phone: "+1 (555) 567-8902"
+    phone: "+1 (555) 567-8902",
+    linkedin: "https://linkedin.com/in/placeholder"
   }
 ];

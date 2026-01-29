@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { rosterMembers } from '../../../data/sab-content';
+import { rosterMembers, rosterPageCopy, rosterButtonLabel } from '../../../data/sab-content';
 import RosterCard from '../../../components/RosterCard';
 import RosterModal from '../../../components/RosterModal';
 
@@ -24,7 +24,7 @@ export default function RosterPage() {
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-white mb-4">Roster</h1>
         <p className="text-slate-400 text-lg">
-          Connect with Strategic Advisory Board members. Click "Contact Member" to view contact information and member details.
+          {rosterPageCopy.headerDescription}
         </p>
       </div>
 
@@ -35,6 +35,7 @@ export default function RosterPage() {
             name={member.name}
             title={member.title}
             company={member.company}
+            buttonLabel={rosterButtonLabel}
             onContact={() => handleContact(member)}
           />
         ))}

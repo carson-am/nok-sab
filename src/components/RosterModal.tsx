@@ -2,7 +2,7 @@
 
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { X, Mail, Phone } from 'lucide-react';
+import { X, Mail, Phone, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 
 interface RosterModalProps {
@@ -15,6 +15,7 @@ interface RosterModalProps {
     bio: string;
     email: string;
     phone: string;
+    linkedin?: string;
   } | null;
 }
 
@@ -84,7 +85,7 @@ export default function RosterModal({ isOpen, onClose, member }: RosterModalProp
                     <Mail className="text-nok-blue" size={20} />
                     <a
                       href={`mailto:${member.email}`}
-                      className="text-white hover:text-nok-blue transition-colors"
+                      className="text-white hover:text-nok-blue transition-colors duration-200"
                     >
                       {member.email}
                     </a>
@@ -93,11 +94,24 @@ export default function RosterModal({ isOpen, onClose, member }: RosterModalProp
                     <Phone className="text-nok-blue" size={20} />
                     <a
                       href={`tel:${member.phone}`}
-                      className="text-white hover:text-nok-blue transition-colors"
+                      className="text-white hover:text-nok-blue transition-colors duration-200"
                     >
                       {member.phone}
                     </a>
                   </div>
+                  {member.linkedin && member.linkedin !== '#' && (
+                    <div className="flex items-center gap-3">
+                      <Linkedin className="text-nok-blue" size={20} />
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white hover:text-nok-blue transition-colors duration-200"
+                      >
+                        LinkedIn Profile
+                      </a>
+                    </div>
+                  )}
                 </div>
               </Dialog.Panel>
             </Transition.Child>

@@ -24,22 +24,22 @@ export default function NextMeetingWidget() {
   const formattedDate = format(nextEvent.dateObj, 'EEEE, MMMM d, yyyy');
 
   return (
-    <div className="glass-card p-6 rounded-xl card-glow border-l-4 border-nok-blue mb-8">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div className="glass-card p-4 rounded-xl card-glow border-l-4 border-nok-blue mb-4">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <div className="flex-1">
-          <div className="flex items-center gap-2 mb-2">
-            <Calendar className="text-nok-blue" size={20} />
-            <span className="text-sm text-slate-400 uppercase tracking-wide">Next Up</span>
+          <div className="flex items-center gap-2 mb-1">
+            <Calendar className="text-nok-blue" size={18} />
+            <span className="text-xs text-slate-400 uppercase tracking-wide">Next Up</span>
           </div>
-          <h2 className="text-2xl font-bold text-white mb-2">{nextEvent.title}</h2>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-slate-400">
+          <h2 className="text-lg font-bold text-white mb-1">{nextEvent.title}</h2>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 text-sm text-slate-400">
             <span className="flex items-center gap-1">
-              <Calendar size={16} />
+              <Calendar size={14} />
               {formattedDate}
             </span>
             <span className="hidden sm:inline">•</span>
             <span className="flex items-center gap-1">
-              <Video size={16} />
+              <Video size={14} />
               {nextEvent.time}
             </span>
             {nextEvent.location && (
@@ -56,9 +56,9 @@ export default function NextMeetingWidget() {
               href={nextEvent.meetingLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-6 rounded-lg btn-glow transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2 px-4 rounded-lg btn-glow transition-all duration-200"
             >
-              <Video size={18} />
+              <Video size={16} />
               Join Meeting
             </a>
           </div>

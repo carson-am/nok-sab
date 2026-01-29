@@ -27,6 +27,11 @@ export default function CalendarPage() {
     setCurrentMonth(addMonths(currentMonth, 1));
   };
 
+  const goToToday = () => {
+    setCurrentMonth(new Date());
+    setDirection(0);
+  };
+
   const handleDayClick = (date: Date, events: typeof calendarEvents) => {
     if (events.length > 0) {
       // If multiple events, show the first one (could be enhanced to show list)
@@ -73,17 +78,26 @@ export default function CalendarPage() {
       <div className="flex items-center justify-between mb-6">
         <button
           onClick={goToPreviousMonth}
-          className="p-2 glass-card rounded-lg text-white hover:bg-white/5 transition-colors duration-200"
+          className="p-2 glass-card rounded-lg text-white hover:bg-white/5 nav-arrow-glow"
           aria-label="Previous month"
         >
           <ChevronLeft size={24} />
         </button>
-        
-        <h2 className="text-2xl font-bold text-white">{monthYear}</h2>
-        
+
+        <div className="flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-white">{monthYear}</h2>
+          <button
+            onClick={goToToday}
+            className="px-3 py-1.5 text-sm glass-card rounded-lg text-slate-300 hover:text-white nav-arrow-glow"
+            aria-label="Go to current month"
+          >
+            Today
+          </button>
+        </div>
+
         <button
           onClick={goToNextMonth}
-          className="p-2 glass-card rounded-lg text-white hover:bg-white/5 transition-colors duration-200"
+          className="p-2 glass-card rounded-lg text-white hover:bg-white/5 nav-arrow-glow"
           aria-label="Next month"
         >
           <ChevronRight size={24} />

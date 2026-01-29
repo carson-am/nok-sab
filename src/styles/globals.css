@@ -63,6 +63,16 @@ h1, h2, h3, h4, h5, h6 {
   filter: brightness(1.1);
 }
 
+/* Nav Arrow Glow (month navigation, Today button) */
+.nav-arrow-glow {
+  transition: all 0.25s ease;
+}
+
+.nav-arrow-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  filter: brightness(1.1);
+}
+
 /* Utility Classes */
 .bg-radial-gradient {
   background: radial-gradient(circle at center, var(--nok-navy-center) 0%, var(--nok-navy-edge) 100%);
