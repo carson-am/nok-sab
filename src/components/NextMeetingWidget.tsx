@@ -1,0 +1,69 @@
+'use client';
+
+import { calendarEvents } from '../data/sab-content';
+import { format } from 'date-fns';
+import { Calendar, Video } from 'lucide-react';
+
+export default function NextMeetingWidget() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const nextEvent = calendarEvents
+    .map(event => ({ 
+      ...event, 
+      dateObj: new Date(event.date + 'T00:00:00')
+    }))
+    .filter(event => {
+      event.dateObj.setHours(0, 0, 0, 0);
+      return event.dateObj >= today;
+    })
+    .sort((a, b) => a.dateObj.getTime() - b.dateObj.getTime())[0];
+
+  if (!nextEvent) return null;
+
+  const formattedDate = format(nextEvent.dateObj, 'EEEE, MMMM d, yyyy');
+
+  return (
+    <div className="glass-card p-6 rounded-xl card-glow border-l-4 border-nok-blue mb-8">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-2">
+            <Calendar className="text-nok-blue" size={20} />
+            <span className="text-sm text-slate-400 uppercase tracking-wide">Next Up</span>
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-2">{nextEvent.title}</h2>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-slate-400">
+            <span className="flex items-center gap-1">
+              <Calendar size={16} />
+              {formattedDate}
+            </span>
+            <span className="hidden sm:inline">•</span>
+            <span className="flex items-center gap-1">
+              <Video size={16} />
+              {nextEvent.time}
+            </span>
+            {nextEvent.location && (
+              <>
+                <span className="hidden sm:inline">•</span>
+                <span>{nextEvent.location}</span>
+              </>
+            )}
+          </div>
+        </div>
+        {nextEvent.meetingLink && (
+          <div className="flex-shrink-0">
+            <a
+              href={nextEvent.meetingLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-6 rounded-lg btn-glow transition-colors duration-200"
+            >
+              <Video size={18} />
+              Join Meeting
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

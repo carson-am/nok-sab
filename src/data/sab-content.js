@@ -19,28 +19,36 @@ export const calendarEvents = [
     title: "Monthly Executive Roundtable",
     date: "2026-02-15",
     time: "2:00 PM EST",
-    description: "Quarterly strategic discussion on market trends, operational insights, and strategic initiatives. This session will focus on Q1 performance review and Q2 planning priorities."
+    description: "Quarterly strategic discussion on market trends, operational insights, and strategic initiatives. This session will focus on Q1 performance review and Q2 planning priorities.",
+    location: "Virtual",
+    meetingLink: "https://zoom.us/j/123456789"
   },
   {
     id: 2,
     title: "Quarterly Deep Dive: Technology & Innovation",
     date: "2026-03-10",
     time: "10:00 AM EST",
-    description: "An in-depth exploration of emerging technologies in reverse logistics, automation opportunities, and innovation roadmaps. Members will review technical architecture and provide strategic guidance."
+    description: "An in-depth exploration of emerging technologies in reverse logistics, automation opportunities, and innovation roadmaps. Members will review technical architecture and provide strategic guidance.",
+    location: "Virtual",
+    meetingLink: "https://zoom.us/j/987654321"
   },
   {
     id: 3,
     title: "Annual Strategic Planning Session",
     date: "2026-04-20",
     time: "9:00 AM EST",
-    description: "Comprehensive annual planning session covering strategic priorities, market positioning, and long-term vision. This extended session includes breakout discussions and collaborative strategy development."
+    description: "Comprehensive annual planning session covering strategic priorities, market positioning, and long-term vision. This extended session includes breakout discussions and collaborative strategy development.",
+    location: "Nok Headquarters - Conference Room A",
+    meetingLink: null
   },
   {
     id: 4,
     title: "Monthly Executive Roundtable",
     date: "2026-05-12",
     time: "2:00 PM EST",
-    description: "Regular monthly session focusing on operational updates, member insights, and strategic alignment. Discussion topics include market dynamics and competitive positioning."
+    description: "Regular monthly session focusing on operational updates, member insights, and strategic alignment. Discussion topics include market dynamics and competitive positioning.",
+    location: "Virtual",
+    meetingLink: "https://zoom.us/j/456789123"
   }
 ];
 
