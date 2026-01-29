@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Home, Calendar, Video, FileText, Users, Menu, X, MessageSquare } from 'lucide-react';
 
@@ -38,11 +39,21 @@ export default function Sidebar() {
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="p-6 border-b border-white/10">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-white">nok</h1>
-            </div>
-            <p className="text-sm text-nok-orange font-semibold mt-1">RECOMMERCE</p>
+          <div className="p-6 border-b border-white/10" style={{ background: 'transparent' }}>
+            <Image
+              src="/logo.png"
+              alt="Nok Logo"
+              width={180}
+              height={72}
+              className="w-full"
+              style={{
+                background: 'transparent',
+                mixBlendMode: 'screen',
+                filter: 'brightness(1.2)',
+                objectFit: 'contain'
+              }}
+              priority
+            />
           </div>
 
           {/* Navigation */}

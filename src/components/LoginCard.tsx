@@ -47,7 +47,8 @@ export default function LoginCard() {
               className="mx-auto"
               style={{ 
                 background: 'transparent',
-                mixBlendMode: 'plus-lighter'
+                mixBlendMode: 'screen',
+                filter: 'brightness(1.2)'
               }}
               priority
             />
