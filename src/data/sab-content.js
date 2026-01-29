@@ -6,18 +6,18 @@ export const overviewWelcome = {
 export const overviewContent = {
   mission: {
     title: "Mission",
-    content: "The Nok Strategic Advisory Board serves as a cornerstone of excellence, bringing together industry leaders and visionaries to guide our strategic direction. Our mission is to leverage collective expertise and foster innovation in the recommerce ecosystem, driving sustainable growth and transformative impact across the reverse logistics landscape.",
-    highlight: "Our mission is to leverage collective expertise and foster innovation in the recommerce ecosystem"
+    content: "The Nok Strategic Advisory Board brings together a small, high-caliber group of operators and executives to shape how recommerce is positioned, valued, and executed at the enterprise level. The board serves as a forum for candid dialogue and practical strategy, aligning Nok's direction with real-world operator experience while advancing more profitable, brand-controlled approaches to returns and secondary markets.",
+    highlight: "shape how recommerce is positioned, valued, and executed at the enterprise level"
   },
   boardPurpose: {
-    title: "Board Purpose",
-    content: "The Strategic Advisory Board provides strategic guidance, industry insights, and thought leadership to advance Nok's mission of revolutionizing recommerce. Board members contribute their deep expertise in logistics, sustainability, technology, and business strategy to help shape our vision, validate our approach, and accelerate our impact in creating a more circular economy.",
-    highlight: "advance Nok's mission of revolutionizing recommerce"
+    title: "Purpose",
+    content: "The board provides strategic guidance, market insight, and executive-level perspective to inform Nok's product roadmap, messaging, and go-to-market approach. In return, members gain early visibility into emerging recommerce strategies, data, and benchmarks—along with a direct channel to influence how a category-defining platform evolves. The exchange is designed to be mutually valuable, practical, and grounded in operator realities.",
+    highlight: "members gain early visibility into emerging recommerce strategies, data, and benchmarks—along with a direct channel to influence how a category-defining platform evolves"
   },
   memberImpact: {
-    title: "Member Impact",
-    content: "Each member of the Strategic Advisory Board brings unique perspectives and decades of experience to our organization. Through quarterly deep dives, monthly executive roundtables, and ongoing strategic counsel, our members help ensure that Nok remains at the forefront of innovation while maintaining operational excellence and sustainable business practices.",
-    highlight: "our members help ensure that Nok remains at the forefront of innovation"
+    title: "Impact",
+    content: "Each advisor contributes a distinct operator perspective shaped by years of navigating returns, margin pressure, and channel complexity. Engagement is intentionally lightweight but high-impact, centered around quarterly deep dives, monthly executive roundtables, and ongoing peer dialogue. This structure allows members to exchange insights with peers facing similar challenges while helping Nok anticipate second-order effects and remain ahead of the market.",
+    highlight: "Engagement is intentionally lightweight but high-impact, centered around quarterly deep dives, monthly executive roundtables, and ongoing peer dialogue"
   }
 };
 
