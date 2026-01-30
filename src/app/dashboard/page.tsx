@@ -1,4 +1,4 @@
-import { Target, Compass, Activity } from 'lucide-react';
+import { Target, Compass, Zap } from 'lucide-react';
 import OverviewHero from '../../components/OverviewHero';
 import {
   overviewWelcome,
@@ -67,7 +67,7 @@ export default function OverviewPage() {
 
         <div className="glass-card p-6 rounded-xl card-glow transition-all duration-200">
           <div className="flex items-center gap-3 mb-4">
-            <Activity className="text-nok-blue flex-shrink-0" size={26} strokeWidth={1.5} />
+            <Zap className="text-nok-blue flex-shrink-0" size={26} strokeWidth={1.5} />
             <h2 className="text-2xl lg:text-3xl font-bold text-white">
               {overviewContent.memberImpact.title}
             </h2>

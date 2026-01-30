@@ -27,10 +27,7 @@ export default function NextMeetingWidget() {
     <div className="glass-card p-4 rounded-xl card-glow border-l-4 border-nok-blue mb-4">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <div className="flex-1">
-          <div className="flex items-center gap-2 mb-1">
-            <Calendar className="text-nok-blue" size={18} />
-            <span className="text-xs text-slate-400 uppercase tracking-wide">Next Up</span>
-          </div>
+          <span className="text-xs text-slate-400 uppercase tracking-wide block mb-1">NEXT UP</span>
           <h2 className="text-lg font-bold text-white mb-1">{nextEvent.title}</h2>
           <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 text-sm text-slate-400">
             <span className="flex items-center gap-1">
