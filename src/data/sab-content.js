@@ -137,6 +137,16 @@ export const meetings = [
 
 export const presentations = [
   {
+    id: 7,
+    title: "Short-Form Deck",
+    filename: "nok-short-form-deck.pdf",
+    category: "Nok Resources",
+    description: "The Nok short-form deck provides an executive-level overview of how brands can transform returns from a cost center into a scalable profit center using end-to-end recommerce infrastructure. It demonstrates how Nok delivers full visibility, intelligent disposition, and measurable P&L impact across the reverse supply chain.",
+    fileType: "PDF",
+    fileSize: "—",
+    downloadLink: "/nok-short-form-deck.pdf"
+  },
+  {
     id: 1,
     title: "Q4 2025 Performance Review",
     filename: "q4-2025-performance-review.pdf",

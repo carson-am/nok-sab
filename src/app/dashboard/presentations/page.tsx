@@ -4,8 +4,19 @@ import { useState, useMemo } from 'react';
 import { Search } from 'lucide-react';
 import { presentations } from '../../../data/sab-content';
 import PresentationCard from '../../../components/PresentationCard';
+import ResourceDetailModal from '../../../components/ResourceDetailModal';
 
 type Resource = (typeof presentations)[number];
+
+const CATEGORY_ORDER = [
+  'Nok Resources',
+  'Quarterly Reviews',
+  'Strategy & Roadmaps',
+  'Technology & Innovation',
+  'Market Research',
+  'Sustainability & ESG',
+  'Operations',
+];
 
 function filterResources(resources: Resource[], query: string): Resource[] {
   if (!query.trim()) return resources;
@@ -42,10 +53,28 @@ export default function PresentationsPage() {
     [filteredResources]
   );
 
-  const categories = Object.keys(groupedResources).sort();
+  const categories = useMemo(
+    () =>
+      Object.keys(groupedResources).sort((a, b) => {
+        const ai = CATEGORY_ORDER.indexOf(a);
+        const bi = CATEGORY_ORDER.indexOf(b);
+        if (ai !== -1 && bi !== -1) return ai - bi;
+        if (ai !== -1) return -1;
+        if (bi !== -1) return 1;
+        return a.localeCompare(b);
+      }),
+    [groupedResources]
+  );
+
+  const [activeResource, setActiveResource] = useState<Resource | null>(null);
 
   return (
     <div className="max-w-6xl mx-auto">
+      <ResourceDetailModal
+        isOpen={!!activeResource}
+        resource={activeResource}
+        onClose={() => setActiveResource(null)}
+      />
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-white mb-4">Strategic Resources</h1>
         <p className="text-slate-400 text-lg">
@@ -93,6 +122,7 @@ export default function PresentationsPage() {
                     fileType={resource.fileType}
                     fileSize={resource.fileSize}
                     downloadLink={resource.downloadLink}
+                    onCardClick={() => setActiveResource(resource)}
                   />
                 ))}
               </div>
