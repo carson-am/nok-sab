@@ -1,6 +1,6 @@
 export const overviewWelcome = {
   title: "Welcome",
-  subtitle: "Your command center for board resources, meetings, and impact."
+  subtitle: "Your command center for Strategic Advisory Board resources, meetings, and impact."
 };
 
 export const overviewContent = {

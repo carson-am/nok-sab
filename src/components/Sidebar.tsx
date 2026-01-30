@@ -43,9 +43,15 @@ export default function Sidebar() {
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="p-6 border-b border-white/10" style={{ background: 'transparent' }}>
-            <Logo size="medium" />
-          </div>
+          <Link
+            href="/dashboard"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block cursor-pointer hover:brightness-105 transition-all duration-200"
+          >
+            <div className="p-6 border-b border-white/10" style={{ background: 'transparent' }}>
+              <Logo size="medium" />
+            </div>
+          </Link>
 
           {/* Navigation */}
           <nav className="flex-1 px-4 py-6 space-y-2">
