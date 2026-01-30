@@ -37,6 +37,8 @@ export default function RosterPage() {
             company={member.company}
             buttonLabel={rosterButtonLabel}
             onContact={() => handleContact(member)}
+            expertise={member.expertise}
+            location={member.location}
           />
         ))}
       </div>

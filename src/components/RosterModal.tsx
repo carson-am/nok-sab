@@ -1,8 +1,9 @@
 'use client';
 
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { X, Mail, Phone, Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { X, Mail, Phone, Linkedin, Copy } from 'lucide-react';
 import Image from 'next/image';
 
 interface RosterModalProps {
@@ -16,12 +17,26 @@ interface RosterModalProps {
     email: string;
     phone: string;
     linkedin?: string;
+    expertise?: string[];
+    location?: string;
   } | null;
 }
 
-const DEFAULT_HEADSHOT = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop';
+const DEFAULT_HEADSHOT = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop';
 
 export default function RosterModal({ isOpen, onClose, member }: RosterModalProps) {
+  const [copiedField, setCopiedField] = useState<'email' | 'phone' | null>(null);
+
+  const handleCopy = async (field: 'email' | 'phone', value: string) => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch {
+      // fallback ignored
+    }
+  };
+
   if (!member) return null;
 
   return (
@@ -51,68 +66,113 @@ export default function RosterModal({ isOpen, onClose, member }: RosterModalProp
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="glass-card w-full max-w-2xl rounded-xl p-6 lg:p-8">
-                <div className="flex justify-between items-start mb-6">
-                  <Dialog.Title className="text-2xl font-bold text-white">
-                    {member.name}
-                  </Dialog.Title>
-                  <button
-                    onClick={onClose}
-                    className="text-slate-400 hover:text-white transition-colors"
-                  >
-                    <X size={24} />
-                  </button>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-6 mb-6">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src={DEFAULT_HEADSHOT}
-                      alt={member.name}
-                      width={120}
-                      height={120}
-                      className="rounded-lg"
-                    />
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <div className="flex justify-between items-start mb-6">
+                    <Dialog.Title className="text-2xl font-bold text-white">
+                      {member.name}
+                    </Dialog.Title>
+                    <button
+                      onClick={onClose}
+                      className="p-2 rounded-lg text-slate-400 hover:text-white transition-all duration-200 hover:ring-2 hover:ring-nok-blue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+                      aria-label="Close"
+                    >
+                      <X size={24} />
+                    </button>
                   </div>
-                  <div className="flex-1">
-                    <p className="text-lg text-white font-semibold mb-1">{member.title}</p>
-                    <p className="text-slate-400 mb-4">{member.company}</p>
-                    <p className="text-slate-400 leading-relaxed">{member.bio}</p>
-                  </div>
-                </div>
 
-                <div className="border-t border-white/10 pt-6 space-y-3">
-                  <div className="flex items-center gap-3">
-                    <Mail className="text-nok-blue" size={20} />
+                  <div className="flex flex-col md:flex-row gap-6 mb-6">
+                    <div className="flex-shrink-0">
+                      <Image
+                        src={DEFAULT_HEADSHOT}
+                        alt={member.name}
+                        width={180}
+                        height={180}
+                        className="rounded-xl object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-lg text-nok-blue font-semibold mb-1">{member.title}</p>
+                      <p className="text-lg font-bold text-white mb-4">{member.company}</p>
+                      <p className="text-slate-100 leading-relaxed">{member.bio}</p>
+                    </div>
+                  </div>
+
+                  {/* Nok Blue gradient divider */}
+                  <div
+                    className="h-px w-full mb-6"
+                    style={{
+                      background: 'linear-gradient(to right, transparent, rgba(59, 130, 246, 0.6), transparent)',
+                    }}
+                  />
+
+                  <div className="space-y-2">
                     <a
                       href={`mailto:${member.email}`}
-                      className="text-white hover:text-nok-blue transition-colors duration-200"
+                      className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 group"
                     >
-                      {member.email}
+                      <Mail className="text-nok-blue flex-shrink-0 transition-all duration-200 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" size={20} />
+                      <span className="flex-1 text-white group-hover:text-nok-blue transition-colors duration-200 truncate">
+                        {member.email}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleCopy('email', member.email);
+                        }}
+                        className="opacity-0 group-hover:opacity-100 p-1.5 rounded text-slate-400 hover:text-white transition-all duration-200 flex-shrink-0"
+                        aria-label="Copy email"
+                      >
+                        <Copy size={16} />
+                      </button>
                     </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="text-nok-blue" size={20} />
                     <a
                       href={`tel:${member.phone}`}
-                      className="text-white hover:text-nok-blue transition-colors duration-200"
+                      className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 group"
                     >
-                      {member.phone}
+                      <Phone className="text-nok-blue flex-shrink-0 transition-all duration-200 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" size={20} />
+                      <span className="flex-1 text-white group-hover:text-nok-blue transition-colors duration-200">
+                        {member.phone}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleCopy('phone', member.phone);
+                        }}
+                        className="opacity-0 group-hover:opacity-100 p-1.5 rounded text-slate-400 hover:text-white transition-all duration-200 flex-shrink-0"
+                        aria-label="Copy phone"
+                      >
+                        <Copy size={16} />
+                      </button>
                     </a>
-                  </div>
-                  {member.linkedin && member.linkedin !== '#' && (
-                    <div className="flex items-center gap-3">
-                      <Linkedin className="text-nok-blue" size={20} />
+                    {member.linkedin && member.linkedin !== '#' && (
                       <a
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white hover:text-nok-blue transition-colors duration-200"
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 group"
                       >
-                        LinkedIn Profile
+                        <Linkedin className="text-nok-blue flex-shrink-0 transition-all duration-200 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" size={20} />
+                        <span className="flex-1 text-white group-hover:text-nok-blue transition-colors duration-200">
+                          LinkedIn Profile
+                        </span>
                       </a>
-                    </div>
+                    )}
+                  </div>
+
+                  {copiedField && (
+                    <p className="mt-3 text-xs text-nok-blue">
+                      {copiedField === 'email' ? 'Email copied' : 'Phone copied'}
+                    </p>
                   )}
-                </div>
+                </motion.div>
               </Dialog.Panel>
             </Transition.Child>
           </div>

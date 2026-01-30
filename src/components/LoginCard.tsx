@@ -42,7 +42,7 @@ export default function LoginCard() {
             <Logo size="large" />
           </div>
           <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-            The Strategic Advisory Board.
+            Strategic Advisory Board
           </h1>
           <p className="text-base lg:text-lg text-slate-400 leading-relaxed">
             Architecting the future of recommerce. An exclusive forum for industry leaders to redefine the circular economy.
@@ -58,7 +58,7 @@ export default function LoginCard() {
               <div className="mb-6 text-center">
                 <h2 className="text-2xl font-bold text-white mb-2">Welcome!</h2>
                 <p className="text-slate-400 text-sm">
-                  Provide your credentials to access the Strategic Advisory Board portal.
+                  Sign in to access the Strategic Advisory Board portal.
                 </p>
               </div>
 
