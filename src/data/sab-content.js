@@ -24,7 +24,7 @@ export const overviewContent = {
 export const boardStatus = [
   { label: "Active Members", value: "15" },
   { label: "Next Quarter", value: "Deep Dive" },
-  { label: "Current Workstream", value: "GTM Positioning" },
+  { label: "Current Q1 Workstream", value: "Product" },
   { label: "Next Meeting", value: "Executive Roundtable" }
 ];
 
@@ -32,8 +32,8 @@ export const calendarEvents = [
   {
     id: 1,
     title: "Monthly Executive Roundtable",
-    date: "2026-02-15",
-    time: "2:00 PM EST",
+    date: "2026-02-27",
+    time: "12:00 PM – 1:00 PM ET",
     description: "Quarterly strategic discussion on market trends, operational insights, and strategic initiatives. This session will focus on Q1 performance review and Q2 planning priorities.",
     location: "Virtual",
     meetingLink: "https://zoom.us/j/123456789"
