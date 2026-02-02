@@ -43,8 +43,13 @@ export default function ImmersiveView({
           >
             {/* Top Bar */}
             <div className="flex items-center justify-between px-6 lg:px-8 py-4 border-b border-white/10">
-              {/* Logo */}
-              <div className="flex flex-col">
+              {/* Logo (clickable: Back to Dashboard) */}
+              <button
+                type="button"
+                onClick={onClose}
+                className="flex flex-col cursor-pointer hover:brightness-105 transition-all duration-200 text-left"
+                aria-label="Back to Dashboard"
+              >
                 <h1
                   className="font-extrabold text-white"
                   style={{
@@ -67,7 +72,7 @@ export default function ImmersiveView({
                 >
                   RECOMMERCE
                 </p>
-              </div>
+              </button>
 
               {/* Back Button */}
               <button

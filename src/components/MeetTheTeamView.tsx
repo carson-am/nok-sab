@@ -10,13 +10,13 @@ type TeamMember = (typeof teamMembers)[number];
 function TeamCard({ member, onViewDetails }: { member: TeamMember; onViewDetails: () => void }) {
   return (
     <div className="glass-card p-6 rounded-xl card-glow transition-all duration-200 flex flex-col items-center text-center">
-      <div className="w-40 h-40 rounded-2xl overflow-hidden flex-shrink-0 mb-4">
+      <div className="w-40 h-40 rounded-full overflow-hidden flex-shrink-0 mb-4 aspect-square">
         <Image
           src={member.imagePath}
           alt={member.name}
           width={160}
           height={160}
-          className="w-full h-full object-cover"
+          className="w-full h-full aspect-square object-cover"
         />
       </div>
       <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>

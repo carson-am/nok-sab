@@ -61,7 +61,7 @@ export default function HowYouCanHelpView() {
         {/* Content */}
         <div className="relative z-10 w-full space-y-8">
           {/* Intro */}
-          <div className="bg-white/5 backdrop-blur-md rounded-xl p-6 lg:p-8 border border-white/10">
+          <div className="bg-transparent rounded-xl p-6 lg:p-8 border border-white/10">
             <h3 className="text-xl font-bold text-white mb-4">
               {howYouCanHelpIntroTitle}
             </h3>
@@ -81,7 +81,7 @@ export default function HowYouCanHelpView() {
               return (
                 <motion.div
                   key={section.departmentName}
-                  className="bg-white/5 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden card-glow"
+                  className="bg-transparent rounded-xl border border-white/10 overflow-hidden card-glow"
                   whileHover={{ boxShadow: '0 0 20px rgba(59, 130, 246, 0.25)' }}
                   transition={{ duration: 0.2 }}
                 >
@@ -155,7 +155,7 @@ export default function HowYouCanHelpView() {
                                 {section.scorecardMetrics.map((metric, i) => (
                                   <span
                                     key={i}
-                                    className="inline-flex items-center px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-slate-200 text-sm"
+                                    className="inline-flex items-center px-3 py-2 rounded-lg bg-transparent border border-white/10 text-slate-200 text-sm"
                                   >
                                     {metric}
                                   </span>
@@ -166,7 +166,7 @@ export default function HowYouCanHelpView() {
 
                           {/* How You Can Help action box */}
                           <div
-                            className="mt-6 p-5 rounded-xl border border-nok-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)] bg-white/5"
+                            className="mt-6 p-5 rounded-xl border border-nok-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)] bg-transparent"
                           >
                             <p className="text-slate-200 text-sm leading-relaxed mb-4">
                               {section.howYouCanHelpPlaceholder}
