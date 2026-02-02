@@ -1,18 +1,198 @@
-export default function HowYouCanHelpView() {
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
+import {
+  howYouCanHelpIntro,
+  gettingStarted,
+  strategicRocks,
+  teamMembers,
+} from '../data/sab-content';
+import TeamMemberModal, { type TeamMemberModalMember } from './TeamMemberModal';
+
+function IntroWithRocksHighlight({ text }: { text: string }) {
+  const parts = text.split(/(Rocks)/i);
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">Coming Soon</h2>
-      <div className="text-slate-100 leading-relaxed space-y-4">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </p>
+    <p className="text-lg text-slate-100 leading-relaxed">
+      {parts.map((part, i) =>
+        part.toLowerCase() === 'rocks' ? (
+          <span key={i} className="text-nok-blue font-semibold">
+            {part}
+          </span>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </p>
+  );
+}
+
+export default function HowYouCanHelpView() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [selectedMember, setSelectedMember] = useState<TeamMemberModalMember | null>(null);
+
+  return (
+    <>
+      <TeamMemberModal
+        isOpen={!!selectedMember}
+        onClose={() => setSelectedMember(null)}
+        member={selectedMember}
+      />
+
+      <div className="relative min-h-full overflow-hidden">
+        {/* Background: deep navy gradient + glowing orb */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'radial-gradient(ellipse at 30% 20%, var(--nok-navy-center) 0%, var(--nok-navy-edge) 70%)',
+            }}
+          />
+          <div
+            className="absolute w-[600px] h-[600px] rounded-full -top-1/4 -right-1/4 bg-nok-blue pointer-events-none orb-glow"
+            style={{ filter: 'blur(80px)' }}
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 py-8 space-y-8">
+          {/* Intro */}
+          <div className="glass-card rounded-xl p-6 lg:p-8 border border-white/10">
+            <IntroWithRocksHighlight text={howYouCanHelpIntro} />
+          </div>
+
+          {/* Strategic Rocks Accordions */}
+          <div className="space-y-4">
+            {strategicRocks.map((section, index) => {
+              const leader = teamMembers.find((m) => m.id === section.leaderId);
+              const isExpanded = expandedIndex === index;
+
+              return (
+                <motion.div
+                  key={section.departmentName}
+                  className="glass-card rounded-xl border border-white/10 overflow-hidden card-glow"
+                  whileHover={{ boxShadow: '0 0 20px rgba(59, 130, 246, 0.25)' }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                    className="w-full p-6 flex items-center justify-between text-left cursor-pointer"
+                  >
+                    <div className="flex items-center gap-4">
+                      {leader && (
+                        <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-nok-blue/50">
+                          <Image
+                            src={leader.imagePath}
+                            alt={leader.name}
+                            width={48}
+                            height={48}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      )}
+                      <h3 className="text-xl font-bold text-white">
+                        {section.departmentName}
+                      </h3>
+                    </div>
+                    <motion.div
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ChevronDown className="text-slate-400" size={24} />
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6 pt-0 border-t border-white/10">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+                            {/* Left: Q1 2026 Priorities (Rocks) */}
+                            <div>
+                              <h4 className="text-nok-blue font-semibold mb-4">
+                                Q1 2026 Priorities (Rocks)
+                              </h4>
+                              <ul className="space-y-3">
+                                {section.rocks.map((rock, i) => (
+                                  <li
+                                    key={i}
+                                    className="flex items-start gap-3 text-slate-200 text-sm leading-relaxed"
+                                  >
+                                    <span
+                                      className="flex-shrink-0 w-5 h-5 rounded border-2 border-nok-blue mt-0.5"
+                                      aria-hidden
+                                    />
+                                    <span>{rock}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            {/* Right: Key Scorecard Metrics */}
+                            <div>
+                              <h4 className="text-nok-blue font-semibold mb-4">
+                                Key Scorecard Metrics
+                              </h4>
+                              <div className="flex flex-wrap gap-2">
+                                {section.scorecardMetrics.map((metric, i) => (
+                                  <span
+                                    key={i}
+                                    className="inline-flex items-center px-3 py-2 rounded-lg glass-card border border-white/10 text-slate-200 text-sm"
+                                  >
+                                    {metric}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* How You Can Help action box */}
+                          <div
+                            className="mt-6 p-5 rounded-xl border border-nok-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)] bg-white/5"
+                          >
+                            <p className="text-slate-200 text-sm leading-relaxed mb-4">
+                              {section.howYouCanHelpPlaceholder}
+                            </p>
+                            {leader && (
+                              <button
+                                type="button"
+                                onClick={() => setSelectedMember(leader)}
+                                className="bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200"
+                              >
+                                Contact {leader.name.split(' ')[0]}
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Footer: Getting Started */}
+          <div className="text-center pt-8 pb-4">
+            <h3 className="text-xl font-bold text-white mb-3">
+              {gettingStarted.title}
+            </h3>
+            <p className="text-slate-200 leading-relaxed max-w-2xl mx-auto">
+              {gettingStarted.body}
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

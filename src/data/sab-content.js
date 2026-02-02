@@ -91,6 +91,147 @@ export const teamMembers = [
   }
 ];
 
+export const howYouCanHelpIntro =
+  "Nok runs on a leadership model where each functional area is owned by a clear leader with defined priorities. Below we share our Strategic Rocks—the top priorities for Q1 2026—and key scorecard metrics for each area. Understanding where we're focused helps you know where your advice and connections can have the greatest impact.";
+
+export const gettingStarted = {
+  title: "Getting Started",
+  body: "Reach out to any of the leaders above to offer introductions, share feedback, or explore how you can support their priorities. Your operator perspective and network are valuable; we're here to make it easy to connect."
+};
+
+export const strategicRocks = [
+  {
+    departmentName: "Sales & Accounts",
+    leaderId: 1,
+    rocks: [
+      "Sign 9 individuals to referral agreements (targeting 10 total)",
+      "Conduct 40 customer meetings, with 20 including product demonstrations",
+      "Create and execute Master Services Agreement (MSA) with Vertical Passage",
+      "Build initial relationships with one contact at each potential acquirer",
+      "Close out prior lawsuits/liabilities (Therabody, Gierd, Bidet Co., Dinsmore, etc.)",
+      "Complete full capital call to improve financial runway",
+      "Kick off 5+ additional partner 3PL warehouses (1+ technically validated)",
+      "Establish an onboarding document for all new customers (cross-functional sign-off)",
+      "Execute NZXT mutual termination contract",
+      "Create documented sales cycle/process (built for first BDR hire to follow)",
+      "Lock in conference strategy (Q1 as test to build Q2-4 plan)",
+      "Secure 2 brands set to launch in Q2 cohort",
+      "Achieve BBI NPS score >8",
+      "Complete Ozlo contract extension"
+    ],
+    scorecardMetrics: [
+      "Sales Meetings: 4 per week",
+      "Qualification: 1 per week",
+      "Proposals: 2 per month",
+      "Closed Customers: 1 per quarter",
+      "Referral Network Growth: 3 individuals per month",
+      "Partner Network Meetings: 2 per week from partner network",
+      "Incremental Revenue: $5,000 per month from mutual referral network",
+      "Partnership Launch: 1 partnership with adjacent business per quarter"
+    ],
+    howYouCanHelpPlaceholder: "Reach out to discuss introductions, feedback on our GTM approach, or ways to support sales and accounts."
+  },
+  {
+    departmentName: "Product",
+    leaderId: 4,
+    rocks: [
+      "Ozlo instance achieving 10/10 satisfaction",
+      "Ability to measure SLAs for all 3PL partners (visible to 3PLs and internally)",
+      "Define and validate RFP program on website",
+      "New platform analytics 100% self-serve by end of quarter",
+      "Core product KPIs established and utilized",
+      "Scope Ozlo international expansion (Canada)",
+      "Resale implementation stamp of approval",
+      "Define subscription offering",
+      "Define trade-in program",
+      "Define branded DTC solution",
+      "All research brands prioritized",
+      "1+ additional partner 3PL technical validation",
+      "Enable resale-only module (e.g., NZXT)"
+    ],
+    scorecardMetrics: [
+      "Platform Adoption: <3 custom report requests per month (with current customer load)",
+      "Data Confidence Index: >4.0 (team confidence in data accessibility)",
+      "RMA Coverage: >90% of units with RMA in system",
+      "End-to-End Cycle Time: 15 days from \"delivered\" to inventory exit",
+      "3PL NPS Score: >8",
+      "Manual Hours Per Account: Track scalability"
+    ],
+    howYouCanHelpPlaceholder: "Reach out to share product feedback, UX insights, or ideas that could shape our roadmap."
+  },
+  {
+    departmentName: "Engineering",
+    leaderId: 3,
+    rocks: [
+      "Create plan to deprecate and shut down old Nok tech platform (achieving specific cost savings)",
+      "Create an automated solution for late shipments",
+      "Launch an instance of resale-only (NZXT)",
+      "Product and engineering existing team buy-in"
+    ],
+    scorecardMetrics: [
+      "On-Time Delivery: 100% of product roadmap items delivered on time",
+      "Data Visibility: Report on % of scorecard items",
+      "Critical Bugs: 0 unique issues preventing work with no workarounds",
+      "Bug Resolution Time: <7 business days average lifetime",
+      "Platform Costs: $35,000 per month (Eng W9 + 1099, software required)",
+      "Business Continuity: Full control and documentation of clouds, platforms, systems, and apps",
+      "Engineering Momentum Score: >4.0 (team alignment and buy-in)"
+    ],
+    howYouCanHelpPlaceholder: "Reach out to discuss technical strategy, architecture feedback, or talent and vendor connections."
+  },
+  {
+    departmentName: "Resale",
+    leaderId: 2,
+    rocks: [
+      "Culture warrior for Q1 (build out weekly/monthly engagement, technology to engage on, success levers for on-sites, etc.)",
+      "Recreate all contracts (brands; returns, resale and 3PL SOWs)",
+      "Create a disposition plan for each brand (informed by resale KPIs) that are brand-approved and implemented",
+      "Form an actionable opinion by brand on Amazon FBA in US and Canada; implement plan",
+      "Close 3 excess deals north of $50k GMV",
+      "Implement resale tech stack (listing tool, initial repricer)",
+      "Gain one strategic liquidation partner in each major bulk category (auction house, liquidator) in USA and Canada",
+      "$60k in marketplace sales (GMV) for BBI",
+      "$40k in marketplace sales (GMV) for Bissell",
+      "$40k in marketplace sales (GMV) for Ozlo",
+      "Finalize 2025 financials",
+      "File 2025 taxes",
+      "Apply R&D credit against payroll taxes",
+      "Automate month-end reporting",
+      "Connect QuickBooks Online with Nok Platform",
+      "Real-time marketplace data feed into QuickBooks",
+      "Scope unit economics as input into intelligent disposition"
+    ],
+    scorecardMetrics: [
+      "Tech Stack Launch: # of brands on new resale tech stack",
+      "Amazon Buy Box: 80% win rate",
+      "Resale Partners: 3 conversations with new resale partners per month",
+      "Sell-Through Realization: Actual sales vs. Estimated Resale Value (ERV)"
+    ],
+    howYouCanHelpPlaceholder: "Reach out to discuss resale strategy, marketplace connections, or finance and operations best practices."
+  },
+  {
+    departmentName: "Operations",
+    leaderId: 5,
+    rocks: [
+      "Define SLAs for all 3PL partners (e.g., marketplace deactivation thresholds)",
+      "Execute NZXT transition to Vertical Passage",
+      "Gain at least one trustworthy, consistent recycling partner",
+      "Create a process to standardize SOP creation and warehouse implementation",
+      "Oliso backlog completely recycled (only weekly/monthly returns on floor; all inventory processed and dispositioned within 30 days)",
+      "Create training manuals for ops employees ahead of each brand onboarding"
+    ],
+    scorecardMetrics: [
+      "Total Throughput: Total units processed weekly",
+      "Warehouse Network: 5+ new warehouse partners in Q1",
+      "On-Time Delivery Rate: >90% for all units",
+      "Valid Tracking Rate: >95% for all units",
+      "Order Defect Rate: <1% for all units",
+      "Receive SLA: >90% of units meeting receive SLA across all brands"
+    ],
+    howYouCanHelpPlaceholder: "Reach out to discuss warehouse partnerships, recycling and disposition connections, or ops process improvements."
+  }
+];
+
 export const calendarEvents = [
   {
     id: 1,
