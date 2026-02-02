@@ -1,17 +1,70 @@
-export default function MeetTheTeamView() {
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import { teamMembers } from '../data/sab-content';
+import TeamMemberModal from './TeamMemberModal';
+
+type TeamMember = (typeof teamMembers)[number];
+
+function TeamCard({ member, onViewDetails }: { member: TeamMember; onViewDetails: () => void }) {
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-white mb-4">Coming Soon</h2>
-      <div className="text-slate-100 leading-relaxed space-y-4">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </p>
+    <div className="glass-card p-6 rounded-xl card-glow transition-all duration-200 flex flex-col items-center text-center">
+      <div className="w-40 h-40 rounded-2xl overflow-hidden flex-shrink-0 mb-4">
+        <Image
+          src={member.imagePath}
+          alt={member.name}
+          width={160}
+          height={160}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
+      <p className="text-nok-blue font-semibold mb-4">{member.title}</p>
+      <button
+        onClick={onViewDetails}
+        className="bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200"
+      >
+        View Details
+      </button>
+    </div>
+  );
+}
+
+export default function MeetTheTeamView() {
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+
+  const row1 = teamMembers.slice(0, 3);
+  const row2 = teamMembers.slice(3, 5);
+
+  return (
+    <div className="space-y-10">
+      <TeamMemberModal
+        isOpen={!!selectedMember}
+        onClose={() => setSelectedMember(null)}
+        member={selectedMember}
+      />
+
+      {/* Row 1: Three members */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {row1.map((member) => (
+          <TeamCard
+            key={member.id}
+            member={member}
+            onViewDetails={() => setSelectedMember(member)}
+          />
+        ))}
+      </div>
+
+      {/* Row 2: Two members centered */}
+      <div className="flex justify-center gap-6">
+        {row2.map((member) => (
+          <TeamCard
+            key={member.id}
+            member={member}
+            onViewDetails={() => setSelectedMember(member)}
+          />
+        ))}
       </div>
     </div>
   );

@@ -55,6 +55,7 @@ export default function OverviewPage() {
         isOpen={activeImmersiveView === 'meet-the-team'}
         onClose={() => setActiveImmersiveView(null)}
         title="Meet the Team"
+        centerTitle
       >
         <MeetTheTeamView />
       </ImmersiveView>
