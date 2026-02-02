@@ -44,7 +44,7 @@ export const teamMembers = [
     name: "Maddy McIntyre",
     title: "CEO",
     imagePath: "/images/team/maddy-mcIntyre.jpg",
-    bio: "Maddy leads Nok's vision and strategy as CEO, bringing deep experience in recommerce and reverse logistics. She has driven growth and operational excellence across high-growth startups and enterprise organizations. Her focus is on building a platform that transforms how brands manage returns and secondary markets.",
+    bio: "Maddy serves as CEO of Nok, setting the company's vision and strategic direction. She focuses on building a platform that helps brands manage returns and secondary markets more effectively. Her work centers on aligning product, partnerships, and operations to support more circular commerce.",
     email: "maddy@nokrecommerce.com",
     phone: "+1 (555) 000-0000",
     linkedin: "https://www.linkedin.com/in/madeline-mcintyre-02359692/"
@@ -54,40 +54,40 @@ export const teamMembers = [
     name: "Nick Salgado",
     title: "President",
     imagePath: "/images/team/nick-salgado.jpg",
-    bio: "Nick oversees company operations and strategic partnerships as President. With a background in supply chain and technology, he has led teams through scaling and market expansion. He is committed to aligning Nok's product and go-to-market strategy with the evolving needs of brands in recommerce.",
+    bio: "Nick serves as President of Nok, supporting company operations and strategic partnerships. He works closely across teams to help drive execution and growth initiatives. His focus is on keeping Nok's product and go-to-market approach aligned with the evolving needs of recommerce brands.",
     email: "nick.salgado@nokrecommerce.com",
     phone: "+1 (555) 000-0000",
     linkedin: "https://www.linkedin.com/in/nick-salgado/"
-  },
-  {
-    id: 3,
-    name: "Matt Casanova",
-    title: "CTO",
-    imagePath: "/images/team/matt-casanova.jpeg",
-    bio: "Matt drives technology strategy and platform development as CTO. He has architected scalable systems for logistics and e-commerce and brings expertise in data, automation, and infrastructure. His focus is on building a flexible, intelligent platform that supports end-to-end reverse logistics.",
-    email: "matt.casanova@nokrecommerce.com",
-    phone: "+1 (555) 000-0000",
-    linkedin: "https://www.linkedin.com/in/mattcasanova/"
-  },
-  {
-    id: 4,
-    name: "Corbett Morgan",
-    title: "Product Advisor",
-    imagePath: "/images/team/corbett-morgan.jpg",
-    bio: "Corbett advises on product direction and user experience as Product Advisor. He brings perspective from product leadership roles in logistics and marketplace businesses. His input helps ensure Nok's platform meets the real-world needs of brands and operators in recommerce.",
-    email: "corbett.morgan@nokrecommerce.com",
-    phone: "+1 (555) 000-0000",
-    linkedin: "https://www.linkedin.com/in/corbettmorgan/"
   },
   {
     id: 5,
     name: "Griffin Parrill",
     title: "Operations Lead",
     imagePath: "/images/team/griffin-parrill.webp",
-    bio: "Griffin leads operations and execution as Operations Lead. He has deep experience in reverse logistics workflows, process optimization, and team scaling. His focus is on delivering reliable, efficient operations that enable brands to maximize value from their returns and secondary channels.",
+    bio: "Griffin supports operations at Nok as Operations Lead. He works hands-on in the warehouse with inventory and workflows. His focus is on ensuring products move efficiently through Nok's reverse logistics system.",
     email: "griffin.parrill@nokrecommerce.com",
     phone: "+1 (555) 000-0000",
     linkedin: "https://www.linkedin.com/in/griffin-parrill-mba-10b052176/"
+  },
+  {
+    id: 4,
+    name: "Corbett Morgan",
+    title: "Product Advisor",
+    imagePath: "/images/team/corbett-morgan.jpg",
+    bio: "Corbett supports Nok's product direction and user experience as Product Advisor. He provides guidance on design, workflow, and usability. His input helps ensure the platform remains intuitive and grounded in real-world operational needs.",
+    email: "corbett.morgan@nokrecommerce.com",
+    phone: "+1 (555) 000-0000",
+    linkedin: "https://www.linkedin.com/in/corbettmorgan/"
+  },
+  {
+    id: 3,
+    name: "Matt Casanova",
+    title: "CTO",
+    imagePath: "/images/team/matt-casanova.jpeg",
+    bio: "Matt serves as CTO of Nok, leading technology strategy and platform development. He oversees system architecture, data infrastructure, and engineering efforts. His focus is on building flexible, reliable technology that supports end-to-end reverse logistics.",
+    email: "matt.casanova@nokrecommerce.com",
+    phone: "+1 (555) 000-0000",
+    linkedin: "https://www.linkedin.com/in/mattcasanova/"
   }
 ];
 
