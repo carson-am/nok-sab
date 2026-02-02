@@ -45,9 +45,9 @@ export const teamMembers = [
     title: "CEO",
     imagePath: "/images/team/maddy-mcIntyre.jpg",
     bio: "Maddy leads Nok's vision and strategy as CEO, bringing deep experience in recommerce and reverse logistics. She has driven growth and operational excellence across high-growth startups and enterprise organizations. Her focus is on building a platform that transforms how brands manage returns and secondary markets.",
-    email: "maddy.mcintyre@nokrecommerce.com",
+    email: "maddy@nokrecommerce.com",
     phone: "+1 (555) 000-0000",
-    linkedin: "https://linkedin.com/in/placeholder"
+    linkedin: "https://www.linkedin.com/in/madeline-mcintyre-02359692/"
   },
   {
     id: 2,
@@ -57,7 +57,7 @@ export const teamMembers = [
     bio: "Nick oversees company operations and strategic partnerships as President. With a background in supply chain and technology, he has led teams through scaling and market expansion. He is committed to aligning Nok's product and go-to-market strategy with the evolving needs of brands in recommerce.",
     email: "nick.salgado@nokrecommerce.com",
     phone: "+1 (555) 000-0000",
-    linkedin: "https://linkedin.com/in/placeholder"
+    linkedin: "https://www.linkedin.com/in/nick-salgado/"
   },
   {
     id: 3,
@@ -67,7 +67,7 @@ export const teamMembers = [
     bio: "Matt drives technology strategy and platform development as CTO. He has architected scalable systems for logistics and e-commerce and brings expertise in data, automation, and infrastructure. His focus is on building a flexible, intelligent platform that supports end-to-end reverse logistics.",
     email: "matt.casanova@nokrecommerce.com",
     phone: "+1 (555) 000-0000",
-    linkedin: "https://linkedin.com/in/placeholder"
+    linkedin: "https://www.linkedin.com/in/mattcasanova/"
   },
   {
     id: 4,
@@ -77,7 +77,7 @@ export const teamMembers = [
     bio: "Corbett advises on product direction and user experience as Product Advisor. He brings perspective from product leadership roles in logistics and marketplace businesses. His input helps ensure Nok's platform meets the real-world needs of brands and operators in recommerce.",
     email: "corbett.morgan@nokrecommerce.com",
     phone: "+1 (555) 000-0000",
-    linkedin: "https://linkedin.com/in/placeholder"
+    linkedin: "https://www.linkedin.com/in/corbettmorgan/"
   },
   {
     id: 5,
@@ -87,7 +87,7 @@ export const teamMembers = [
     bio: "Griffin leads operations and execution as Operations Lead. He has deep experience in reverse logistics workflows, process optimization, and team scaling. His focus is on delivering reliable, efficient operations that enable brands to maximize value from their returns and secondary channels.",
     email: "griffin.parrill@nokrecommerce.com",
     phone: "+1 (555) 000-0000",
-    linkedin: "https://linkedin.com/in/placeholder"
+    linkedin: "https://www.linkedin.com/in/griffin-parrill-mba-10b052176/"
   }
 ];
 
