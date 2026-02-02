@@ -1,83 +1,171 @@
 'use client';
 
-import { useState } from 'react';
-import { Menu } from '@headlessui/react';
-import { motion } from 'framer-motion';
-import { MessageSquarePlus, ChevronDown } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MessageSquarePlus, ChevronDown, Check, X } from 'lucide-react';
 import { suggestTopicOptions } from '../data/sab-content';
 
 export default function SuggestTopicDropdown() {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [otherText, setOtherText] = useState('');
+  const [showToast, setShowToast] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleSelect = (option: string) => {
-    if (option === 'Other') {
-      setSelectedOption('Other');
-    } else {
-      setSelectedOption(option);
-    }
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!showToast) return;
+    const timer = setTimeout(() => setShowToast(false), 10000);
+    return () => clearTimeout(timer);
+  }, [showToast]);
+
+  const toggleOption = (option: string) => {
+    setSelectedOptions((prev) =>
+      prev.includes(option) ? prev.filter((o) => o !== option) : [...prev, option]
+    );
   };
 
-  return (
-    <Menu as="div" className="relative inline-block text-left">
-      {({ open }) => (
-        <>
-          <Menu.Button
-            className="inline-flex items-center gap-2 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200"
-            aria-label="Suggest a topic"
-          >
-            <MessageSquarePlus size={18} />
-            Suggest a Topic
-            <ChevronDown
-              size={18}
-              className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-            />
-          </Menu.Button>
+  const handleSubmit = () => {
+    setIsOpen(false);
+    setSelectedOptions([]);
+    setOtherText('');
+    setShowToast(true);
+  };
 
-          <Menu.Items
-            className="absolute left-0 mt-2 w-72 origin-top-left rounded-xl glass-card border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] overflow-hidden z-50 focus:outline-none"
-          >
+  const showOtherInput = selectedOptions.includes('Other');
+
+  return (
+    <>
+      <div ref={dropdownRef} className="relative inline-block text-left">
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="inline-flex items-center gap-2 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200"
+          aria-label="Suggest a topic"
+          aria-expanded={isOpen}
+        >
+          <MessageSquarePlus size={18} />
+          Suggest a Topic
+          <ChevronDown
+            size={18}
+            className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          />
+        </button>
+
+        <AnimatePresence>
+          {isOpen && (
             <motion.div
               initial={{ opacity: 0, y: -8 }}
-              animate={open ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="py-2"
+              className="absolute left-0 mt-2 w-72 origin-top-left rounded-xl glass-card border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] overflow-hidden z-50"
             >
-            {suggestTopicOptions.map((option) => (
-              <Menu.Item key={option}>
-                {({ active }) => (
+              <div className="py-2">
+                {suggestTopicOptions.map((option) => (
                   <button
-                    onClick={() => handleSelect(option)}
-                    className={`w-full text-left px-4 py-2.5 text-sm transition-all duration-200 ${
-                      active
-                        ? 'bg-nok-blue/20 text-white'
-                        : 'text-slate-200'
-                    } hover:bg-nok-blue/20 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]`}
+                    key={option}
+                    type="button"
+                    onClick={() => toggleOption(option)}
+                    className="w-full text-left px-4 py-2.5 text-sm text-slate-200 hover:bg-nok-blue/20 hover:text-white transition-all duration-200 flex items-center gap-3"
+                    role="checkbox"
+                    aria-checked={selectedOptions.includes(option)}
                   >
+                    <span
+                      className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 transition-colors ${
+                        selectedOptions.includes(option)
+                          ? 'border-nok-blue bg-nok-blue'
+                          : 'border-slate-500'
+                      }`}
+                    >
+                      {selectedOptions.includes(option) && (
+                        <Check size={12} className="text-white" strokeWidth={3} />
+                      )}
+                    </span>
                     {option}
                   </button>
-                )}
-              </Menu.Item>
-            ))}
-            {selectedOption === 'Other' && (
-              <div className="px-4 py-3 border-t border-white/10 mt-2">
-                <label htmlFor="suggest-other" className="sr-only">
-                  Describe your topic
-                </label>
-                <textarea
-                  id="suggest-other"
-                  value={otherText}
-                  onChange={(e) => setOtherText(e.target.value)}
-                  placeholder="Describe your topic..."
-                  rows={3}
-                  className="w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-nok-blue/50 focus:border-nok-blue/50 transition-all"
-                />
+                ))}
+
+                <AnimatePresence>
+                  {showOtherInput && (
+                    <motion.div
+                      key="other-input"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-4 py-3 border-t border-white/10">
+                        <label htmlFor="suggest-other" className="sr-only">
+                          Describe your topic
+                        </label>
+                        <input
+                          id="suggest-other"
+                          type="text"
+                          value={otherText}
+                          onChange={(e) => setOtherText(e.target.value)}
+                          placeholder="Describe your topic..."
+                          className="w-full px-4 py-2 text-sm bg-black/20 border border-white/10 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:border-nok-blue focus:ring-1 focus:ring-nok-blue transition-all"
+                        />
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <div className="px-4 py-3 border-t border-white/10">
+                  <button
+                    type="button"
+                    onClick={handleSubmit}
+                    className="w-full bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-4 rounded-lg btn-glow transition-all duration-200"
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
-            )}
             </motion.div>
-          </Menu.Items>
-        </>
-      )}
-    </Menu>
+          )}
+        </AnimatePresence>
+      </div>
+
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-4 left-1/2 -translate-x-1/2 z-[60] w-full max-w-md px-4"
+          >
+            <div className="backdrop-blur-xl bg-slate-900/90 border border-nok-blue/50 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.2)] p-4 pr-10 relative">
+              <p className="text-slate-100 text-sm font-medium">
+                Thank you, your response has been recorded!
+              </p>
+              <button
+                type="button"
+                onClick={() => setShowToast(false)}
+                className="absolute top-3 right-3 p-1 rounded text-slate-400 hover:text-white transition-colors"
+                aria-label="Close"
+              >
+                <X size={18} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
