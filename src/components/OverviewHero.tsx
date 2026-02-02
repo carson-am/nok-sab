@@ -24,7 +24,7 @@ export default function OverviewHero() {
   const formattedDate = format(nextEvent.dateObj, 'EEEE, MMMM d, yyyy');
 
   return (
-    <div className="-mx-4 sm:-mx-6 lg:-mx-8 mb-8">
+    <div className="mb-8">
       <div className="glass-card card-glow border-l-4 border-nok-blue rounded-xl px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex-1">

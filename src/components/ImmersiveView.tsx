@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 
@@ -9,6 +9,7 @@ interface ImmersiveViewProps {
   onClose: () => void;
   title: string;
   children: ReactNode;
+  centerTitle?: boolean;
 }
 
 export default function ImmersiveView({
@@ -16,6 +17,7 @@ export default function ImmersiveView({
   onClose,
   title,
   children,
+  centerTitle = false,
 }: ImmersiveViewProps) {
   return (
     <AnimatePresence>
@@ -77,7 +79,7 @@ export default function ImmersiveView({
             {/* Content Area */}
             <div className="flex-1 overflow-y-auto">
               <div className="max-w-4xl mx-auto px-6 lg:px-8 py-8">
-                <h2 className="text-3xl font-bold text-white mb-6">{title}</h2>
+                <h2 className={`text-3xl font-bold text-white ${centerTitle ? 'text-center mb-4' : 'mb-6'}`}>{title}</h2>
                 <div className="text-slate-100">{children}</div>
               </div>
             </div>

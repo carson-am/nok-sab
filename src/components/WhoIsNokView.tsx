@@ -1,11 +1,6 @@
 export default function WhoIsNokView() {
   return (
-    <div className="space-y-8">
-      {/* Hero Text */}
-      <p className="text-3xl font-bold text-white mb-6">
-        Nok is a recommerce and reverse logistics platform that helps brands turn returns, excess inventory, and used products into value-generating assets.
-      </p>
-
+    <div className="space-y-6">
       {/* Body Text */}
       <div className="space-y-4 text-lg leading-relaxed text-slate-100">
         <p>

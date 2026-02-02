@@ -5,6 +5,7 @@ import { format, addMonths, subMonths } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import NextMeetingWidget from '../../../components/NextMeetingWidget';
+import SuggestTopicDropdown from '../../../components/SuggestTopicDropdown';
 import CalendarGrid from '../../../components/CalendarGrid';
 import EventModal from '../../../components/EventModal';
 import { calendarEvents } from '../../../data/sab-content';
@@ -73,6 +74,11 @@ export default function CalendarPage() {
 
       {/* Next Meeting Widget */}
       <NextMeetingWidget />
+
+      {/* Suggest a Topic */}
+      <div className="mb-6">
+        <SuggestTopicDropdown />
+      </div>
 
       {/* Month Navigation */}
       <div className="flex items-center justify-between mb-6">

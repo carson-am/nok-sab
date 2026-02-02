@@ -28,6 +28,16 @@ export const boardStatus = [
   { label: "Next Meeting", value: "Executive Roundtable" }
 ];
 
+export const suggestTopicOptions = [
+  "Product Roadmap Deep Dive",
+  "Reverse Logistics Benchmarking Data",
+  "CFO-Grade ROI Case Studies",
+  "Sustainable Disposition Strategies",
+  "Consumer Behavior Trends in Resale",
+  "Retailer Relationship Management (ZVR/SLA)",
+  "Other"
+];
+
 export const calendarEvents = [
   {
     id: 1,

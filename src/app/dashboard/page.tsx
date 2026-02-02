@@ -46,6 +46,7 @@ export default function OverviewPage() {
         isOpen={activeImmersiveView === 'who-is-nok'}
         onClose={() => setActiveImmersiveView(null)}
         title="Who is Nok?"
+        centerTitle
       >
         <WhoIsNokView />
       </ImmersiveView>
@@ -79,68 +80,74 @@ export default function OverviewPage() {
 
       <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3 mb-8">
         {/* Mission Card */}
-        <div>
+        <div className="flex flex-col">
           <button
             onClick={() => setActiveImmersiveView('who-is-nok')}
             className="w-full mb-4 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-6 rounded-lg btn-glow transition-all duration-200"
           >
             Who is Nok?
           </button>
-          <div className="glass-card p-6 rounded-xl card-glow transition-all duration-200">
+          <div className="glass-card p-6 rounded-xl card-glow transition-all duration-200 flex-1 flex flex-col min-h-0">
             <div className="flex items-center gap-3 mb-4">
               <Target className="text-nok-blue flex-shrink-0" size={26} strokeWidth={1.5} />
               <h2 className="text-2xl lg:text-3xl font-bold text-white">
                 {overviewContent.mission.title}
               </h2>
             </div>
-            <ContentWithHighlight
-              content={overviewContent.mission.content}
-              highlight={overviewContent.mission.highlight}
-            />
+            <div className="flex-1 min-h-0">
+              <ContentWithHighlight
+                content={overviewContent.mission.content}
+                highlight={overviewContent.mission.highlight}
+              />
+            </div>
           </div>
         </div>
 
         {/* Purpose Card */}
-        <div>
+        <div className="flex flex-col">
           <button
             onClick={() => setActiveImmersiveView('meet-the-team')}
             className="w-full mb-4 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-6 rounded-lg btn-glow transition-all duration-200"
           >
             Meet the Team
           </button>
-          <div className="glass-card p-6 rounded-xl card-glow transition-all duration-200">
+          <div className="glass-card p-6 rounded-xl card-glow transition-all duration-200 flex-1 flex flex-col min-h-0">
             <div className="flex items-center gap-3 mb-4">
               <Compass className="text-nok-blue flex-shrink-0" size={26} strokeWidth={1.5} />
               <h2 className="text-2xl lg:text-3xl font-bold text-white">
                 {overviewContent.boardPurpose.title}
               </h2>
             </div>
-            <ContentWithHighlight
-              content={overviewContent.boardPurpose.content}
-              highlight={overviewContent.boardPurpose.highlight}
-            />
+            <div className="flex-1 min-h-0">
+              <ContentWithHighlight
+                content={overviewContent.boardPurpose.content}
+                highlight={overviewContent.boardPurpose.highlight}
+              />
+            </div>
           </div>
         </div>
 
         {/* Impact Card */}
-        <div>
+        <div className="flex flex-col">
           <button
             onClick={() => setActiveImmersiveView('how-you-can-help')}
             className="w-full mb-4 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-6 rounded-lg btn-glow transition-all duration-200"
           >
             How You Can Help
           </button>
-          <div className="glass-card p-6 rounded-xl card-glow transition-all duration-200">
+          <div className="glass-card p-6 rounded-xl card-glow transition-all duration-200 flex-1 flex flex-col min-h-0">
             <div className="flex items-center gap-3 mb-4">
               <Zap className="text-nok-blue flex-shrink-0" size={26} strokeWidth={1.5} />
               <h2 className="text-2xl lg:text-3xl font-bold text-white">
                 {overviewContent.memberImpact.title}
               </h2>
             </div>
-            <ContentWithHighlight
-              content={overviewContent.memberImpact.content}
-              highlight={overviewContent.memberImpact.highlight}
-            />
+            <div className="flex-1 min-h-0">
+              <ContentWithHighlight
+                content={overviewContent.memberImpact.content}
+                highlight={overviewContent.memberImpact.highlight}
+              />
+            </div>
           </div>
         </div>
       </div>
