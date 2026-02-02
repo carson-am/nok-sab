@@ -64,6 +64,8 @@ export default function OverviewPage() {
         isOpen={activeImmersiveView === 'how-you-can-help'}
         onClose={() => setActiveImmersiveView(null)}
         title="How You Can Help"
+        centerTitle
+        contentClassName="max-w-6xl mx-auto px-6 lg:px-8 py-8"
       >
         <HowYouCanHelpView />
       </ImmersiveView>

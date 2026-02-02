@@ -53,7 +53,7 @@ export const teamMembers = [
     id: 2,
     name: "Nick Salgado",
     title: "President",
-    imagePath: "/images/team/nick-salgado.jpg",
+    imagePath: "/images/team/nick-salgado.jpeg",
     bio: "Nick serves as President of Nok, supporting company operations and strategic partnerships. He works closely across teams to help drive execution and growth initiatives. His focus is on keeping Nok's product and go-to-market approach aligned with the evolving needs of recommerce brands.",
     email: "nick.salgado@nokrecommerce.com",
     phone: "+1 (555) 000-0000",
@@ -91,12 +91,14 @@ export const teamMembers = [
   }
 ];
 
-export const howYouCanHelpIntro =
-  "Nok runs on a leadership model where each functional area is owned by a clear leader with defined priorities. Below we share our Strategic Rocks—the top priorities for Q1 2026—and key scorecard metrics for each area. Understanding where we're focused helps you know where your advice and connections can have the greatest impact.";
+export const howYouCanHelpIntroTitle = "Understanding Nok's Leadership Model";
+
+export const howYouCanHelpIntroBody =
+  "Nok Recommerce operates on the Entrepreneurial Operating System (EOS), a proven framework that brings clarity, accountability, and measurable progress to our organization. At the heart of EOS are \"Rocks\" — our quarterly priorities that represent the most critical objectives each team member commits to achieving within a 90-day period.\n\nOur Q1 2026 Rocks are designed to drive transformational progress across five key functional areas: Sales & Accounts, Product, Engineering, Resale, and Operations. Each Rock is tied to specific, measurable outcomes that ladder up to our company-wide goals. Below, you'll find detailed information about what each leader is working on and where your expertise can make the greatest impact.";
 
 export const gettingStarted = {
   title: "Getting Started",
-  body: "Reach out to any of the leaders above to offer introductions, share feedback, or explore how you can support their priorities. Your operator perspective and network are valuable; we're here to make it easy to connect."
+  body: "We're excited to have you as part of our strategic advisory network. As you review these priorities, please consider where your expertise, network, or resources could accelerate our progress. Whether it's making key introductions, providing industry insights, or advising on strategic decisions, your involvement is invaluable to Nok's success.\n\nIf you see opportunities to help or have questions about any of these areas, please don't hesitate to reach out directly to the relevant team leader using the contact buttons above."
 };
 
 export const strategicRocks = [

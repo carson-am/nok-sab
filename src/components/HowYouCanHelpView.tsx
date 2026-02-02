@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import {
-  howYouCanHelpIntro,
+  howYouCanHelpIntroTitle,
+  howYouCanHelpIntroBody,
   gettingStarted,
   strategicRocks,
   teamMembers,
@@ -42,13 +43,13 @@ export default function HowYouCanHelpView() {
       />
 
       <div className="relative min-h-full overflow-hidden">
-        {/* Background: deep navy gradient + glowing orb */}
+        {/* Background: unified radial gradient (center deep navy, edges black) + subtle orb */}
         <div className="absolute inset-0 z-0">
           <div
             className="absolute inset-0"
             style={{
               background:
-                'radial-gradient(ellipse at 30% 20%, var(--nok-navy-center) 0%, var(--nok-navy-edge) 70%)',
+                'radial-gradient(circle at center, var(--nok-navy-center) 0%, var(--nok-navy-edge) 100%)',
             }}
           />
           <div
@@ -58,10 +59,17 @@ export default function HowYouCanHelpView() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 py-8 space-y-8">
+        <div className="relative z-10 w-full space-y-8">
           {/* Intro */}
-          <div className="glass-card rounded-xl p-6 lg:p-8 border border-white/10">
-            <IntroWithRocksHighlight text={howYouCanHelpIntro} />
+          <div className="bg-white/5 backdrop-blur-md rounded-xl p-6 lg:p-8 border border-white/10">
+            <h3 className="text-xl font-bold text-white mb-4">
+              {howYouCanHelpIntroTitle}
+            </h3>
+            <div className="text-slate-100 leading-relaxed space-y-4">
+              {howYouCanHelpIntroBody.split('\n\n').map((paragraph, i) => (
+                <IntroWithRocksHighlight key={i} text={paragraph} />
+              ))}
+            </div>
           </div>
 
           {/* Strategic Rocks Accordions */}
@@ -73,7 +81,7 @@ export default function HowYouCanHelpView() {
               return (
                 <motion.div
                   key={section.departmentName}
-                  className="glass-card rounded-xl border border-white/10 overflow-hidden card-glow"
+                  className="bg-white/5 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden card-glow"
                   whileHover={{ boxShadow: '0 0 20px rgba(59, 130, 246, 0.25)' }}
                   transition={{ duration: 0.2 }}
                 >
@@ -147,7 +155,7 @@ export default function HowYouCanHelpView() {
                                 {section.scorecardMetrics.map((metric, i) => (
                                   <span
                                     key={i}
-                                    className="inline-flex items-center px-3 py-2 rounded-lg glass-card border border-white/10 text-slate-200 text-sm"
+                                    className="inline-flex items-center px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-slate-200 text-sm"
                                   >
                                     {metric}
                                   </span>
@@ -187,9 +195,16 @@ export default function HowYouCanHelpView() {
             <h3 className="text-xl font-bold text-white mb-3">
               {gettingStarted.title}
             </h3>
-            <p className="text-slate-200 leading-relaxed max-w-2xl mx-auto">
-              {gettingStarted.body}
-            </p>
+            <div className="max-w-2xl mx-auto space-y-4">
+              {gettingStarted.body.split('\n\n').map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="text-slate-200 leading-relaxed"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </div>
