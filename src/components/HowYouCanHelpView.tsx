@@ -165,6 +165,34 @@ export default function HowYouCanHelpView() {
                             </div>
                           </div>
 
+                          {/* Think You Can Help? - Sales & Accounts only */}
+                          {section.leaderId === 1 && (
+                            <div className="mt-8 p-6 lg:p-8 rounded-xl bg-white/5 backdrop-blur-md border border-blue-500/30 text-center space-y-4 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                              <h4 className="text-lg font-bold text-white">Think You Can Help?</h4>
+                              <p className="text-slate-300 text-sm leading-relaxed max-w-lg mx-auto">
+                                See what we look for in our ideal customers and how we reward our partners.
+                              </p>
+                              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
+                                <a
+                                  href="/nok-icp.pdf"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
+                                >
+                                  View Our ICP
+                                </a>
+                                <a
+                                  href="https://nok-referral-program.vercel.app/dashboard/current-partners"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
+                                >
+                                  Referral Dashboard
+                                </a>
+                              </div>
+                            </div>
+                          )}
+
                           {/* How You Can Help action box */}
                           <div
                             className="mt-6 p-5 rounded-xl border border-nok-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)] bg-transparent"

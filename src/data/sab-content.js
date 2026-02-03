@@ -129,7 +129,8 @@ export const strategicRocks = [
       "Referral Network Growth: 3 individuals per month",
       "Partner Network Meetings: 2 per week from partner network",
       "Incremental Revenue: $5,000 per month from mutual referral network",
-      "Partnership Launch: 1 partnership with adjacent business per quarter"
+      "Partnership Launch: 1 partnership with adjacent business per quarter",
+      "100 Customer Research Calls by June 30"
     ],
     howYouCanHelpPlaceholder: "Reach out to discuss introductions, feedback on our GTM approach, or ways to support sales and accounts."
   },
