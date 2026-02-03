@@ -58,11 +58,11 @@ export default function MeetTheTeamView() {
       </div>
 
       {/* Row 2: Two members centered */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {row2.map((member, index) => (
+      <div className="flex flex-col sm:flex-row justify-center gap-6">
+        {row2.map((member) => (
           <div
             key={member.id}
-            className={index === 0 ? 'sm:col-start-1' : 'sm:col-start-3'}
+            className="w-full sm:w-[calc((100%-3rem)/3)]"
           >
             <TeamCard
               member={member}
