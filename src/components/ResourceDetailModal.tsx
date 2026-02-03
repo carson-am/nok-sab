@@ -79,15 +79,15 @@ export default function ResourceDetailModal({
 
                   <div>
                     {resource.category && (
-                      <p className="text-slate-400 text-sm font-medium mb-1">
+                      <p className="text-slate-400 text-sm font-medium mb-3">
                         {resource.category}
                       </p>
                     )}
-                    <h2 className="text-2xl font-bold text-white mb-3">
+                    <h2 className="text-2xl font-bold text-white mb-5">
                       {resource.title}
                     </h2>
                     {resource.description && (
-                      <p className="text-slate-100 leading-relaxed text-base mb-4">
+                      <p className="text-slate-100 leading-loose text-base mb-6">
                         {resource.description}
                       </p>
                     )}

@@ -58,13 +58,17 @@ export default function MeetTheTeamView() {
       </div>
 
       {/* Row 2: Two members centered */}
-      <div className="flex justify-center gap-6">
-        {row2.map((member) => (
-          <TeamCard
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {row2.map((member, index) => (
+          <div
             key={member.id}
-            member={member}
-            onViewDetails={() => setSelectedMember(member)}
-          />
+            className={index === 0 ? 'sm:col-start-1' : 'sm:col-start-3'}
+          >
+            <TeamCard
+              member={member}
+              onViewDetails={() => setSelectedMember(member)}
+            />
+          </div>
         ))}
       </div>
     </div>

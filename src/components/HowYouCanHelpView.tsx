@@ -193,7 +193,7 @@ export default function HowYouCanHelpView() {
           </div>
 
           {/* Footer: Getting Started */}
-          <div className="flex-1 flex flex-col justify-center text-center pb-4">
+          <div className="flex-1 flex flex-col justify-center text-center pt-12 pb-4">
             <h3 className="text-xl font-bold text-white mb-3">
               {gettingStarted.title}
             </h3>
