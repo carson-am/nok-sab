@@ -9,7 +9,11 @@ type TeamMember = (typeof teamMembers)[number];
 
 function TeamCard({ member, onViewDetails }: { member: TeamMember; onViewDetails: () => void }) {
   return (
-    <div className="glass-card p-6 rounded-xl card-glow transition-all duration-200 flex flex-col items-center text-center">
+    <button
+      type="button"
+      onClick={onViewDetails}
+      className="glass-card p-6 rounded-xl card-glow transition-all duration-200 flex flex-col items-center text-center w-full cursor-pointer"
+    >
       <div className="w-40 h-40 rounded-full overflow-hidden flex-shrink-0 mb-4 aspect-square">
         <Image
           src={member.imagePath}
@@ -21,13 +25,10 @@ function TeamCard({ member, onViewDetails }: { member: TeamMember; onViewDetails
       </div>
       <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
       <p className="text-nok-blue font-semibold mb-4">{member.title}</p>
-      <button
-        onClick={onViewDetails}
-        className="bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200"
-      >
+      <div className="bg-nok-blue text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-200">
         View Details
-      </button>
-    </div>
+      </div>
+    </button>
   );
 }
 

@@ -61,8 +61,8 @@ export default function ReferralPartnerModal({ isOpen, onClose }: ReferralPartne
                   </Dialog.Title>
 
                   <div className="text-center mb-8">
-                    <div className="flex justify-center mb-8">
-                      <Logo size="modal" />
+                    <div className="flex items-center justify-center mb-6 mt-4">
+                      <Logo size="large-modal" />
                     </div>
                     <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">
                       Grow together. Shape the future of recommerce.

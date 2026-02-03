@@ -99,9 +99,9 @@ export default function PresentationCard({
             )}
           </div>
         </div>
-        {fileType && fileSize && (
+        {fileType && (
           <p className="text-slate-400 text-xs mb-3">
-            {fileType} • {fileSize}
+            {fileType}
           </p>
         )}
       </div>

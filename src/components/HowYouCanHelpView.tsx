@@ -59,21 +59,22 @@ export default function HowYouCanHelpView() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 w-full space-y-8">
-          {/* Intro */}
-          <div className="bg-transparent rounded-xl p-6 lg:p-8 border border-white/10">
-            <h3 className="text-xl font-bold text-white mb-4">
-              {howYouCanHelpIntroTitle}
-            </h3>
-            <div className="text-slate-100 leading-relaxed space-y-4">
-              {howYouCanHelpIntroBody.split('\n\n').map((paragraph, i) => (
-                <IntroWithRocksHighlight key={i} text={paragraph} />
-              ))}
+        <div className="relative z-10 w-full flex flex-col min-h-full">
+          <div className="space-y-8">
+            {/* Intro */}
+            <div className="bg-transparent rounded-xl p-6 lg:p-8 border border-white/10">
+              <h3 className="text-xl font-bold text-white mb-4">
+                {howYouCanHelpIntroTitle}
+              </h3>
+              <div className="text-slate-100 leading-relaxed space-y-4">
+                {howYouCanHelpIntroBody.split('\n\n').map((paragraph, i) => (
+                  <IntroWithRocksHighlight key={i} text={paragraph} />
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Strategic Rocks Accordions */}
-          <div className="space-y-4">
+            {/* Strategic Rocks Accordions */}
+            <div className="space-y-4">
             {strategicRocks.map((section, index) => {
               const leader = teamMembers.find((m) => m.id === section.leaderId);
               const isExpanded = expandedIndex === index;
@@ -103,7 +104,7 @@ export default function HowYouCanHelpView() {
                         </div>
                       )}
                       <h3 className="text-xl font-bold text-white">
-                        {section.departmentName}
+                        {section.departmentName} {leader && `(${leader.name.split(' ')[0]})`}
                       </h3>
                     </div>
                     <motion.div
@@ -188,10 +189,11 @@ export default function HowYouCanHelpView() {
                 </motion.div>
               );
             })}
+            </div>
           </div>
 
           {/* Footer: Getting Started */}
-          <div className="text-center pt-8 pb-4">
+          <div className="flex-1 flex flex-col justify-center text-center pb-4">
             <h3 className="text-xl font-bold text-white mb-3">
               {gettingStarted.title}
             </h3>

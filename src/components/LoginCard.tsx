@@ -58,7 +58,7 @@ export default function LoginCard() {
               <div className="mb-6 text-center">
                 <h2 className="text-2xl font-bold text-white mb-2">Welcome!</h2>
                 <p className="text-slate-400 text-sm">
-                  Sign in to access the Strategic Advisory Board portal.
+                  Sign in to access the portal.
                 </p>
               </div>
 

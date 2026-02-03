@@ -57,13 +57,13 @@ export default function ResourceDetailModal({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-xl rounded-xl p-6 lg:p-8 backdrop-blur-xl bg-slate-900/80 border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)]">
+              <Dialog.Panel className="w-full max-w-lg rounded-xl p-5 lg:p-6 backdrop-blur-xl bg-slate-900/80 border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)]">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <div className="flex justify-end items-start -mt-1 -mr-1 mb-6">
+                  <div className="flex justify-end items-start -mt-1 -mr-1 mb-4">
                     <button
                       onClick={onClose}
                       className="p-2 rounded-lg text-slate-400 hover:text-white transition-all duration-200 hover:ring-2 hover:ring-nok-blue/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
@@ -83,11 +83,11 @@ export default function ResourceDetailModal({
                         {resource.category}
                       </p>
                     )}
-                    <h2 className="text-2xl font-bold text-white mb-4">
+                    <h2 className="text-2xl font-bold text-white mb-3">
                       {resource.title}
                     </h2>
                     {resource.description && (
-                      <p className="text-slate-100 leading-relaxed text-base mb-6">
+                      <p className="text-slate-100 leading-relaxed text-base mb-4">
                         {resource.description}
                       </p>
                     )}
