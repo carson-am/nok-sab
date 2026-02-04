@@ -132,6 +132,23 @@ export const strategicRocks = [
       "Partnership Launch: 1 partnership with adjacent business per quarter",
       "100 Customer Research Calls by June 30"
     ],
+    quarterlyNeeds: [
+      {
+        category: "Sales Focus",
+        items: [
+          "Introductions to brands within our ICP",
+          "Introductions to other Referral Partners and/or Strategic Advisory Board Members",
+          "Introductions to entry-level BDR talent"
+        ]
+      },
+      {
+        category: "Operations Focus",
+        items: [
+          "Introductions to 3PLs currently performing reverse logistics",
+          "Introductions to 3PLs specifically in Denver, CO"
+        ]
+      }
+    ],
     howYouCanHelpPlaceholder: "Reach out to discuss introductions, feedback on our GTM approach, or ways to support sales and accounts."
   },
   {

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 import {
   howYouCanHelpIntroTitle,
   howYouCanHelpIntroBody,
@@ -27,6 +27,60 @@ function IntroWithRocksHighlight({ text }: { text: string }) {
         )
       )}
     </p>
+  );
+}
+
+interface QuarterlyNeedsCategory {
+  category: string;
+  items: string[];
+}
+
+function QuarterlyNeedsList({ needs }: { needs: QuarterlyNeedsCategory[] }) {
+  const renderItemWithICPLink = (item: string) => {
+    if (item.includes('ICP')) {
+      const parts = item.split('ICP');
+      return (
+        <>
+          {parts[0]}
+          <a
+            href="/nok-icp.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-nok-blue underline hover:text-[#2563eb] transition-colors duration-200"
+          >
+            ICP
+          </a>
+          {parts[1]}
+        </>
+      );
+    }
+    return item;
+  };
+
+  return (
+    <div className="space-y-4 mt-6">
+      {needs.map((category, catIndex) => (
+        <div key={catIndex} className="space-y-2">
+          <h5 className="text-nok-blue font-semibold text-sm">
+            {category.category}
+          </h5>
+          <ul className="space-y-2">
+            {category.items.map((item, itemIndex) => (
+              <li
+                key={itemIndex}
+                className="flex items-start gap-2 text-slate-200 text-sm leading-relaxed"
+              >
+                <ChevronRight
+                  className="text-nok-blue flex-shrink-0 mt-0.5"
+                  size={16}
+                />
+                <span>{renderItemWithICPLink(item)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -165,14 +219,12 @@ export default function HowYouCanHelpView() {
                             </div>
                           </div>
 
-                          {/* Think You Can Help? - Sales & Accounts only */}
-                          {section.leaderId === 1 && (
+                          {/* How You Can Help - Sales & Accounts only */}
+                          {section.leaderId === 1 && section.quarterlyNeeds && (
                             <div className="mt-8 p-6 lg:p-8 rounded-xl bg-white/5 backdrop-blur-md border border-blue-500/30 text-center space-y-4 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
-                              <h4 className="text-lg font-bold text-white">Think You Can Help?</h4>
-                              <p className="text-slate-300 text-sm leading-relaxed max-w-lg mx-auto">
-                                See what we look for in our ideal customers and how we reward our partners.
-                              </p>
-                              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
+                              <h4 className="text-lg font-bold text-white">How You Can Help</h4>
+                              <QuarterlyNeedsList needs={section.quarterlyNeeds} />
+                              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
                                 <a
                                   href="/nok-icp.pdf"
                                   target="_blank"
@@ -198,7 +250,9 @@ export default function HowYouCanHelpView() {
                             className="mt-6 p-5 rounded-xl border border-nok-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)] bg-transparent flex flex-col items-center text-center"
                           >
                             <p className="text-slate-200 text-sm leading-relaxed mb-4">
-                              {section.howYouCanHelpPlaceholder}
+                              {section.leaderId === 1
+                                ? "If you can help with any of these items, please reach out to Maddy directly."
+                                : section.howYouCanHelpPlaceholder}
                             </p>
                             {leader && (
                               <button
