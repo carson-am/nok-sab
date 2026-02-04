@@ -63,7 +63,7 @@ export default function HowYouCanHelpView() {
           <div className="space-y-8">
             {/* Intro */}
             <div className="bg-transparent rounded-xl p-6 lg:p-8 border border-white/10">
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-white mb-4 text-center">
                 {howYouCanHelpIntroTitle}
               </h3>
               <div className="text-slate-100 leading-relaxed space-y-4">
@@ -195,7 +195,7 @@ export default function HowYouCanHelpView() {
 
                           {/* How You Can Help action box */}
                           <div
-                            className="mt-6 p-5 rounded-xl border border-nok-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)] bg-transparent"
+                            className="mt-6 p-5 rounded-xl border border-nok-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)] bg-transparent flex flex-col items-center text-center"
                           >
                             <p className="text-slate-200 text-sm leading-relaxed mb-4">
                               {section.howYouCanHelpPlaceholder}
