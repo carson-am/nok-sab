@@ -219,29 +219,31 @@ export default function HowYouCanHelpView() {
                             </div>
                           </div>
 
-                          {/* How You Can Help - Sales & Accounts only */}
-                          {section.leaderId === 1 && section.quarterlyNeeds && (
+                          {/* How You Can Help - Any section with quarterlyNeeds */}
+                          {section.quarterlyNeeds && (
                             <div className="mt-8 p-6 lg:p-8 rounded-xl bg-white/5 backdrop-blur-md border border-blue-500/30 text-center space-y-4 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
                               <h4 className="text-lg font-bold text-white">How You Can Help</h4>
                               <QuarterlyNeedsList needs={section.quarterlyNeeds} />
-                              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
-                                <a
-                                  href="/nok-icp.pdf"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
-                                >
-                                  View Our ICP
-                                </a>
-                                <a
-                                  href="https://nok-referral-program.vercel.app/dashboard/current-partners"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
-                                >
-                                  Referral Dashboard
-                                </a>
-                              </div>
+                              {section.leaderId === 1 && (
+                                <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+                                  <a
+                                    href="/nok-icp.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
+                                  >
+                                    View Our ICP
+                                  </a>
+                                  <a
+                                    href="https://nok-referral-program.vercel.app/dashboard/current-partners"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
+                                  >
+                                    Referral Dashboard
+                                  </a>
+                                </div>
+                              )}
                             </div>
                           )}
 
@@ -252,6 +254,8 @@ export default function HowYouCanHelpView() {
                             <p className="text-slate-200 text-sm leading-relaxed mb-4">
                               {section.leaderId === 1
                                 ? "If you can help with any of these items, please reach out to Maddy directly."
+                                : section.leaderId === 3
+                                ? "If you can provide insights into these technical areas, please reach out to Matt directly."
                                 : section.howYouCanHelpPlaceholder}
                             </p>
                             {leader && (

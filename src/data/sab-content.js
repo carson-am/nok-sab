@@ -197,6 +197,17 @@ export const strategicRocks = [
       "Business Continuity: Full control and documentation of clouds, platforms, systems, and apps",
       "Engineering Momentum Score: >4.0 (team alignment and buy-in)"
     ],
+    quarterlyNeeds: [
+      {
+        category: "Technical & Infrastructure Focus",
+        items: [
+          "Insights into typical systems, platforms, and configurations used by enterprise brands",
+          "Deep dives into brand-side returns processes and operational workflows",
+          "Expertise on standard integration requirements for reverse logistics",
+          "Guidance on enterprise security and compliance requirements"
+        ]
+      }
+    ],
     howYouCanHelpPlaceholder: "Reach out to discuss technical strategy, architecture feedback, or talent and vendor connections."
   },
   {
