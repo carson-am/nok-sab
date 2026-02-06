@@ -58,23 +58,23 @@ function QuarterlyNeedsList({ needs }: { needs: QuarterlyNeedsCategory[] }) {
   };
 
   return (
-    <div className="space-y-4 mt-6">
+    <div className="space-y-4 mt-6 mx-auto max-w-3xl text-left">
       {needs.map((category, catIndex) => (
         <div key={catIndex} className="space-y-2">
-          <h5 className="text-nok-blue font-semibold text-sm">
+          <h5 className="text-nok-blue font-semibold text-xl">
             {category.category}
           </h5>
           <ul className="space-y-2">
             {category.items.map((item, itemIndex) => (
               <li
                 key={itemIndex}
-                className="flex items-start gap-2 text-slate-200 text-sm leading-relaxed"
+                className="flex items-start gap-2 text-slate-200 text-lg leading-relaxed"
               >
                 <ChevronRight
                   className="text-nok-blue flex-shrink-0 mt-0.5"
                   size={16}
                 />
-                <span>{renderItemWithICPLink(item)}</span>
+                <span className="text-left">{renderItemWithICPLink(item)}</span>
               </li>
             ))}
           </ul>
