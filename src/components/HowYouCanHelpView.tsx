@@ -58,10 +58,10 @@ function QuarterlyNeedsList({ needs }: { needs: QuarterlyNeedsCategory[] }) {
   };
 
   return (
-    <div className="space-y-4 mt-6 mx-auto max-w-3xl text-left">
+    <div className="space-y-4 mt-6 text-left">
       {needs.map((category, catIndex) => (
         <div key={catIndex} className="space-y-2">
-          <h5 className="text-nok-blue font-semibold text-xl">
+          <h5 className="text-nok-blue font-semibold text-xl text-center">
             {category.category}
           </h5>
           <ul className="space-y-2">
