@@ -177,6 +177,18 @@ export const strategicRocks = [
       "3PL NPS Score: >8",
       "Manual Hours Per Account: Track scalability"
     ],
+    quarterlyNeeds: [
+      {
+        category: "Product & Analytics Focus",
+        items: [
+          "KPI Feedback: Provide feedback on executive-level KPIs for returns and recommerce to ensure our reporting is decision-ready.",
+          "Roadmap Pressure-Testing: Participate in a 30-minute review of the \"metrics you wish you had\" (e.g., cost per return, time-to-resale, recovery rate, SLA leakage) to help us refine our analytics roadmap.",
+          "Benchmark Perspective: Share perspective on benchmark ranges for reverse logistics and resale based on your experience.",
+          "Operator Insight: Share what \"good vs bad\" looks like for cost, speed, recovery, and write-offs within your category.",
+          "Strategic Sourcing: Provide perspective on how leaders currently think about owning vs. outsourcing recommerce intelligence."
+        ]
+      }
+    ],
     howYouCanHelpPlaceholder: "Reach out to share product feedback, UX insights, or ideas that could shape our roadmap."
   },
   {

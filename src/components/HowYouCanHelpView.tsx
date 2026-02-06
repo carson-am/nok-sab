@@ -256,6 +256,8 @@ export default function HowYouCanHelpView() {
                                 ? "If you can help with any of these items, please reach out to Maddy directly."
                                 : section.leaderId === 3
                                 ? "If you can provide insights into these technical areas, please reach out to Matt directly."
+                                : section.leaderId === 4
+                                ? "If you can provide feedback on our product vision or analytics roadmap, please reach out to Corbett directly."
                                 : section.howYouCanHelpPlaceholder}
                             </p>
                             {leader && (
