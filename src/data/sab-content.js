@@ -22,8 +22,6 @@ export const overviewContent = {
 };
 
 export const boardStatus = [
-  { label: "Active Members", value: "15" },
-  { label: "Next Quarter", value: "Deep Dive" },
   { label: "Current Q1 Workstream", value: "Product" },
   { label: "Next Meeting", value: "Executive Roundtable" }
 ];
@@ -94,7 +92,7 @@ export const teamMembers = [
 export const howYouCanHelpIntroTitle = "Understanding Nok's Leadership Model";
 
 export const howYouCanHelpIntroBody =
-  "Nok Recommerce operates on the Entrepreneurial Operating System (EOS), a proven framework that brings clarity, accountability, and measurable progress to our organization. At the heart of EOS are \"Rocks\" — our quarterly priorities that represent the most critical objectives each team member commits to achieving within a 90-day period.\n\nOur Q1 2026 Rocks are designed to drive transformational progress across five key functional areas: Sales & Accounts, Product, Engineering, Resale, and Operations. Each Rock is tied to specific, measurable outcomes that ladder up to our company-wide goals. Below, you'll find detailed information about what each leader is working on and where your expertise can make the greatest impact.";
+  "Nok Recommerce operates on the Entrepreneurial Operating System (EOS), a proven framework that brings clarity, accountability, and measurable progress to our organization. At the heart of EOS are \"Rocks\"; our quarterly priorities that represent the most critical objectives each team member commits to achieving within a 90-day period.\n\nOur Q1 2026 Rocks are designed to drive transformational progress across five key functional areas: Sales & Accounts, Product, Engineering, Resale, and Operations. Each Rock is tied to specific, measurable outcomes that ladder up to our company-wide goals. Below, you'll find detailed information about what each leader is working on and where your expertise can make the greatest impact.";
 
 export const gettingStarted = {
   title: "Getting Started",
@@ -106,20 +104,26 @@ export const strategicRocks = [
     departmentName: "Sales & Accounts",
     leaderId: 1,
     rocks: [
-      "Sign 9 individuals to referral agreements (targeting 10 total)",
-      "Conduct 40 customer meetings, with 20 including product demonstrations",
-      "Create and execute Master Services Agreement (MSA) with Vertical Passage",
-      "Build initial relationships with one contact at each potential acquirer",
-      "Close out prior lawsuits/liabilities (Therabody, Gierd, Bidet Co., Dinsmore, etc.)",
-      "Complete full capital call to improve financial runway",
-      "Kick off 5+ additional partner 3PL warehouses (1+ technically validated)",
-      "Establish an onboarding document for all new customers (cross-functional sign-off)",
-      "Execute NZXT mutual termination contract",
-      "Create documented sales cycle/process (built for first BDR hire to follow)",
-      "Lock in conference strategy (Q1 as test to build Q2-4 plan)",
-      "Secure 2 brands set to launch in Q2 cohort",
-      "Achieve BBI NPS score >8",
-      "Complete Ozlo contract extension"
+      {
+        task: "Sign 10 individuals to Referral Agreements",
+        why: "Make our small but mighty team feel bigger than we are, filling our top of funnel with leads from close-in individuals that believe in our process."
+      },
+      {
+        task: "Conduct 60 Top of Funnel Meetings",
+        why: "Start building our top of funnel pipeline."
+      },
+      {
+        task: "Secure 2 clients that will launch in Q2",
+        why: "To hit revenue goals, given the time it takes to fully launch and realize value from brands."
+      },
+      {
+        task: "Create a formal sales process",
+        why: "To build process into the sales cycle, so we can hire a junior sales role in Q2."
+      },
+      {
+        task: "Identify key conferences for Beauty, Sport, and Home categories",
+        why: "Aware that conferences can be a waste if we're not targeting the right ones with the most value."
+      }
     ],
     scorecardMetrics: [
       "Sales Meetings: 4 per week",

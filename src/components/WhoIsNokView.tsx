@@ -4,10 +4,10 @@ export default function WhoIsNokView() {
       {/* Body Text */}
       <div className="space-y-4 text-lg leading-relaxed text-slate-100">
         <p>
-          Nok is a recommerce and reverse logistics platform that helps brands turn returns, excess inventory, and used products into value-generating assets. We enable brands to manage the full lifecycle of returned goods—from intake and inspection to refurbishment, resale, recycling, or responsible disposition—while improving margins, visibility, and sustainability.
+          Nok is a recommerce and reverse logistics platform that helps brands turn returns, excess inventory, and used products into value-generating assets. We enable brands to manage the full lifecycle of returned goods, spanning from intake and inspection to refurbishment, resale, recycling, or responsible disposition, while improving margins, visibility, and sustainability.
         </p>
         <p>
-          Traditional reverse logistics are fragmented, costly, and opaque. Nok replaces this with a flexible, data-driven model that allows brands to make smarter, faster decisions about where products should go and how much value can be recovered—without compromising brand equity.
+          Traditional reverse logistics are fragmented, costly, and opaque. Nok replaces this with a flexible, data-driven model that allows brands to make smarter, faster decisions about where products should go and how much value can be recovered without compromising brand equity.
         </p>
       </div>
 

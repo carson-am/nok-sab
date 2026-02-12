@@ -243,18 +243,29 @@ export default function HowYouCanHelpView() {
                                 Q1 2026 Priorities (Rocks)
                               </h4>
                               <ul className="space-y-3">
-                                {section.rocks.map((rock, i) => (
-                                  <li
-                                    key={i}
-                                    className="flex items-start gap-3 text-slate-200 text-sm leading-relaxed"
-                                  >
-                                    <span
-                                      className="flex-shrink-0 w-5 h-5 rounded border-2 border-nok-blue mt-0.5"
-                                      aria-hidden
-                                    />
-                                    <span>{rock}</span>
-                                  </li>
-                                ))}
+                                {section.rocks.map((rock, i) => {
+                                  const isTaskWhy = typeof rock === 'object' && rock !== null && 'task' in rock && 'why' in rock;
+                                  if (isTaskWhy) {
+                                    return (
+                                      <li key={i} className="space-y-1">
+                                        <div className="font-bold text-white">{rock.task}</div>
+                                        <div className="text-nok-blue/80 text-sm italic leading-relaxed">{rock.why}</div>
+                                      </li>
+                                    );
+                                  }
+                                  return (
+                                    <li
+                                      key={i}
+                                      className="flex items-start gap-3 text-slate-200 text-sm leading-relaxed"
+                                    >
+                                      <span
+                                        className="flex-shrink-0 w-5 h-5 rounded border-2 border-nok-blue mt-0.5"
+                                        aria-hidden
+                                      />
+                                      <span>{rock}</span>
+                                    </li>
+                                  );
+                                })}
                               </ul>
                             </div>
 
