@@ -223,7 +223,7 @@ export const strategicRocks = [
     howYouCanHelpPlaceholder: "Reach out to discuss technical strategy, architecture feedback, or talent and vendor connections."
   },
   {
-    departmentName: "Resale",
+    departmentName: "Finance & Resale",
     leaderId: 2,
     rocks: [
       "Culture warrior for Q1 (build out weekly/monthly engagement, technology to engage on, success levers for on-sites, etc.)",
@@ -250,6 +250,24 @@ export const strategicRocks = [
       "Resale Partners: 3 conversations with new resale partners per month",
       "Sell-Through Realization: Actual sales vs. Estimated Resale Value (ERV)"
     ],
+    quarterlyNeeds: [
+      {
+        category: "Finance Focus",
+        items: [
+          "Receivables factoring (how to eliminate float).",
+          "Guidance on pushing out payment terms with 3PL partners."
+        ]
+      },
+      {
+        category: "Resale Focus",
+        items: [
+          "Introductions to high-level eCommerce talent.",
+          "Buyer and brand introductions for excess inventory or platform clients.",
+          "Introductions to 3PLs interested in Resale tooling/automation.",
+          "Insights on relevant tech players in the resale ecosystem worth knowing."
+        ]
+      }
+    ],
     howYouCanHelpPlaceholder: "Reach out to discuss resale strategy, marketplace connections, or finance and operations best practices."
   },
   {
@@ -270,6 +288,18 @@ export const strategicRocks = [
       "Valid Tracking Rate: >95% for all units",
       "Order Defect Rate: <1% for all units",
       "Receive SLA: >90% of units meeting receive SLA across all brands"
+    ],
+    quarterlyNeeds: [
+      {
+        category: "Operations Focus",
+        items: [
+          "Expertise in optimizing operations timelines and routines.",
+          "Deep dive into 3PL communication protocols and expectation setting.",
+          "Insights into achieving day-to-day efficiency through off-site planning.",
+          "Strategy for transportation and logistics timelines.",
+          "Goal setting to prevent setbacks and roadblocks in production workflows."
+        ]
+      }
     ],
     howYouCanHelpPlaceholder: "Reach out to discuss warehouse partnerships, recycling and disposition connections, or ops process improvements."
   }

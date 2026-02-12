@@ -179,7 +179,64 @@ export default function HowYouCanHelpView() {
                         className="overflow-hidden"
                       >
                         <div className="px-6 pb-6 pt-0 border-t border-white/10">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+                          {/* How You Can Help - Any section with quarterlyNeeds (first) */}
+                          {section.quarterlyNeeds && (
+                            <div className="pt-6 p-6 lg:p-8 rounded-xl bg-white/5 backdrop-blur-md border border-blue-500/30 text-center space-y-4 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                              <h4 className="text-lg font-bold text-white">How You Can Help</h4>
+                              <QuarterlyNeedsList needs={section.quarterlyNeeds} />
+                              {section.leaderId === 1 && (
+                                <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+                                  <a
+                                    href="/nok-icp.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
+                                  >
+                                    View Our ICP
+                                  </a>
+                                  <a
+                                    href="https://nok-referral-program.vercel.app/dashboard/current-partners"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
+                                  >
+                                    Referral Dashboard
+                                  </a>
+                                </div>
+                              )}
+                            </div>
+                          )}
+
+                          {/* How You Can Help action box */}
+                          <div
+                            className={section.quarterlyNeeds ? 'mt-6 p-5 rounded-xl border border-nok-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)] bg-transparent flex flex-col items-center text-center' : 'pt-6 p-5 rounded-xl border border-nok-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)] bg-transparent flex flex-col items-center text-center'}
+                          >
+                            <p className="text-slate-200 text-sm leading-relaxed mb-4">
+                              {section.leaderId === 1
+                                ? "If you can help with any of these items, please reach out to Maddy directly."
+                                : section.leaderId === 2
+                                ? "If you can help with finance or resale initiatives, please reach out to Nick directly."
+                                : section.leaderId === 3
+                                ? "If you can provide insights into these technical areas, please reach out to Matt directly."
+                                : section.leaderId === 4
+                                ? "If you can provide feedback on our product vision or analytics roadmap, please reach out to Corbett directly."
+                                : section.leaderId === 5
+                                ? "If you can contribute to operations best practices, please reach out to Griffin directly."
+                                : section.howYouCanHelpPlaceholder}
+                            </p>
+                            {leader && (
+                              <button
+                                type="button"
+                                onClick={() => setSelectedMember(leader)}
+                                className="bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200"
+                              >
+                                Contact {leader.name.split(' ')[0]}
+                              </button>
+                            )}
+                          </div>
+
+                          {/* Q1 2026 Priorities and Key Scorecard Metrics (below How You Can Help) */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                             {/* Left: Q1 2026 Priorities (Rocks) */}
                             <div>
                               <h4 className="text-nok-blue font-semibold mb-4">
@@ -217,58 +274,6 @@ export default function HowYouCanHelpView() {
                                 ))}
                               </div>
                             </div>
-                          </div>
-
-                          {/* How You Can Help - Any section with quarterlyNeeds */}
-                          {section.quarterlyNeeds && (
-                            <div className="mt-8 p-6 lg:p-8 rounded-xl bg-white/5 backdrop-blur-md border border-blue-500/30 text-center space-y-4 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
-                              <h4 className="text-lg font-bold text-white">How You Can Help</h4>
-                              <QuarterlyNeedsList needs={section.quarterlyNeeds} />
-                              {section.leaderId === 1 && (
-                                <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
-                                  <a
-                                    href="/nok-icp.pdf"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
-                                  >
-                                    View Our ICP
-                                  </a>
-                                  <a
-                                    href="https://nok-referral-program.vercel.app/dashboard/current-partners"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
-                                  >
-                                    Referral Dashboard
-                                  </a>
-                                </div>
-                              )}
-                            </div>
-                          )}
-
-                          {/* How You Can Help action box */}
-                          <div
-                            className="mt-6 p-5 rounded-xl border border-nok-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)] bg-transparent flex flex-col items-center text-center"
-                          >
-                            <p className="text-slate-200 text-sm leading-relaxed mb-4">
-                              {section.leaderId === 1
-                                ? "If you can help with any of these items, please reach out to Maddy directly."
-                                : section.leaderId === 3
-                                ? "If you can provide insights into these technical areas, please reach out to Matt directly."
-                                : section.leaderId === 4
-                                ? "If you can provide feedback on our product vision or analytics roadmap, please reach out to Corbett directly."
-                                : section.howYouCanHelpPlaceholder}
-                            </p>
-                            {leader && (
-                              <button
-                                type="button"
-                                onClick={() => setSelectedMember(leader)}
-                                className="bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200"
-                              >
-                                Contact {leader.name.split(' ')[0]}
-                              </button>
-                            )}
                           </div>
                         </div>
                       </motion.div>
