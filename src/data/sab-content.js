@@ -253,23 +253,26 @@ export const strategicRocks = [
     departmentName: "Finance & Resale",
     leaderId: 2,
     rocks: [
-      "Culture warrior for Q1 (build out weekly/monthly engagement, technology to engage on, success levers for on-sites, etc.)",
-      "Recreate all contracts (brands; returns, resale and 3PL SOWs)",
-      "Create a disposition plan for each brand (informed by resale KPIs) that are brand-approved and implemented",
-      "Form an actionable opinion by brand on Amazon FBA in US and Canada; implement plan",
-      "Close 3 excess deals north of $50k GMV",
-      "Implement resale tech stack (listing tool, initial repricer)",
-      "Gain one strategic liquidation partner in each major bulk category (auction house, liquidator) in USA and Canada",
-      "$60k in marketplace sales (GMV) for BBI",
-      "$40k in marketplace sales (GMV) for Bissell",
-      "$40k in marketplace sales (GMV) for Ozlo",
-      "Finalize 2025 financials",
-      "File 2025 taxes",
-      "Apply R&D credit against payroll taxes",
-      "Automate month-end reporting",
-      "Connect QuickBooks Online with Nok Platform",
-      "Real-time marketplace data feed into QuickBooks",
-      "Scope unit economics as input into intelligent disposition"
+      {
+        task: "Standardize brand, 3PL, and service-level agreements",
+        why: "To protect brand equity and ensure operational accountability across our entire partner and warehouse ecosystem."
+      },
+      {
+        task: "Implement data-driven disposition plans for every brand partner",
+        why: "To align our resale strategies with real-time KPIs, ensuring we capture the maximum possible recovery value for our clients."
+      },
+      {
+        task: "Define and execute a strategic Amazon FBA roadmap for North America",
+        why: "To establish a defensible, brand-approved approach to one of the most critical and complex secondary market channels."
+      },
+      {
+        task: "Secure strategic liquidation partners across all major bulk categories in the USA and Canada",
+        why: "To guarantee a profitable \"last-resort\" outlet for inventory while maintaining strict channel integrity."
+      },
+      {
+        task: "Automate month-end reporting and real-time marketplace data integration",
+        why: "To provide the leadership team with instant visibility into unit economics and accelerate the speed of financial decision-making."
+      }
     ],
     scorecardMetrics: [
       "Tech Stack Launch: # of brands on new resale tech stack",
