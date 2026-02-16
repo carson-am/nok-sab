@@ -210,10 +210,22 @@ export const strategicRocks = [
     departmentName: "Engineering",
     leaderId: 3,
     rocks: [
-      "Create plan to deprecate and shut down old Nok tech platform (achieving specific cost savings)",
-      "Create an automated solution for late shipments",
-      "Launch an instance of resale-only (NZXT)",
-      "Product and engineering existing team buy-in"
+      {
+        task: "Execute the decommissioning of legacy technology architecture",
+        why: "To eliminate technical debt and capture significant operational cost savings, refocusing resources on our primary scalable platform."
+      },
+      {
+        task: "Deploy an automated resolution engine for shipment delays",
+        why: "To improve brand trust and customer experience by proactively managing logistics exceptions through intelligent automation."
+      },
+      {
+        task: "Launch the first production instance of the standalone 'Resale-Only' module",
+        why: "To validate our modular technology approach, enabling brands to utilize Nok's resale engine as a standalone strategic lever."
+      },
+      {
+        task: "Formalize strategic alignment across the Product and Engineering teams",
+        why: "To ensure high-velocity execution of our technical vision and maintain total team buy-in on our long-term roadmap."
+      }
     ],
     scorecardMetrics: [
       "On-Time Delivery: 100% of product roadmap items delivered on time",
