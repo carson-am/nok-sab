@@ -304,12 +304,26 @@ export const strategicRocks = [
     departmentName: "Operations",
     leaderId: 5,
     rocks: [
-      "Define SLAs for all 3PL partners (e.g., marketplace deactivation thresholds)",
-      "Execute NZXT transition to Vertical Passage",
-      "Gain at least one trustworthy, consistent recycling partner",
-      "Create a process to standardize SOP creation and warehouse implementation",
-      "Oliso backlog completely recycled (only weekly/monthly returns on floor; all inventory processed and dispositioned within 30 days)",
-      "Create training manuals for ops employees ahead of each brand onboarding"
+      {
+        task: "Formalize Service Level Agreements (SLAs) across the 3PL network",
+        why: "To drive warehouse accountability and establish clear performance thresholds that protect brand satisfaction and marketplace health."
+      },
+      {
+        task: "Standardize SOP creation and warehouse implementation processes",
+        why: "To create a repeatable \"playbook\" for brand onboarding, ensuring operational excellence remains consistent as we scale."
+      },
+      {
+        task: "Establish strategic partnerships with certified recycling providers",
+        why: "To guarantee responsible end-of-life disposition for non-resalable goods, meeting both brand sustainability goals and regulatory requirements."
+      },
+      {
+        task: "Optimize warehouse throughput to achieve a 30-day processing cycle",
+        why: "To prevent inventory stagnation and ensure that returned capital is recovered and redeployed as quickly as possible."
+      },
+      {
+        task: "Execute high-priority warehouse node transitions and technical onboarding",
+        why: "To continuously optimize our physical footprint, ensuring inventory is processed at the nodes that offer the best recovery and logistics efficiency."
+      }
     ],
     scorecardMetrics: [
       "Total Throughput: Total units processed weekly",
