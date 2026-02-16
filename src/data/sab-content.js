@@ -159,19 +159,30 @@ export const strategicRocks = [
     departmentName: "Product",
     leaderId: 4,
     rocks: [
-      "Ozlo instance achieving 10/10 satisfaction",
-      "Ability to measure SLAs for all 3PL partners (visible to 3PLs and internally)",
-      "Define and validate RFP program on website",
-      "New platform analytics 100% self-serve by end of quarter",
-      "Core product KPIs established and utilized",
-      "Scope Ozlo international expansion (Canada)",
-      "Resale implementation stamp of approval",
-      "Define subscription offering",
-      "Define trade-in program",
-      "Define branded DTC solution",
-      "All research brands prioritized",
-      "1+ additional partner 3PL technical validation",
-      "Enable resale-only module (e.g., NZXT)"
+      {
+        task: "Define and validate the RFP program on the website",
+        why: "To create a scalable, self-serve entry point for brands to assess their reverse logistics needs and engage with the Nok platform."
+      },
+      {
+        task: "Establish and utilize core product KPIs",
+        why: "To ensure our product development is guided by the metrics that matter most to enterprise brands, from recovery rates to processing speed."
+      },
+      {
+        task: "Define Branded DTC, Trade-In, and Subscription offerings",
+        why: "To expand our modular toolkit, allowing brands to choose the specific recommerce \"levers\" they want to pull to maximize asset value."
+      },
+      {
+        task: "Achieve 100% self-serve platform analytics",
+        why: "To empower brand partners with immediate, on-demand visibility into their returns data, eliminating manual reporting friction."
+      },
+      {
+        task: "Scope international expansion into the Canadian market",
+        why: "To prepare the platform infrastructure for cross-border growth, supporting our current brands as they scale their recommerce programs."
+      },
+      {
+        task: "Implement transparent 3PL SLA measurement and visibility",
+        why: "To drive accountability across our warehouse network and provide brands with an honest, real-time view of third-party performance."
+      }
     ],
     scorecardMetrics: [
       "Platform Adoption: <3 custom report requests per month (with current customer load)",
