@@ -180,48 +180,29 @@ export default function HowYouCanHelpView() {
                       >
                         <div className="px-6 pb-6 pt-0 border-t border-white/10">
                           {/* How You Can Help - single unified card with contact at bottom */}
-                          <div className="pt-6 p-6 lg:p-8 rounded-xl bg-white/5 backdrop-blur-md border border-blue-500/30 text-center space-y-4 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                          <div className="pt-6 p-5 lg:p-6 rounded-xl bg-white/5 backdrop-blur-md border border-blue-500/30 text-center space-y-4 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
                             <h4 className="text-lg font-bold text-white">How You Can Help</h4>
                             {section.quarterlyNeeds && (
-                              <>
-                                <QuarterlyNeedsList needs={section.quarterlyNeeds} />
-                                {section.leaderId === 1 && (
-                                  <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
-                                    <a
-                                      href="/nok-icp.pdf"
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
-                                    >
-                                      View Our ICP
-                                    </a>
-                                    <a
-                                      href="https://nok-referral-program.vercel.app/dashboard/current-partners"
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
-                                    >
-                                      Referral Dashboard
-                                    </a>
-                                  </div>
-                                )}
-                              </>
+                              <QuarterlyNeedsList needs={section.quarterlyNeeds} />
                             )}
-                            <div className="flex flex-col items-center text-center pt-6">
-                              <p className="text-slate-200 text-sm leading-relaxed mb-4">
-                                {section.leaderId === 1
-                                  ? "If you can help with any of these items, please reach out to Maddy directly."
-                                  : section.leaderId === 2
-                                  ? "If you can help with finance or resale initiatives, please reach out to Nick directly."
-                                  : section.leaderId === 3
-                                  ? "If you can provide insights into these technical areas, please reach out to Matt directly."
-                                  : section.leaderId === 4
-                                  ? "If you can provide feedback on our product vision or analytics roadmap, please reach out to Corbett directly."
-                                  : section.leaderId === 5
-                                  ? "If you can contribute to operations best practices, please reach out to Griffin directly."
-                                  : section.howYouCanHelpPlaceholder}
-                              </p>
-                              {leader && (
+                            {section.leaderId === 1 && leader ? (
+                              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-3">
+                                <a
+                                  href="/nok-icp.pdf"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
+                                >
+                                  View Our ICP
+                                </a>
+                                <a
+                                  href="https://nok-referral-program.vercel.app/dashboard/current-partners"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200 hover:brightness-110"
+                                >
+                                  Referral Dashboard
+                                </a>
                                 <button
                                   type="button"
                                   onClick={() => setSelectedMember(leader)}
@@ -229,8 +210,18 @@ export default function HowYouCanHelpView() {
                                 >
                                   Contact {leader.name.split(' ')[0]}
                                 </button>
-                              )}
-                            </div>
+                              </div>
+                            ) : leader ? (
+                              <div className="flex flex-col items-center text-center pt-3">
+                                <button
+                                  type="button"
+                                  onClick={() => setSelectedMember(leader)}
+                                  className="bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-5 rounded-lg btn-glow transition-all duration-200"
+                                >
+                                  Contact {leader.name.split(' ')[0]}
+                                </button>
+                              </div>
+                            ) : null}
                           </div>
 
                           {/* Q1 2026 Priorities and Key Scorecard Metrics (below How You Can Help) */}
