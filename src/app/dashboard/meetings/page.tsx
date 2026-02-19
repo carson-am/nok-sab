@@ -111,7 +111,7 @@ export default function MeetingsPage() {
                           Key Takeaways
                         </h3>
                         <ul className="list-disc list-inside space-y-1 text-slate-200 leading-relaxed">
-                          {m.takeaways.map((takeaway, i) => (
+                          {m.takeaways.map((takeaway: string, i: number) => (
                             <li key={i}>{takeaway}</li>
                           ))}
                         </ul>
