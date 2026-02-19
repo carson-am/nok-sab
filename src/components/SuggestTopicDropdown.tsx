@@ -4,12 +4,17 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquarePlus, ChevronDown, Check, X } from 'lucide-react';
 import { suggestTopicOptions } from '../data/sab-content';
+import { useAuth } from '../context/AuthContext';
+import { sendTopicSuggestion } from '../app/actions/sendTopicSuggestion';
 
 export default function SuggestTopicDropdown() {
+  const { userEmail } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [otherText, setOtherText] = useState('');
   const [showToast, setShowToast] = useState(false);
+  const [showErrorToast, setShowErrorToast] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,17 +37,34 @@ export default function SuggestTopicDropdown() {
     return () => clearTimeout(timer);
   }, [showToast]);
 
+  useEffect(() => {
+    if (!showErrorToast) return;
+    const timer = setTimeout(() => setShowErrorToast(false), 10000);
+    return () => clearTimeout(timer);
+  }, [showErrorToast]);
+
   const toggleOption = (option: string) => {
     setSelectedOptions((prev) =>
       prev.includes(option) ? prev.filter((o) => o !== option) : [...prev, option]
     );
   };
 
-  const handleSubmit = () => {
-    setIsOpen(false);
-    setSelectedOptions([]);
-    setOtherText('');
-    setShowToast(true);
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    const result = await sendTopicSuggestion({
+      selectedTopics: selectedOptions,
+      otherText,
+      submittedByEmail: userEmail ?? null,
+    });
+    setIsSubmitting(false);
+    if (result.success) {
+      setIsOpen(false);
+      setSelectedOptions([]);
+      setOtherText('');
+      setShowToast(true);
+    } else {
+      setShowErrorToast(true);
+    }
   };
 
   const showOtherInput = selectedOptions.includes('Other');
@@ -130,9 +152,10 @@ export default function SuggestTopicDropdown() {
                   <button
                     type="button"
                     onClick={handleSubmit}
-                    className="w-full bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-4 rounded-lg btn-glow transition-all duration-200"
+                    disabled={isSubmitting}
+                    className="w-full bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-2.5 px-4 rounded-lg btn-glow transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Submit
+                    {isSubmitting ? 'Sending...' : 'Submit'}
                   </button>
                 </div>
               </div>
@@ -157,6 +180,29 @@ export default function SuggestTopicDropdown() {
               <button
                 type="button"
                 onClick={() => setShowToast(false)}
+                className="absolute top-3 right-3 p-1 rounded text-slate-400 hover:text-white transition-colors"
+                aria-label="Close"
+              >
+                <X size={18} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+        {showErrorToast && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-4 left-1/2 -translate-x-1/2 z-[60] w-full max-w-md px-4"
+          >
+            <div className="backdrop-blur-xl bg-slate-900/90 border border-red-500/50 rounded-xl shadow-[0_0_30px_rgba(239,68,68,0.2)] p-4 pr-10 relative">
+              <p className="text-slate-100 text-sm font-medium">
+                Something went wrong. Please try again.
+              </p>
+              <button
+                type="button"
+                onClick={() => setShowErrorToast(false)}
                 className="absolute top-3 right-3 p-1 rounded text-slate-400 hover:text-white transition-colors"
                 aria-label="Close"
               >

@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 
 interface AuthContextType {
   isLoggedIn: boolean;
+  userEmail: string | null;
   login: (email: string, password: string) => boolean;
   logout: () => void;
 }
@@ -16,12 +17,15 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
     // Check if user is logged in from sessionStorage
     const loggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+    const email = sessionStorage.getItem('userEmail');
     setIsLoggedIn(loggedIn);
+    setUserEmail(email || null);
   }, []);
 
   const login = (email: string, password: string): boolean => {
@@ -31,7 +35,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     if (isValidEmail && hasPassword) {
       setIsLoggedIn(true);
+      setUserEmail(email);
       sessionStorage.setItem('isLoggedIn', 'true');
+      sessionStorage.setItem('userEmail', email);
       return true;
     }
     return false;
@@ -39,12 +45,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setIsLoggedIn(false);
+    setUserEmail(null);
     sessionStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('userEmail');
     router.push('/');
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, userEmail, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
