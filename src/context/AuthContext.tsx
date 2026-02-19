@@ -1,7 +1,7 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { useRouter } from 'next/navigation';
+import { createContext, useContext, ReactNode } from 'react';
+import { useSession, signOut } from 'next-auth/react';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -12,43 +12,18 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Email validation regex
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userEmail, setUserEmail] = useState<string | null>(null);
-  const router = useRouter();
+  const { data: session, status } = useSession();
+  const isLoggedIn = status === 'authenticated' && !!session;
+  const userEmail = session?.user?.email ?? null;
 
-  useEffect(() => {
-    // Check if user is logged in from sessionStorage
-    const loggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
-    const email = sessionStorage.getItem('userEmail');
-    setIsLoggedIn(loggedIn);
-    setUserEmail(email || null);
-  }, []);
-
-  const login = (email: string, password: string): boolean => {
-    // Accept any valid email format + any non-empty password
-    const isValidEmail = emailRegex.test(email);
-    const hasPassword = password.length > 0;
-
-    if (isValidEmail && hasPassword) {
-      setIsLoggedIn(true);
-      setUserEmail(email);
-      sessionStorage.setItem('isLoggedIn', 'true');
-      sessionStorage.setItem('userEmail', email);
-      return true;
-    }
+  const login = (_email: string, _password: string): boolean => {
+    // Login is handled by LoginCard via signIn(); no-op here for interface compatibility.
     return false;
   };
 
   const logout = () => {
-    setIsLoggedIn(false);
-    setUserEmail(null);
-    sessionStorage.removeItem('isLoggedIn');
-    sessionStorage.removeItem('userEmail');
-    router.push('/');
+    signOut({ callbackUrl: '/login' });
   };
 
   return (
