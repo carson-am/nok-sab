@@ -1,32 +1,58 @@
-import { getToken } from 'next-auth/jwt';
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { createServerClient } from '@supabase/ssr';
+import { NextResponse, type NextRequest } from 'next/server';
 
 export async function middleware(req: NextRequest) {
-  const token = await getToken({
-    req,
-    secret: process.env.NEXTAUTH_SECRET,
-  });
+  let response = NextResponse.next({ request: req });
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return req.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, options)
+          );
+        },
+      },
+    }
+  );
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const pathname = req.nextUrl.pathname;
 
-  if (!token && (pathname === '/dashboard' || pathname.startsWith('/dashboard/'))) {
-    return NextResponse.redirect(new URL('/login', req.url));
+  if (!user && (pathname === '/dashboard' || pathname.startsWith('/dashboard/'))) {
+    const redirect = NextResponse.redirect(new URL('/login', req.url));
+    response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
+    return redirect;
   }
 
-  if (token && pathname === '/login') {
-    return NextResponse.redirect(new URL('/dashboard', req.url));
+  if (user && pathname === '/login') {
+    const redirect = NextResponse.redirect(new URL('/dashboard', req.url));
+    response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
+    return redirect;
   }
 
   if (pathname === '/') {
-    if (token) {
-      return NextResponse.redirect(new URL('/dashboard', req.url));
+    if (user) {
+      const redirect = NextResponse.redirect(new URL('/dashboard', req.url));
+      response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
+      return redirect;
     }
-    return NextResponse.redirect(new URL('/login', req.url));
+    const redirect = NextResponse.redirect(new URL('/login', req.url));
+    response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
+    return redirect;
   }
 
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/login', '/'],
+  matcher: ['/dashboard/:path*', '/login', '/', '/auth/reset-password'],
 };

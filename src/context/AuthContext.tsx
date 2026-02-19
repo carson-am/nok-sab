@@ -1,33 +1,55 @@
 'use client';
 
-import { createContext, useContext, ReactNode } from 'react';
-import { useSession, signOut } from 'next-auth/react';
+import { createContext, useContext, ReactNode, useEffect, useState, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
+import { createClient } from '../lib/supabase/client';
+import type { User } from '@supabase/supabase-js';
 
 interface AuthContextType {
   isLoggedIn: boolean;
   userEmail: string | null;
   login: (email: string, password: string) => boolean;
   logout: () => void;
+  isLoading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const { data: session, status } = useSession();
-  const isLoggedIn = status === 'authenticated' && !!session;
-  const userEmail = session?.user?.email ?? null;
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+  const supabase = useMemo(() => createClient(), []);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+      setIsLoading(false);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, [supabase]);
+
+  const isLoggedIn = !!user;
+  const userEmail = user?.email ?? null;
 
   const login = (_email: string, _password: string): boolean => {
-    // Login is handled by LoginCard via signIn(); no-op here for interface compatibility.
     return false;
   };
 
-  const logout = () => {
-    signOut({ callbackUrl: '/login' });
+  const logout = async () => {
+    await supabase.auth.signOut();
+    router.push('/login');
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, userEmail, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, userEmail, login, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

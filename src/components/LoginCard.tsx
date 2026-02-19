@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { createClient } from '../lib/supabase/client';
 import Logo from './Logo';
 
 export default function LoginCard() {
@@ -11,31 +11,42 @@ export default function LoginCard() {
   const [error, setError] = useState('');
   const [showPasswordRecovery, setShowPasswordRecovery] = useState(false);
   const [recoveryEmail, setRecoveryEmail] = useState('');
+  const [recoverySuccess, setRecoverySuccess] = useState(false);
   const router = useRouter();
+  const supabase = createClient();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
-    const result = await signIn('credentials', {
+    const { error: signInError } = await supabase.auth.signInWithPassword({
       email,
       password,
-      redirect: false,
     });
 
-    if (result?.ok) {
-      router.push('/dashboard');
-    } else {
-      setError('Invalid email or password');
+    if (signInError) {
+      setError('Invalid credentials');
+      return;
     }
+    router.push('/dashboard');
   };
 
-  const handlePasswordRecovery = (e: React.FormEvent) => {
+  const handlePasswordRecovery = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Dummy flow - just show success message or reset view
-    setShowPasswordRecovery(false);
-    setRecoveryEmail('');
-    // Could add a toast notification here
+    setError('');
+    setRecoverySuccess(false);
+
+    const redirectTo = typeof window !== 'undefined' ? `${window.location.origin}/auth/reset-password` : '';
+
+    const { error: resetError } = await supabase.auth.resetPasswordForEmail(recoveryEmail, {
+      redirectTo,
+    });
+
+    if (resetError) {
+      setError(resetError.message);
+      return;
+    }
+    setRecoverySuccess(true);
   };
 
   return (
@@ -142,6 +153,15 @@ export default function LoginCard() {
                   />
                 </div>
 
+                {error && (
+                  <div className="text-red-400 text-sm">{error}</div>
+                )}
+                {recoverySuccess && (
+                  <div className="text-green-400 text-sm">
+                    Check your email for a reset link.
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   className="w-full bg-nok-blue text-white font-semibold py-3 px-4 rounded-lg btn-glow"
@@ -155,6 +175,8 @@ export default function LoginCard() {
                     onClick={() => {
                       setShowPasswordRecovery(false);
                       setRecoveryEmail('');
+                      setError('');
+                      setRecoverySuccess(false);
                     }}
                     className="text-slate-400 hover:text-white text-sm transition-colors duration-200"
                   >

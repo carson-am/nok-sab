@@ -2,20 +2,20 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
+import { useAuth } from '../context/AuthContext';
 
 export default function Home() {
-  const { data: session, status } = useSession();
+  const { isLoggedIn, isLoading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (status === 'loading') return;
-    if (session) {
+    if (isLoading) return;
+    if (isLoggedIn) {
       router.replace('/dashboard');
     } else {
       router.replace('/login');
     }
-  }, [session, status, router]);
+  }, [isLoggedIn, isLoading, router]);
 
   return null;
 }
