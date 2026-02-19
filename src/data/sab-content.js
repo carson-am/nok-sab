@@ -358,174 +358,21 @@ export const calendarEvents = [
     description: "Quarterly strategic discussion on market trends, operational insights, and strategic initiatives. This session will focus on Q1 performance review and Q2 planning priorities.",
     location: "Virtual",
     meetingLink: "https://zoom.us/j/123456789"
-  },
-  {
-    id: 2,
-    title: "Quarterly Deep Dive: Technology & Innovation",
-    date: "2026-03-10",
-    time: "10:00 AM EST",
-    description: "An in-depth exploration of emerging technologies in reverse logistics, automation opportunities, and innovation roadmaps. Members will review technical architecture and provide strategic guidance.",
-    location: "Virtual",
-    meetingLink: "https://zoom.us/j/987654321"
-  },
-  {
-    id: 3,
-    title: "Annual Strategic Planning Session",
-    date: "2026-04-20",
-    time: "9:00 AM EST",
-    description: "Comprehensive annual planning session covering strategic priorities, market positioning, and long-term vision. This extended session includes breakout discussions and collaborative strategy development.",
-    location: "Nok Headquarters - Conference Room A",
-    meetingLink: null
-  },
-  {
-    id: 4,
-    title: "Monthly Executive Roundtable",
-    date: "2026-05-12",
-    time: "2:00 PM EST",
-    description: "Regular monthly session focusing on operational updates, member insights, and strategic alignment. Discussion topics include market dynamics and competitive positioning.",
-    location: "Virtual",
-    meetingLink: "https://zoom.us/j/456789123"
   }
 ];
 
-export const meetings = [
-  {
-    id: 1,
-    title: "Q4 2025 Strategic Review",
-    date: "2025-12-10",
-    summary: "Comprehensive review of Q4 performance metrics, strategic initiatives, and market positioning. Discussion included analysis of holiday season performance, operational efficiency improvements, and preparation for 2026 strategic priorities.",
-    takeaways: [
-      "Q4 performance exceeded targets with 15% growth in key metrics",
-      "Strategic focus for Q1 2026: market expansion and technology infrastructure",
-      "Board alignment on GTM positioning and partnership strategy"
-    ],
-    recordingLink: "https://example.com/recording/q4-2025",
-    deckLink: "https://example.com/deck/q4-2025-review.pdf"
-  },
-  {
-    id: 2,
-    title: "Technology Roadmap Deep Dive",
-    date: "2025-11-15",
-    summary: "Detailed presentation and discussion of technology infrastructure, automation opportunities, and innovation initiatives. Board members provided valuable feedback on scalability, security, and user experience enhancements.",
-    takeaways: [
-      "Technology infrastructure roadmap approved for next 18 months",
-      "Prioritization of automation and AI initiatives for reverse logistics",
-      "Security and scalability requirements documented for platform evolution"
-    ],
-    recordingLink: "https://example.com/recording/tech-roadmap-2025",
-    deckLink: "https://example.com/deck/technology-roadmap.pdf"
-  },
-  {
-    id: 3,
-    title: "Market Expansion Strategy",
-    date: "2025-10-08",
-    summary: "Strategic discussion on market expansion opportunities, partnership strategies, and competitive landscape analysis. Members shared insights on market entry approaches and growth acceleration tactics.",
-    takeaways: [
-      "Market expansion priorities identified for North America and Europe",
-      "Partnership strategy refined for key verticals",
-      "Competitive positioning and differentiation themes agreed"
-    ],
-    recordingLink: "https://example.com/recording/market-expansion",
-    deckLink: null
-  },
-  {
-    id: 4,
-    title: "Sustainability & ESG Initiatives",
-    date: "2025-09-20",
-    summary: "Review of sustainability metrics, ESG reporting, and environmental impact initiatives. Discussion focused on circular economy principles, carbon footprint reduction, and stakeholder engagement strategies.",
-    takeaways: [
-      "ESG reporting framework aligned with industry standards",
-      "Carbon footprint reduction targets set for 2026",
-      "Circular economy metrics integrated into operational dashboards"
-    ],
-    recordingLink: null,
-    deckLink: "https://example.com/deck/sustainability-esg-2025.pdf"
-  },
-  {
-    id: 5,
-    title: "Operational Excellence Review",
-    date: "2025-08-14",
-    summary: "Comprehensive operational review covering logistics efficiency, quality metrics, and process improvements. Board members provided guidance on optimization opportunities and best practices from their respective industries.",
-    takeaways: [
-      "Operational KPIs and benchmarks established across key functions",
-      "Process improvement roadmap for logistics and quality",
-      "Best practices shared from member organizations"
-    ],
-    recordingLink: "https://example.com/recording/ops-excellence",
-    deckLink: "https://example.com/deck/operational-excellence.pdf"
-  }
-];
+export const meetings = [];
 
 export const presentations = [
   {
     id: 7,
     title: "Short-Form Deck",
     filename: "nok-short-form-deck.pdf",
-    category: "Nok Resources",
+    category: "Internal Resources",
     description: "The Nok short-form deck provides an executive-level overview of how brands can transform returns from a cost center into a scalable profit center using end-to-end recommerce infrastructure. It demonstrates how Nok delivers full visibility, intelligent disposition, and measurable P&L impact across the reverse supply chain.",
     fileType: "PDF",
     fileSize: "—",
     downloadLink: "/nok-short-form-deck.pdf"
-  },
-  {
-    id: 1,
-    title: "Q4 2025 Performance Review",
-    filename: "q4-2025-performance-review.pdf",
-    category: "Quarterly Reviews",
-    description: "Comprehensive analysis of Q4 2025 performance metrics, including revenue growth, operational efficiency, and strategic milestone achievements.",
-    fileType: "PDF",
-    fileSize: "2.8 MB",
-    downloadLink: "/downloads/q4-2025-performance-review.pdf"
-  },
-  {
-    id: 2,
-    title: "2026 Strategic Roadmap",
-    filename: "2026-strategic-roadmap.pdf",
-    category: "Strategy & Roadmaps",
-    description: "Detailed strategic roadmap outlining key initiatives, market positioning, and growth strategies for 2026 and beyond.",
-    fileType: "PDF",
-    fileSize: "3.2 MB",
-    downloadLink: "/downloads/2026-strategic-roadmap.pdf"
-  },
-  {
-    id: 3,
-    title: "Technology & Innovation Overview",
-    filename: "technology-innovation-overview.pdf",
-    category: "Technology & Innovation",
-    description: "Overview of technology infrastructure, innovation initiatives, and digital transformation strategies driving operational excellence.",
-    fileType: "PDF",
-    fileSize: "2.5 MB",
-    downloadLink: "/downloads/technology-innovation-overview.pdf"
-  },
-  {
-    id: 4,
-    title: "Market Analysis & Competitive Landscape",
-    filename: "market-analysis-competitive-landscape.pdf",
-    category: "Market Research",
-    description: "In-depth market analysis covering industry trends, competitive positioning, and market opportunity assessments.",
-    fileType: "PDF",
-    fileSize: "4.1 MB",
-    downloadLink: "/downloads/market-analysis-competitive-landscape.pdf"
-  },
-  {
-    id: 5,
-    title: "Sustainability & ESG Report 2025",
-    filename: "sustainability-esg-report-2025.pdf",
-    category: "Sustainability & ESG",
-    description: "Comprehensive ESG report detailing sustainability initiatives, environmental impact metrics, and corporate responsibility programs.",
-    fileType: "PDF",
-    fileSize: "3.7 MB",
-    downloadLink: "/downloads/sustainability-esg-report-2025.pdf"
-  },
-  {
-    id: 6,
-    title: "Operational Excellence Metrics",
-    filename: "operational-excellence-metrics.pdf",
-    category: "Operations",
-    description: "Key operational metrics, efficiency benchmarks, and process improvement initiatives across logistics and supply chain operations.",
-    fileType: "PDF",
-    fileSize: "2.3 MB",
-    downloadLink: "/downloads/operational-excellence-metrics.pdf"
   }
 ];
 

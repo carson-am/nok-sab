@@ -74,7 +74,9 @@ export default function MeetingsPage() {
       <div className="space-y-6">
         {filteredMeetings.length === 0 ? (
           <p className="text-slate-400 text-center py-8">
-            No meetings found matching your search.
+            {meetings.length === 0
+              ? "No past meetings archived yet."
+              : "No meetings found matching your search."}
           </p>
         ) : (
           filteredMeetings.map((meeting) => {

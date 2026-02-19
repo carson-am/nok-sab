@@ -40,7 +40,7 @@ export default function ReferralPartnerModal({ isOpen, onClose }: ReferralPartne
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-xl rounded-xl p-6 lg:p-8 backdrop-blur-xl bg-slate-900/80 border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)]">
+              <Dialog.Panel className="w-full max-w-xl rounded-xl pt-4 px-6 pb-6 lg:pt-5 lg:px-8 lg:pb-8 backdrop-blur-xl bg-slate-900/80 border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)]">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -61,7 +61,7 @@ export default function ReferralPartnerModal({ isOpen, onClose }: ReferralPartne
                   </Dialog.Title>
 
                   <div className="text-center mb-0">
-                    <div className="flex items-center justify-center mb-10 mt-4">
+                    <div className="flex items-center justify-center mb-10 mt-0">
                       <Logo size="large-modal" />
                     </div>
                     <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">

@@ -9,7 +9,7 @@ import ResourceDetailModal from '../../../components/ResourceDetailModal';
 type Resource = (typeof presentations)[number];
 
 const CATEGORY_ORDER = [
-  'Nok Resources',
+  'Internal Resources',
   'Quarterly Reviews',
   'Strategy & Roadmaps',
   'Technology & Innovation',
