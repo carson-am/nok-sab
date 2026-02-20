@@ -23,7 +23,7 @@ export const overviewContent = {
 
 export const boardStatus = [
   { label: "Current Q1 Workstream", value: "Product" },
-  { label: "Next Meeting", value: "Executive Roundtable" }
+  { label: "Next Meeting", value: "Strategic Advisory Board Meeting | Product Focus" }
 ];
 
 export const suggestTopicOptions = [
@@ -344,12 +344,12 @@ export const strategicRocks = [
 export const calendarEvents = [
   {
     id: 1,
-    title: "Monthly Executive Roundtable",
-    date: "2026-02-27",
-    time: "12:00 PM – 1:00 PM ET",
-    description: "Quarterly strategic discussion on market trends, operational insights, and strategic initiatives. This session will focus on Q1 performance review and Q2 planning priorities.",
+    title: "Strategic Advisory Board Meeting | Product Focus",
+    date: "2026-03-25",
+    time: "1:00 PM – 2:00 PM ET",
+    description: "Product-focused session for the Strategic Advisory Board. This session will center on product roadmap, analytics, and platform priorities.",
     location: "Virtual",
-    meetingLink: "https://zoom.us/j/123456789"
+    meetingLink: "https://meet.google.com/qab-zzwu-hjn"
   }
 ];
 
