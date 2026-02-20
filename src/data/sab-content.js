@@ -365,6 +365,16 @@ export const presentations = [
     fileType: "PDF",
     fileSize: "—",
     downloadLink: "/nok-short-form-deck.pdf"
+  },
+  {
+    id: 8,
+    title: "Excess Partnership One-Pager",
+    filename: "excess-partnership-one-pager.pdf",
+    category: "Internal Resources",
+    description: "The Exclusive Excess Partnership one pager provides an executive level overview of how Nok helps brands monetize excess inventory through a controlled, brand safe resale program. It explains how Nok protects pricing integrity and channel relationships while delivering end to end execution across logistics, merchandising, and reporting to turn excess into a repeatable recovery engine.",
+    fileType: "PDF",
+    fileSize: "—",
+    downloadLink: "/excess-partnership-one-pager.pdf"
   }
 ];
 

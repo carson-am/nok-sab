@@ -78,7 +78,7 @@ export default function PresentationsPage() {
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-white mb-4">Strategic Resources</h1>
         <p className="text-slate-400 text-lg">
-          Access presentations, reports, and strategic materials from past meetings.
+          Access presentations, reports, and strategic materials.
         </p>
       </div>
 
