@@ -38,24 +38,14 @@ export const suggestTopicOptions = [
 
 export const teamMembers = [
   {
-    id: 1,
-    name: "Maddy McIntyre",
-    title: "CEO",
-    imagePath: "/images/team/maddy-mcIntyre.jpg",
-    bio: "Maddy serves as CEO of Nok, setting the company's vision and strategic direction. She focuses on building a platform that helps brands manage returns and secondary markets more effectively. Her work centers on aligning product, partnerships, and operations to support more circular commerce.",
-    email: "maddy@nokrecommerce.com",
-    phone: "+1 (858) 472-3361",
-    linkedin: "https://www.linkedin.com/in/madeline-mcintyre-02359692/"
-  },
-  {
-    id: 2,
-    name: "Nick Salgado",
-    title: "President",
-    imagePath: "/images/team/nick-salgado.jpeg",
-    bio: "Nick serves as President of Nok, supporting company operations and strategic partnerships. He works closely across teams to help drive execution and growth initiatives. His focus is on keeping Nok's product and go-to-market approach aligned with the evolving needs of recommerce brands.",
-    email: "nick.salgado@nokrecommerce.com",
-    phone: "+1 (480) 577-6031",
-    linkedin: "https://www.linkedin.com/in/nick-salgado/"
+    id: 4,
+    name: "Corbett Morgan",
+    title: "CPO",
+    imagePath: "/images/team/corbett-morgan.jpg",
+    bio: "Corbett supports Nok's product direction and user experience as Product Advisor. He provides guidance on design, workflow, and usability. His input helps ensure the platform remains intuitive and grounded in real-world operational needs.",
+    email: "corbett.morgan@nokrecommerce.com",
+    phone: "+1 (614) 425-4466",
+    linkedin: "https://www.linkedin.com/in/corbettmorgan/"
   },
   {
     id: 5,
@@ -68,14 +58,14 @@ export const teamMembers = [
     linkedin: "https://www.linkedin.com/in/griffin-parrill-mba-10b052176/"
   },
   {
-    id: 4,
-    name: "Corbett Morgan",
-    title: "Product Advisor",
-    imagePath: "/images/team/corbett-morgan.jpg",
-    bio: "Corbett supports Nok's product direction and user experience as Product Advisor. He provides guidance on design, workflow, and usability. His input helps ensure the platform remains intuitive and grounded in real-world operational needs.",
-    email: "corbett.morgan@nokrecommerce.com",
-    phone: "+1 (614) 425-4466",
-    linkedin: "https://www.linkedin.com/in/corbettmorgan/"
+    id: 1,
+    name: "Maddy McIntyre",
+    title: "CEO",
+    imagePath: "/images/team/maddy-mcIntyre.jpg",
+    bio: "Maddy serves as CEO of Nok, setting the company's vision and strategic direction. She focuses on building a platform that helps brands manage returns and secondary markets more effectively. Her work centers on aligning product, partnerships, and operations to support more circular commerce.",
+    email: "maddy@nokrecommerce.com",
+    phone: "+1 (858) 472-3361",
+    linkedin: "https://www.linkedin.com/in/madeline-mcintyre-02359692/"
   },
   {
     id: 3,
@@ -86,6 +76,16 @@ export const teamMembers = [
     email: "matt.casanova@nokrecommerce.com",
     phone: "+1 (805) 404-5509",
     linkedin: "https://www.linkedin.com/in/mattcasanova/"
+  },
+  {
+    id: 2,
+    name: "Nick Salgado",
+    title: "President",
+    imagePath: "/images/team/nick-salgado.jpeg",
+    bio: "Nick serves as President of Nok, supporting company operations and strategic partnerships. He works closely across teams to help drive execution and growth initiatives. His focus is on keeping Nok's product and go-to-market approach aligned with the evolving needs of recommerce brands.",
+    email: "nick.salgado@nokrecommerce.com",
+    phone: "+1 (480) 577-6031",
+    linkedin: "https://www.linkedin.com/in/nick-salgado/"
   }
 ];
 
@@ -100,61 +100,6 @@ export const gettingStarted = {
 };
 
 export const strategicRocks = [
-  {
-    departmentName: "Sales & Accounts",
-    leaderId: 1,
-    rocks: [
-      {
-        task: "Sign 10 individuals to Referral Agreements",
-        why: "Make our small but mighty team feel bigger than we are, filling our top of funnel with leads from close-in individuals that believe in our process."
-      },
-      {
-        task: "Conduct 60 Top of Funnel Meetings",
-        why: "Start building our top of funnel pipeline."
-      },
-      {
-        task: "Secure 2 clients that will launch in Q2",
-        why: "To hit revenue goals, given the time it takes to fully launch and realize value from brands."
-      },
-      {
-        task: "Create a formal sales process",
-        why: "To build process into the sales cycle, so we can hire a junior sales role in Q2."
-      },
-      {
-        task: "Identify key conferences for Beauty, Sport, and Home categories",
-        why: "Aware that conferences can be a waste if we're not targeting the right ones with the most value."
-      }
-    ],
-    scorecardMetrics: [
-      "Sales Meetings: 4 per week",
-      "Qualification: 1 per week",
-      "Proposals: 2 per month",
-      "Closed Customers: 1 per quarter",
-      "Referral Network Growth: 3 individuals per month",
-      "Partner Network Meetings: 2 per week from partner network",
-      "Incremental Revenue: $5,000 per month from mutual referral network",
-      "Partnership Launch: 1 partnership with adjacent business per quarter",
-      "100 Customer Research Calls by June 30"
-    ],
-    quarterlyNeeds: [
-      {
-        category: "Sales Focus",
-        items: [
-          "Introductions to brands within our ICP",
-          "Introductions to other Referral Partners and/or Strategic Advisory Board Members",
-          "Introductions to entry-level BDR talent"
-        ]
-      },
-      {
-        category: "Operations Focus",
-        items: [
-          "Introductions to 3PLs currently performing reverse logistics",
-          "Introductions to 3PLs specifically in Denver, CO"
-        ]
-      }
-    ],
-    howYouCanHelpPlaceholder: "Reach out to discuss introductions, feedback on our GTM approach, or ways to support sales and accounts."
-  },
   {
     departmentName: "Product",
     leaderId: 4,
@@ -205,6 +150,101 @@ export const strategicRocks = [
       }
     ],
     howYouCanHelpPlaceholder: "Reach out to share product feedback, UX insights, or ideas that could shape our roadmap."
+  },
+  {
+    departmentName: "Operations",
+    leaderId: 5,
+    rocks: [
+      {
+        task: "Formalize Service Level Agreements (SLAs) across the 3PL network",
+        why: "To drive warehouse accountability and establish clear performance thresholds that protect brand satisfaction and marketplace health."
+      },
+      {
+        task: "Standardize SOP creation and warehouse implementation processes",
+        why: "To create a repeatable \"playbook\" for brand onboarding, ensuring operational excellence remains consistent as we scale."
+      },
+      {
+        task: "Establish strategic partnerships with certified recycling providers",
+        why: "To guarantee responsible end-of-life disposition for non-resalable goods, meeting both brand sustainability goals and regulatory requirements."
+      },
+      {
+        task: "Optimize warehouse throughput to achieve a 30-day processing cycle",
+        why: "To prevent inventory stagnation and ensure that returned capital is recovered and redeployed as quickly as possible."
+      },
+      {
+        task: "Execute high-priority warehouse node transitions and technical onboarding",
+        why: "To continuously optimize our physical footprint, ensuring inventory is processed at the nodes that offer the best recovery and logistics efficiency."
+      }
+    ],
+    scorecardMetrics: [
+      "Total Throughput: Total units processed weekly",
+      "Warehouse Network: 5+ new warehouse partners in Q1",
+      "On-Time Delivery Rate: >90% for all units",
+      "Valid Tracking Rate: >95% for all units",
+      "Order Defect Rate: <1% for all units",
+      "Receive SLA: >90% of units meeting receive SLA across all brands"
+    ],
+    quarterlyNeeds: [
+      {
+        category: "Operations Focus",
+        items: [
+          "Introductions to 3PLs currently performing reverse logistics",
+          "Introductions to 3PLs specifically in Denver, CO",
+          "Introductions to 3PLs interested in Resale tooling/automation",
+          "Introductions to national-scale recycling and sustainability facilities.",
+          "Strategic guidance on enterprise-level 3PL management and performance expectation setting."
+        ]
+      }
+    ],
+    howYouCanHelpPlaceholder: "Reach out to discuss warehouse partnerships, recycling and disposition connections, or ops process improvements."
+  },
+  {
+    departmentName: "Sales & Accounts",
+    leaderId: 1,
+    rocks: [
+      {
+        task: "Sign 10 individuals to Referral Agreements",
+        why: "Make our small but mighty team feel bigger than we are, filling our top of funnel with leads from close-in individuals that believe in our process."
+      },
+      {
+        task: "Conduct 60 Top of Funnel Meetings in Q1",
+        why: "Start building our top of funnel pipeline."
+      },
+      {
+        task: "Secure 2 clients that will launch in Q2",
+        why: "To hit revenue goals, given the time it takes to fully launch and realize value from brands."
+      },
+      {
+        task: "Create a formal sales process",
+        why: "To build process into the sales cycle, so we can hire a junior sales role in Q2."
+      },
+      {
+        task: "Identify key conferences for Beauty, Sport, and Home categories",
+        why: "Aware that conferences can be a waste if we're not targeting the right ones with the most value."
+      }
+    ],
+    scorecardMetrics: [
+      "Sales Meetings: 4 per week",
+      "Qualification: 1 per week",
+      "Proposals: 2 per month",
+      "Closed Customers: 1 per quarter",
+      "Referral Network Growth: 3 individuals per month",
+      "Partner Network Meetings: 2 per week from partner network",
+      "Incremental Revenue: $5,000 per month from mutual referral network",
+      "Partnership Launch: 1 partnership with adjacent business per quarter",
+      "100 Customer Research Calls by June 30"
+    ],
+    quarterlyNeeds: [
+      {
+        category: "Sales Focus",
+        items: [
+          "Introductions to brands within our ICP",
+          "Introductions to other Referral Partners and/or Strategic Advisory Board Members",
+          "Introductions to entry-level BDR talent"
+        ]
+      }
+    ],
+    howYouCanHelpPlaceholder: "Reach out to discuss introductions, feedback on our GTM approach, or ways to support sales and accounts."
   },
   {
     departmentName: "Engineering",
@@ -284,7 +324,7 @@ export const strategicRocks = [
       {
         category: "Finance Focus",
         items: [
-          "Receivables factoring (how to eliminate float).",
+          "Insight on how we could structure pricing to eliminate Nok covering the brands reverse logistics costs for 2-3 months but still be brand centric.",
           "Guidance on pushing out payment terms with 3PL partners."
         ]
       },
@@ -292,60 +332,12 @@ export const strategicRocks = [
         category: "Resale Focus",
         items: [
           "Introductions to high-level eCommerce talent.",
-          "Buyer and brand introductions for excess inventory or platform clients.",
-          "Introductions to 3PLs interested in Resale tooling/automation.",
+          "Buyer introductions for bulk recommerce (e.g., Global/National Off-Price Retailers, Subscription Box Companies, Gifting Platforms, etc.).",
           "Insights on relevant tech players in the resale ecosystem worth knowing."
         ]
       }
     ],
     howYouCanHelpPlaceholder: "Reach out to discuss resale strategy, marketplace connections, or finance and operations best practices."
-  },
-  {
-    departmentName: "Operations",
-    leaderId: 5,
-    rocks: [
-      {
-        task: "Formalize Service Level Agreements (SLAs) across the 3PL network",
-        why: "To drive warehouse accountability and establish clear performance thresholds that protect brand satisfaction and marketplace health."
-      },
-      {
-        task: "Standardize SOP creation and warehouse implementation processes",
-        why: "To create a repeatable \"playbook\" for brand onboarding, ensuring operational excellence remains consistent as we scale."
-      },
-      {
-        task: "Establish strategic partnerships with certified recycling providers",
-        why: "To guarantee responsible end-of-life disposition for non-resalable goods, meeting both brand sustainability goals and regulatory requirements."
-      },
-      {
-        task: "Optimize warehouse throughput to achieve a 30-day processing cycle",
-        why: "To prevent inventory stagnation and ensure that returned capital is recovered and redeployed as quickly as possible."
-      },
-      {
-        task: "Execute high-priority warehouse node transitions and technical onboarding",
-        why: "To continuously optimize our physical footprint, ensuring inventory is processed at the nodes that offer the best recovery and logistics efficiency."
-      }
-    ],
-    scorecardMetrics: [
-      "Total Throughput: Total units processed weekly",
-      "Warehouse Network: 5+ new warehouse partners in Q1",
-      "On-Time Delivery Rate: >90% for all units",
-      "Valid Tracking Rate: >95% for all units",
-      "Order Defect Rate: <1% for all units",
-      "Receive SLA: >90% of units meeting receive SLA across all brands"
-    ],
-    quarterlyNeeds: [
-      {
-        category: "Operations Focus",
-        items: [
-          "Expertise in optimizing operations timelines and routines.",
-          "Deep dive into 3PL communication protocols and expectation setting.",
-          "Insights into achieving day-to-day efficiency through off-site planning.",
-          "Strategy for transportation and logistics timelines.",
-          "Goal setting to prevent setbacks and roadblocks in production workflows."
-        ]
-      }
-    ],
-    howYouCanHelpPlaceholder: "Reach out to discuss warehouse partnerships, recycling and disposition connections, or ops process improvements."
   }
 ];
 

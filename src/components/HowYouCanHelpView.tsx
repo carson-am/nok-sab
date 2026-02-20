@@ -224,14 +224,13 @@ export default function HowYouCanHelpView() {
                             ) : null}
                           </div>
 
-                          {/* Q1 2026 Priorities and Key Scorecard Metrics (below How You Can Help) */}
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                            {/* Left: Q1 2026 Priorities (Rocks) */}
-                            <div>
+                          {/* Q1 2026 Priorities (Rocks) — centered, no metrics */}
+                          <div className="mt-8 flex flex-col items-center">
+                            <div className="w-full max-w-2xl mx-auto text-center">
                               <h4 className="text-nok-blue font-semibold mb-4">
                                 Q1 2026 Priorities (Rocks)
                               </h4>
-                              <ul className="space-y-3">
+                              <ul className="space-y-3 text-left">
                                 {section.rocks.map((rock, i) => {
                                   const isTaskWhy = typeof rock === 'object' && rock !== null && 'task' in rock && 'why' in rock;
                                   if (isTaskWhy) {
@@ -256,23 +255,6 @@ export default function HowYouCanHelpView() {
                                   );
                                 })}
                               </ul>
-                            </div>
-
-                            {/* Right: Key Scorecard Metrics */}
-                            <div>
-                              <h4 className="text-nok-blue font-semibold mb-4">
-                                Key Scorecard Metrics
-                              </h4>
-                              <div className="flex flex-wrap gap-2">
-                                {section.scorecardMetrics.map((metric, i) => (
-                                  <span
-                                    key={i}
-                                    className="inline-flex items-center px-3 py-2 rounded-lg bg-transparent border border-white/10 text-slate-200 text-sm"
-                                  >
-                                    {metric}
-                                  </span>
-                                ))}
-                              </div>
                             </div>
                           </div>
                         </div>
