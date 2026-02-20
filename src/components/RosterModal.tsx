@@ -1,9 +1,9 @@
 'use client';
 
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { motion } from 'framer-motion';
-import { X, Mail, Phone, Linkedin, Copy } from 'lucide-react';
+import { X, Linkedin, User } from 'lucide-react';
 import Image from 'next/image';
 
 interface RosterModalProps {
@@ -14,29 +14,14 @@ interface RosterModalProps {
     title: string;
     company: string;
     bio: string;
-    email: string;
-    phone: string;
     linkedin?: string;
-    expertise?: string[];
     location?: string;
+    imagePath?: string | null;
+    tags?: string[];
   } | null;
 }
 
-const DEFAULT_HEADSHOT = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop';
-
 export default function RosterModal({ isOpen, onClose, member }: RosterModalProps) {
-  const [copiedField, setCopiedField] = useState<'email' | 'phone' | null>(null);
-
-  const handleCopy = async (field: 'email' | 'phone', value: string) => {
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopiedField(field);
-      setTimeout(() => setCopiedField(null), 2000);
-    } catch {
-      // fallback ignored
-    }
-  };
-
   if (!member) return null;
 
   return (
@@ -85,14 +70,20 @@ export default function RosterModal({ isOpen, onClose, member }: RosterModalProp
                   </div>
 
                   <div className="flex flex-col md:flex-row gap-6 mb-6">
-                    <div className="flex-shrink-0">
-                      <Image
-                        src={DEFAULT_HEADSHOT}
-                        alt={member.name}
-                        width={180}
-                        height={180}
-                        className="rounded-xl object-cover"
-                      />
+                    <div className="flex-shrink-0 flex justify-center md:justify-start">
+                      {member.imagePath ? (
+                        <Image
+                          src={member.imagePath}
+                          alt={member.name}
+                          width={180}
+                          height={180}
+                          className="rounded-xl object-cover"
+                        />
+                      ) : (
+                        <div className="w-[180px] h-[180px] rounded-xl bg-slate-700 flex items-center justify-center">
+                          <User className="text-slate-400" size={72} />
+                        </div>
+                      )}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-lg text-nok-blue font-semibold mb-1">{member.title}</p>
@@ -101,7 +92,6 @@ export default function RosterModal({ isOpen, onClose, member }: RosterModalProp
                     </div>
                   </div>
 
-                  {/* Nok Blue gradient divider */}
                   <div
                     className="h-px w-full mb-6"
                     style={{
@@ -109,68 +99,16 @@ export default function RosterModal({ isOpen, onClose, member }: RosterModalProp
                     }}
                   />
 
-                  <div className="space-y-2">
+                  {member.linkedin && member.linkedin !== '#' && (
                     <a
-                      href={`mailto:${member.email}`}
-                      className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 group"
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-nok-blue text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-200 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]"
                     >
-                      <Mail className="text-nok-blue flex-shrink-0 transition-all duration-200 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" size={20} />
-                      <span className="flex-1 text-white group-hover:text-nok-blue transition-colors duration-200 truncate">
-                        {member.email}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          handleCopy('email', member.email);
-                        }}
-                        className="opacity-0 group-hover:opacity-100 p-1.5 rounded text-slate-400 hover:text-white transition-all duration-200 flex-shrink-0"
-                        aria-label="Copy email"
-                      >
-                        <Copy size={16} />
-                      </button>
+                      <Linkedin size={20} />
+                      LinkedIn Profile
                     </a>
-                    <a
-                      href={`tel:${member.phone}`}
-                      className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 group"
-                    >
-                      <Phone className="text-nok-blue flex-shrink-0 transition-all duration-200 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" size={20} />
-                      <span className="flex-1 text-white group-hover:text-nok-blue transition-colors duration-200">
-                        {member.phone}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          handleCopy('phone', member.phone);
-                        }}
-                        className="opacity-0 group-hover:opacity-100 p-1.5 rounded text-slate-400 hover:text-white transition-all duration-200 flex-shrink-0"
-                        aria-label="Copy phone"
-                      >
-                        <Copy size={16} />
-                      </button>
-                    </a>
-                    {member.linkedin && member.linkedin !== '#' && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 group"
-                      >
-                        <Linkedin className="text-nok-blue flex-shrink-0 transition-all duration-200 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" size={20} />
-                        <span className="flex-1 text-white group-hover:text-nok-blue transition-colors duration-200">
-                          LinkedIn Profile
-                        </span>
-                      </a>
-                    )}
-                  </div>
-
-                  {copiedField && (
-                    <p className="mt-3 text-xs text-nok-blue">
-                      {copiedField === 'email' ? 'Email copied' : 'Phone copied'}
-                    </p>
                   )}
                 </motion.div>
               </Dialog.Panel>
