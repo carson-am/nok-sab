@@ -8,12 +8,18 @@ import RosterModal from '../../../components/RosterModal';
 const SAB_ROLE = 'Strategic Advisory Board';
 const BOD_ROLE = 'Board of Directors';
 
+function byFirstName(a: { name: string }, b: { name: string }) {
+  const firstA = a.name.split(' ')[0].toLowerCase();
+  const firstB = b.name.split(' ')[0].toLowerCase();
+  return firstA.localeCompare(firstB);
+}
+
 export default function RosterPage() {
   const [selectedMember, setSelectedMember] = useState<typeof rosterMembers[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const sabMembers = rosterMembers.filter((m) => m.role === SAB_ROLE);
-  const directorsMembers = rosterMembers.filter((m) => m.role === BOD_ROLE);
+  const sabMembers = rosterMembers.filter((m) => m.role === SAB_ROLE).sort(byFirstName);
+  const directorsMembers = rosterMembers.filter((m) => m.role === BOD_ROLE).sort(byFirstName);
 
   const handleContact = (member: typeof rosterMembers[0]) => {
     setSelectedMember(member);
