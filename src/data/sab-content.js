@@ -27,12 +27,12 @@ export const boardStatus = [
 ];
 
 export const suggestTopicOptions = [
-  "Product Roadmap Deep Dive",
-  "Reverse Logistics Benchmarking Data",
-  "CFO-Grade ROI Case Studies",
+  "Recommerce Benchmarking Data",
+  "ROI Case Studies",
+  "Multi-Channel Resale Strategy",
+  "AI & Automation in Recommerce",
+  "Returns Fraud & Abuse Trends",
   "Sustainable Disposition Strategies",
-  "Consumer Behavior Trends in Resale",
-  "Retailer Relationship Management (ZVR/SLA)",
   "Other"
 ];
 
@@ -44,7 +44,7 @@ export const teamMembers = [
     imagePath: "/images/team/maddy-mcIntyre.jpg",
     bio: "Maddy serves as CEO of Nok, setting the company's vision and strategic direction. She focuses on building a platform that helps brands manage returns and secondary markets more effectively. Her work centers on aligning product, partnerships, and operations to support more circular commerce.",
     email: "maddy@nokrecommerce.com",
-    phone: "+1 (555) 000-0000",
+    phone: "+1 (858) 472-3361",
     linkedin: "https://www.linkedin.com/in/madeline-mcintyre-02359692/"
   },
   {
@@ -54,7 +54,7 @@ export const teamMembers = [
     imagePath: "/images/team/nick-salgado.jpeg",
     bio: "Nick serves as President of Nok, supporting company operations and strategic partnerships. He works closely across teams to help drive execution and growth initiatives. His focus is on keeping Nok's product and go-to-market approach aligned with the evolving needs of recommerce brands.",
     email: "nick.salgado@nokrecommerce.com",
-    phone: "+1 (555) 000-0000",
+    phone: "+1 (480) 577-6031",
     linkedin: "https://www.linkedin.com/in/nick-salgado/"
   },
   {
@@ -64,7 +64,7 @@ export const teamMembers = [
     imagePath: "/images/team/griffin-parrill.webp",
     bio: "Griffin supports operations at Nok as Operations Lead. He works hands-on in the warehouse with inventory and workflows. His focus is on ensuring products move efficiently through Nok's reverse logistics system.",
     email: "griffin.parrill@nokrecommerce.com",
-    phone: "+1 (555) 000-0000",
+    phone: "+1 (419) 307-9549",
     linkedin: "https://www.linkedin.com/in/griffin-parrill-mba-10b052176/"
   },
   {
@@ -74,7 +74,7 @@ export const teamMembers = [
     imagePath: "/images/team/corbett-morgan.jpg",
     bio: "Corbett supports Nok's product direction and user experience as Product Advisor. He provides guidance on design, workflow, and usability. His input helps ensure the platform remains intuitive and grounded in real-world operational needs.",
     email: "corbett.morgan@nokrecommerce.com",
-    phone: "+1 (555) 000-0000",
+    phone: "+1 (614) 425-4466",
     linkedin: "https://www.linkedin.com/in/corbettmorgan/"
   },
   {
@@ -84,7 +84,7 @@ export const teamMembers = [
     imagePath: "/images/team/matt-casanova.jpeg",
     bio: "Matt serves as CTO of Nok, leading technology strategy and platform development. He oversees system architecture, data infrastructure, and engineering efforts. His focus is on building flexible, reliable technology that supports end-to-end reverse logistics.",
     email: "matt.casanova@nokrecommerce.com",
-    phone: "+1 (555) 000-0000",
+    phone: "+1 (805) 404-5509",
     linkedin: "https://www.linkedin.com/in/mattcasanova/"
   }
 ];
@@ -92,7 +92,7 @@ export const teamMembers = [
 export const howYouCanHelpIntroTitle = "Understanding Nok's Leadership Model";
 
 export const howYouCanHelpIntroBody =
-  "Nok Recommerce operates on the Entrepreneurial Operating System (EOS), a proven framework that brings clarity, accountability, and measurable progress to our organization. At the heart of EOS are \"Rocks\"; our quarterly priorities that represent the most critical objectives each team member commits to achieving within a 90-day period.\n\nOur Q1 2026 Rocks are designed to drive transformational progress across five key functional areas: Sales & Accounts, Product, Engineering, Resale, and Operations. Each Rock is tied to specific, measurable outcomes that ladder up to our company-wide goals. Below, you'll find detailed information about what each leader is working on and where your expertise can make the greatest impact.";
+  "Nok operates on the Entrepreneurial Operating System (EOS), a proven framework that brings clarity, accountability, and measurable progress to our organization. At the heart of EOS are \"Rocks\"; our quarterly priorities that represent the most critical objectives each team member commits to achieving within a 90-day period.\n\nOur Q1 2026 Rocks are designed to drive transformational progress across five key functional areas: Sales & Accounts, Product, Engineering, Resale, and Operations. Each Rock is tied to specific, measurable outcomes that ladder up to our company-wide goals. Below, you'll find detailed information about what each leader is working on and where your expertise can make the greatest impact.";
 
 export const gettingStarted = {
   title: "Getting Started",
