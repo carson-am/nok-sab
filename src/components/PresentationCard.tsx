@@ -72,7 +72,7 @@ export default function PresentationCard({
   };
 
   return (
-    <div className="glass-card p-6 rounded-xl flex flex-col h-full card-glow transition-all duration-200">
+    <div className="glass-card p-6 rounded-xl flex flex-col h-full card-glow transition-all duration-200 min-h-0">
       <div
         role="button"
         tabIndex={0}
@@ -83,17 +83,17 @@ export default function PresentationCard({
             onCardClick?.();
           }
         }}
-        className={`flex-1 min-w-0 ${onCardClick ? 'cursor-pointer' : ''}`}
+        className={`flex-1 min-h-0 min-w-0 flex flex-col ${onCardClick ? 'cursor-pointer' : ''}`}
         aria-label={onCardClick ? `View details for ${title}` : undefined}
       >
-        <div className="flex items-start gap-4 mb-3">
+        <div className="flex items-start gap-4 mb-3 flex-1 min-h-0">
           <div className="flex-shrink-0">
             <Icon className="text-nok-blue" size={32} />
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
             {description && (
-              <p className="text-slate-100 leading-relaxed text-sm line-clamp-2 mb-3">
+              <p className="text-slate-100 leading-relaxed text-sm line-clamp-2 mb-3 min-h-[2.5rem]">
                 {description}
               </p>
             )}
@@ -105,10 +105,10 @@ export default function PresentationCard({
           </p>
         )}
       </div>
-      <div className="mt-auto">
+      <div className="flex-shrink-0">
         <button
           onClick={handleDownload}
-          className="w-full bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-4 rounded-lg btn-glow flex items-center justify-center gap-2 transition-all duration-200"
+          className="w-full h-12 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-4 rounded-lg btn-glow flex items-center justify-center gap-2 transition-all duration-200"
         >
           <Download size={18} />
           Download

@@ -6,8 +6,6 @@ import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import Logo from './Logo';
 
-const REFERRAL_DASHBOARD_URL = 'https://nok-referral-program.vercel.app/dashboard/current-partners';
-
 interface ReferralPartnerModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -73,14 +71,13 @@ export default function ReferralPartnerModal({ isOpen, onClose }: ReferralPartne
                   </div>
 
                   <div className="flex justify-center">
-                    <a
-                      href={REFERRAL_DASHBOARD_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-6 rounded-lg btn-glow transition-all duration-200 text-base"
+                    <button
+                      type="button"
+                      disabled
+                      className="inline-flex items-center justify-center gap-2 bg-nok-blue/70 text-white font-semibold py-3 px-6 rounded-lg text-base cursor-not-allowed opacity-80 transition-all duration-200"
                     >
-                      Access the Referral Partner Dashboard
-                    </a>
+                      Coming Soon
+                    </button>
                   </div>
                 </motion.div>
               </Dialog.Panel>
