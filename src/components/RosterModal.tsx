@@ -21,6 +21,12 @@ interface RosterModalProps {
   } | null;
 }
 
+function displayName(name: string): string {
+  const first = name.split(' ')[0];
+  if (first === 'Blake' || first === 'Chad') return `${name} (Observer)`;
+  return name;
+}
+
 export default function RosterModal({ isOpen, onClose, member }: RosterModalProps) {
   if (!member) return null;
 
@@ -58,7 +64,7 @@ export default function RosterModal({ isOpen, onClose, member }: RosterModalProp
                 >
                   <div className="flex justify-between items-start mb-6">
                     <Dialog.Title className="text-2xl font-bold text-white">
-                      {member.name}
+                      {displayName(member.name)}
                     </Dialog.Title>
                     <button
                       onClick={onClose}
