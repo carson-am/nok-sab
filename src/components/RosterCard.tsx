@@ -59,23 +59,25 @@ export default function RosterCard({ name, title, company, buttonLabel, onContac
         <p className="text-slate-400 mb-3">{company}</p>
 
         {tags && tags.length > 0 && (
-          <div className="grid grid-cols-2 gap-x-1 gap-y-2 justify-items-center mb-4">
+          <div className="flex flex-col items-center gap-y-2 mb-4">
             {tags.length === 1 ? (
-              <span className="col-span-2 place-self-center inline-block px-2.5 py-1 rounded-full bg-white/10 text-xs text-slate-300">
+              <span className="inline-block px-2.5 py-1 rounded-full bg-white/10 text-xs text-slate-300">
                 {tags[0]}
               </span>
             ) : (
               <>
-                {tags.slice(0, 2).map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-block px-2.5 py-1 rounded-full bg-white/10 text-xs text-slate-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                <div className="flex justify-center gap-2">
+                  {tags.slice(0, 2).map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-block px-2.5 py-1 rounded-full bg-white/10 text-xs text-slate-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
                 {tags.length > 2 && (
-                  <span className="col-span-2 place-self-center inline-block px-2.5 py-1 rounded-full bg-white/10 text-xs text-slate-300">
+                  <span className="inline-block px-2.5 py-1 rounded-full bg-white/10 text-xs text-slate-300">
                     {tags[2]}
                   </span>
                 )}
