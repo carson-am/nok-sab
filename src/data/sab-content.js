@@ -468,7 +468,7 @@ export const rosterMembers = [
     "bio": "Blake is the Founder and Managing General Partner of Tech Square Ventures, an Atlanta-based early-stage venture capital firm that has backed more than 130 startups. He serves on the board of Nok Recommerce, alongside other portfolio companies. Previously, Blake was General Manager of Georgia Tech's ATDC—named by Forbes as one of the top incubators in the world—and held executive roles at iXL, helping scale it to over $400M in revenue and an IPO. He is a Professor of the Practice at Georgia Tech and holds a B.S. in Industrial and Systems Engineering from Georgia Tech.",
     "linkedin": "https://www.linkedin.com/in/blakepatton/",
     "tags": ["Venture Capital", "Enterprise Tech", "Incubation"],
-    "imagePath": "/images/board/blake-patton.jpeg"
+    "imagePath": null
   },
   {
     "id": 8,
@@ -516,7 +516,7 @@ export const rosterMembers = [
     "bio": "Tylan is the Executive Vice President of Industrial Design and Innovation at Westinghouse Electric Corporation. Prior to this role, he spent over a decade at Stanley Black & Decker, rising to Senior Director of Global Industrial Design, where he led global teams to redesign and reposition brands including BLACK+DECKER across 100+ product categories. Tylan brings a deep understanding of consumer product design, brand experience, and innovation strategy. He holds a B.S. in Industrial Design from The Ohio State University.",
     "linkedin": "https://www.linkedin.com/in/tylan-tschopp-093ab67/",
     "tags": ["Industrial Design", "Innovation", "Consumer Products"],
-    "imagePath": "/images/board/tylan-tschopp.jpeg"
+    "imagePath": null
   },
   {
     "id": 12,

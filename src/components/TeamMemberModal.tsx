@@ -83,7 +83,7 @@ export default function TeamMemberModal({ isOpen, onClose, member }: TeamMemberM
 
                   <Dialog.Title className="sr-only">{member.name}</Dialog.Title>
 
-                  <div className="w-48 h-48 rounded-full overflow-hidden flex-shrink-0 mx-auto mb-4 aspect-square">
+                  <div className="w-48 h-48 rounded-full overflow-hidden flex-shrink-0 mx-auto mb-4 aspect-square ring-2 ring-nok-blue/40 shadow-[0_0_20px_rgba(59,130,246,0.3)]">
                     <Image
                       src={member.imagePath}
                       alt={member.name}

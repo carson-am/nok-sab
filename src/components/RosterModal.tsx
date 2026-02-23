@@ -78,23 +78,25 @@ export default function RosterModal({ isOpen, onClose, member }: RosterModalProp
                   <div className="flex flex-col md:flex-row gap-6 mb-6">
                     <div className="flex-shrink-0 flex justify-center md:justify-start">
                       {member.imagePath ? (
-                        <Image
-                          src={member.imagePath}
-                          alt={member.name}
-                          width={180}
-                          height={180}
-                          className="rounded-xl object-cover"
-                        />
+                        <div className="w-44 h-44 rounded-full overflow-hidden aspect-square ring-2 ring-nok-blue/40 shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+                          <Image
+                            src={member.imagePath}
+                            alt={member.name}
+                            width={176}
+                            height={176}
+                            className="w-full h-full aspect-square object-cover"
+                          />
+                        </div>
                       ) : (
-                        <div className="w-[180px] h-[180px] rounded-xl bg-slate-700 flex items-center justify-center">
+                        <div className="w-44 h-44 rounded-full bg-slate-700 flex items-center justify-center ring-2 ring-nok-blue/30 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                           <User className="text-slate-400" size={72} />
                         </div>
                       )}
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-lg text-nok-blue font-semibold mb-1">{member.title}</p>
-                      <p className="text-lg font-bold text-white mb-4">{member.company}</p>
-                      <p className="text-slate-100 leading-relaxed">{member.bio}</p>
+                    <div className="flex-1 min-w-0 flex flex-col justify-center">
+                      <p className="text-base text-nok-blue font-semibold mb-1">{member.title}</p>
+                      <p className="text-base font-bold text-white mb-3">{member.company}</p>
+                      <p className="text-slate-100 leading-relaxed text-sm">{member.bio}</p>
                     </div>
                   </div>
 
