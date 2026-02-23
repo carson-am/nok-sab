@@ -541,5 +541,17 @@ export const rosterMembers = [
     "linkedin": "https://www.linkedin.com/in/nick-salgado/",
     "tags": ["Finance", "Operations", "Recommerce"],
     "imagePath": "/images/team/nick-salgado.jpeg"
+  },
+  {
+    "id": 14,
+    "name": "Carlos David Granados",
+    "title": "Supply Chain Logistics Manager",
+    "company": "Dupray",
+    "location": "Montreal, Quebec",
+    "role": "Strategic Advisory Board",
+    "bio": "Carlos brings hands-on experience in e-commerce logistics and supply chain management. He currently serves as a Supply Chain Logistics Manager at Dupray, managing inventory across 100+ SKUs. His career spans roles at MSC Mediterranean Shipping Company, Dollarama, and Traffic Tech, where he developed expertise in freight negotiation, inbound/outbound logistics, and international shipping operations across North America.",
+    "linkedin": "https://www.linkedin.com/in/carlos-david-granados-109068173/",
+    "tags": ["Logistics", "eCommerce", "Supply Chain"],
+    "imagePath": "/images/board/carlos-david-granados.jpeg"
   }
 ];
