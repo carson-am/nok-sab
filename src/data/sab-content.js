@@ -315,20 +315,36 @@ export const strategicRocks = [
     leaderId: 3,
     rocks: [
       {
-        task: "Execute the decommissioning of legacy technology architecture",
-        why: "To eliminate technical debt and capture significant operational cost savings, refocusing resources on our primary scalable platform."
+        task: "Execute legacy technology decommissioning",
+        metric: "Audit 100% of legacy apps → Transition all active brands to new platform → Complete server shutdown.",
+        why: "To eliminate technical debt and capture significant operational cost savings, refocusing engineering resources on our primary scalable platform.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Deploy an automated resolution engine for shipment delays",
-        why: "To improve brand trust and customer experience by proactively managing logistics exceptions through intelligent automation."
+        task: "Deploy automated resolution engine for shipment delays",
+        metric: "Identify top 3 delay scenarios → Code resolution logic → 100% automated handling for exceptions.",
+        why: "To improve brand trust and customer experience by proactively managing logistics exceptions through intelligent automation.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Launch the first production instance of the standalone 'Resale-Only' module",
-        why: "To validate our modular technology approach, enabling brands to utilize Nok's resale engine as a standalone strategic lever."
+        task: "Launch production instance of 'Resale-Only' module",
+        metric: "Complete beta testing → Deploy production instance → Validate first standalone brand client.",
+        why: "To validate our modular technology approach, enabling brands to utilize Nok's resale engine as a standalone strategic lever.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Formalize strategic alignment across the Product and Engineering teams",
-        why: "To ensure high-velocity execution of our technical vision and maintain total team buy-in on our long-term roadmap."
+        task: "Formalize Product and Engineering strategic alignment",
+        metric: "Shared roadmap finalized → Weekly cross-functional syncs established → 100% team buy-in achieved.",
+        why: "To ensure high-velocity execution of our technical vision and maintain total team alignment on our long-term roadmap.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       }
     ],
     scorecardMetrics: [
