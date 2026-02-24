@@ -374,24 +374,44 @@ export const strategicRocks = [
     leaderId: 2,
     rocks: [
       {
-        task: "Standardize brand, 3PL, and service-level agreements",
-        why: "To protect brand equity and ensure operational accountability across our entire partner and warehouse ecosystem."
+        task: "Standardize Partner and Service-Level Agreements",
+        metric: "Define core legal templates → Audit 5 existing partners → 100% agreement coverage across ecosystem.",
+        why: "To protect brand equity and ensure operational accountability across our entire partner and warehouse network.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Implement data-driven disposition plans for every brand partner",
-        why: "To align our resale strategies with real-time KPIs, ensuring we capture the maximum possible recovery value for our clients."
+        task: "Implement Data-Driven Disposition Plans",
+        metric: "Baseline recovery KPIs per brand → 5 strategic plans created → 100% brand-approved implementation.",
+        why: "To align our resale strategies with real-time data, ensuring we capture the maximum possible recovery value for our clients.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Define and execute a strategic Amazon FBA roadmap for North America",
-        why: "To establish a defensible, brand-approved approach to one of the most critical and complex secondary market channels."
+        task: "Execute Strategic Amazon FBA Roadmap",
+        metric: "North America tax/regulatory audit → 1 pilot brand launch → Validated multi-channel FBA playbook.",
+        why: "To establish a defensible, brand-approved approach to one of the most critical and complex secondary market channels.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Secure strategic liquidation partners across all major bulk categories in the USA and Canada",
-        why: "To guarantee a profitable \"last-resort\" outlet for inventory while maintaining strict channel integrity."
+        task: "Secure Strategic Liquidation Partners",
+        metric: "6 category audits → 3 final negotiations → 1 signed partner per major bulk category (USA/Canada).",
+        why: "To guarantee a profitable \"last-resort\" outlet for inventory while maintaining strict channel integrity.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Automate month-end reporting and real-time marketplace data integration",
-        why: "To provide the leadership team with instant visibility into unit economics and accelerate the speed of financial decision-making."
+        task: "Automate Financial Reporting and Data Integration",
+        metric: "Map QBO-Nok data schema → Automate 5 core reports → Real-time unit economic visibility.",
+        why: "To provide the leadership team with instant visibility into margins and accelerate the speed of financial decision-making.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       }
     ],
     scorecardMetrics: [
