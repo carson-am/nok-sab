@@ -105,28 +105,52 @@ export const strategicRocks = [
     leaderId: 4,
     rocks: [
       {
-        task: "Define and validate the RFP program on the website",
-        why: "To create a scalable, self-serve entry point for brands to assess their reverse logistics needs and engage with the Nok platform."
+        task: "Validate RFP Program Funnel",
+        metric: "10 target brand trials → 5 completed assessments → 2 Q2 launch commits",
+        why: "To create a measurable, self-serve entry point that converts brand interest into platform revenue.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Establish and utilize core product KPIs",
-        why: "To ensure our product development is guided by the metrics that matter most to enterprise brands, from recovery rates to processing speed."
+        task: "Enterprise KPI Adoption",
+        metric: "100% of top 5 brand partners utilizing core recovery and speed KPIs in-platform",
+        why: "To ensure our product value is validated by the metrics that drive enterprise contract renewals.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Define Branded DTC, Trade-In, and Subscription offerings",
-        why: "To expand our modular toolkit, allowing brands to choose the specific recommerce \"levers\" they want to pull to maximize asset value."
+        task: "Modular Feature Definition (DTC/Trade-In/Sub)",
+        metric: "3 finalized PRDs (Product Requirement Docs) reviewed and approved by engineering",
+        why: "To expand the \"levers\" brands can pull to maximize asset recovery.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Achieve 100% self-serve platform analytics",
-        why: "To empower brand partners with immediate, on-demand visibility into their returns data, eliminating manual reporting friction."
+        task: "Self-Serve Analytics Migration",
+        metric: "0 manual report requests from existing accounts; 100% of data accessed via self-serve dashboard",
+        why: "To eliminate operational friction and provide brands with real-time visibility.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Scope international expansion into the Canadian market",
-        why: "To prepare the platform infrastructure for cross-border growth, supporting our current brands as they scale their recommerce programs."
+        task: "Canadian Market Technical Scoping",
+        metric: "1 complete technical audit of cross-border tax, customs, and logistics requirements",
+        why: "To prepare the infrastructure for immediate expansion with our existing multi-national partners.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Implement transparent 3PL SLA measurement and visibility",
-        why: "To drive accountability across our warehouse network and provide brands with an honest, real-time view of third-party performance."
+        task: "3PL SLA Transparency Engine",
+        metric: "100% of active nodes reporting real-time data into the SLA visibility dashboard",
+        why: "To drive network-wide accountability and surface \"SLA leakage\" before it impacts brand trust.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       }
     ],
     scorecardMetrics: [

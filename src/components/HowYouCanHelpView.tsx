@@ -35,6 +35,16 @@ interface QuarterlyNeedsCategory {
   items: string[];
 }
 
+function getStatusBadgeClass(status: string): string {
+  if (status === 'Board Input Impactful') {
+    return 'text-nok-blue font-medium shadow-[0_0_12px_rgba(59,130,246,0.4)]';
+  }
+  if (status === 'At Risk') {
+    return 'text-amber-400/90 font-medium';
+  }
+  return 'text-emerald-400/90 font-medium';
+}
+
 function QuarterlyNeedsList({ needs }: { needs: QuarterlyNeedsCategory[] }) {
   const renderItemWithICPLink = (item: string) => {
     if (item.includes('ICP')) {
@@ -230,27 +240,52 @@ export default function HowYouCanHelpView() {
                               <h4 className="text-nok-blue font-semibold mb-4">
                                 Q1 2026 Priorities (Rocks)
                               </h4>
-                              <ul className="space-y-3 text-left">
+                              <ul className="space-y-4 text-left">
                                 {section.rocks.map((rock, i) => {
+                                  const isMetricFunnel = typeof rock === 'object' && rock !== null && 'metric' in rock && 'status' in rock;
                                   const isTaskWhy = typeof rock === 'object' && rock !== null && 'task' in rock && 'why' in rock;
+
+                                  if (isMetricFunnel && 'task' in rock && 'metric' in rock && 'why' in rock && 'progress' in rock && 'status' in rock) {
+                                    const progress = Number(rock.progress);
+                                    const status = String(rock.status);
+                                    return (
+                                      <li key={i} className="flex items-start gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-nok-blue flex-shrink-0 mt-1.5" aria-hidden />
+                                        <div className="flex-1 min-w-0 space-y-1.5">
+                                          <div className="font-bold text-white">{rock.task}</div>
+                                          <div className="font-bold text-white text-sm">{rock.metric}</div>
+                                          <div className="text-nok-blue/80 text-sm italic leading-relaxed">{rock.why}</div>
+                                          <div className="space-y-1.5 pt-1">
+                                            <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
+                                              <div
+                                                className="h-full rounded-full bg-nok-blue transition-all duration-300"
+                                                style={{ width: `${Math.min(100, Math.max(0, progress))}%` }}
+                                              />
+                                            </div>
+                                            <div className="flex flex-wrap items-center gap-2">
+                                              <span className="text-slate-400 text-xs">{progress}% Complete</span>
+                                              <span className={`text-xs ${getStatusBadgeClass(status)}`}>{status}</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </li>
+                                    );
+                                  }
                                   if (isTaskWhy) {
                                     return (
-                                      <li key={i} className="space-y-1">
-                                        <div className="font-bold text-white">{rock.task}</div>
-                                        <div className="text-nok-blue/80 text-sm italic leading-relaxed">{rock.why}</div>
+                                      <li key={i} className="flex items-start gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-nok-blue flex-shrink-0 mt-1.5" aria-hidden />
+                                        <div className="flex-1 space-y-1">
+                                          <div className="font-bold text-white">{rock.task}</div>
+                                          <div className="text-nok-blue/80 text-sm italic leading-relaxed">{rock.why}</div>
+                                        </div>
                                       </li>
                                     );
                                   }
                                   return (
-                                    <li
-                                      key={i}
-                                      className="flex items-start gap-3 text-slate-200 text-sm leading-relaxed"
-                                    >
-                                      <span
-                                        className="flex-shrink-0 w-5 h-5 rounded border-2 border-nok-blue mt-0.5"
-                                        aria-hidden
-                                      />
-                                      <span>{rock}</span>
+                                    <li key={i} className="flex items-start gap-2 text-slate-200 text-sm leading-relaxed">
+                                      <span className="w-2 h-2 rounded-full bg-nok-blue flex-shrink-0 mt-1.5" aria-hidden />
+                                      <span>{String(rock)}</span>
                                     </li>
                                   );
                                 })}
