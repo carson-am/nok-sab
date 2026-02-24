@@ -180,24 +180,44 @@ export const strategicRocks = [
     leaderId: 5,
     rocks: [
       {
-        task: "Formalize Service Level Agreements (SLAs) across the 3PL network",
-        why: "To drive warehouse accountability and establish clear performance thresholds that protect brand satisfaction and marketplace health."
+        task: "Formalize 3PL Network SLAs",
+        metric: "5 active nodes → 5 signed SLAs → 100% compliance tracking in-platform",
+        why: "To drive warehouse accountability and establish performance thresholds that protect brand satisfaction.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Standardize SOP creation and warehouse implementation processes",
-        why: "To create a repeatable \"playbook\" for brand onboarding, ensuring operational excellence remains consistent as we scale."
+        task: "Standardize Onboarding SOPs",
+        metric: "1 core operational playbook → 3 brand-specific pilots → 100% SOP coverage for new Q2 cohorts",
+        why: "To create a repeatable system for brand onboarding, ensuring operational excellence remains consistent as we scale.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Establish strategic partnerships with certified recycling providers",
-        why: "To guarantee responsible end-of-life disposition for non-resalable goods, meeting both brand sustainability goals and regulatory requirements."
+        task: "Secure National Recycling Partnerships",
+        metric: "3 provider audits → 1 signed national partner → 0 backlog for non-resalable units",
+        why: "To guarantee responsible end-of-life disposition that meets both brand sustainability goals and regulatory requirements.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Optimize warehouse throughput to achieve a 30-day processing cycle",
-        why: "To prevent inventory stagnation and ensure that returned capital is recovered and redeployed as quickly as possible."
+        task: "Optimize Warehouse Throughput Cycle",
+        metric: "Baseline current cycle time → Identify top 2 bottlenecks → <30 day processing average across 100% of nodes",
+        why: "To prevent inventory stagnation and ensure that returned capital is recovered and redeployed as quickly as possible.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       },
       {
-        task: "Execute high-priority warehouse node transitions and technical onboarding",
-        why: "To continuously optimize our physical footprint, ensuring inventory is processed at the nodes that offer the best recovery and logistics efficiency."
+        task: "Execute Warehouse Node Transitions",
+        metric: "2 high-priority transitions → 1 technically validated → 100% operational cutover by March 31",
+        why: "To continuously optimize our physical footprint, ensuring inventory is processed at nodes with the highest recovery efficiency.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       }
     ],
     scorecardMetrics: [
