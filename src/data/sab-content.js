@@ -248,23 +248,43 @@ export const strategicRocks = [
     rocks: [
       {
         task: "Sign 10 individuals to Referral Agreements",
-        why: "Make our small but mighty team feel bigger than we are, filling our top of funnel with leads from close-in individuals that believe in our process."
+        metric: "20 target individuals identified → 15 outreach sessions → 10 signed agreements",
+        why: "Make our small but mighty team feel bigger than we are, filling our top of funnel with leads from close-in individuals that believe in our process.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       },
       {
         task: "Conduct 60 Top of Funnel Meetings in Q1",
-        why: "Start building our top of funnel pipeline."
+        metric: "100 leads qualified → 80 outreach attempts → 60 held meetings",
+        why: "Start building our top of funnel pipeline.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       },
       {
         task: "Secure 2 clients that will launch in Q2",
-        why: "To hit revenue goals, given the time it takes to fully launch and realize value from brands."
+        metric: "10 qualified proposals → 5 late-stage negotiations → 2 signed Q2 launch commits",
+        why: "To hit revenue goals, given the time it takes to fully launch and realize value from brands.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       },
       {
         task: "Create a formal sales process",
-        why: "To build process into the sales cycle, so we can hire a junior sales role in Q2."
+        metric: "Internal workflow audit → 1 documented sales playbook → 1 junior sales onboarding plan completed",
+        why: "To build process into the sales cycle, so we can hire a junior sales role in Q2.",
+        progress: 0,
+        status: "On Track",
+        deadline: "March 31, 2026"
       },
       {
         task: "Identify key conferences for Beauty, Sport, and Home categories",
-        why: "Aware that conferences can be a waste if we're not targeting the right ones with the most value."
+        metric: "15 industry events audited → 5 high-value events selected → 1 cohesive Q2-Q4 attendance roadmap",
+        why: "Aware that conferences can be a waste if we're not targeting the right ones with the most value.",
+        progress: 0,
+        status: "Board Input Impactful",
+        deadline: "March 31, 2026"
       }
     ],
     scorecardMetrics: [
