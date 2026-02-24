@@ -35,6 +35,14 @@ interface QuarterlyNeedsCategory {
   items: string[];
 }
 
+interface Rock {
+  task: string;
+  why: string;
+  metric?: string;
+  progress?: number;
+  status?: 'On Track' | 'Board Input Impactful' | 'At Risk';
+}
+
 function getStatusBadgeClass(status: string): string {
   if (status === 'Board Input Impactful') {
     return 'text-nok-blue font-medium shadow-[0_0_12px_rgba(59,130,246,0.4)]';
@@ -241,7 +249,7 @@ export default function HowYouCanHelpView() {
                                 Q1 2026 Priorities (Rocks)
                               </h4>
                               <ul className="space-y-4 text-left">
-                                {section.rocks.map((rock, i) => {
+                                {section.rocks.map((rock: Rock | string, i) => {
                                   const isMetricFunnel = typeof rock === 'object' && rock !== null && 'metric' in rock && 'status' in rock;
                                   const isTaskWhy = typeof rock === 'object' && rock !== null && 'task' in rock && 'why' in rock;
 
