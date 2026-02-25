@@ -116,16 +116,15 @@ export default function Sidebar() {
 
           {/* Slack Button */}
           <div className="p-4 border-t border-white/10">
-            <button
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 glass-card border border-white/10 rounded-lg text-white hover:bg-white/5 transition-colors duration-200"
-              onClick={() => {
-                // Placeholder - does nothing for now
-                console.log('Join Slack Discussion clicked');
-              }}
+            <a
+              href="https://noktryout.slack.com/archives/C0AH2DG9PQD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 glass-card border border-white/10 rounded-lg text-white hover:bg-white/5 transition-colors duration-200 cursor-pointer btn-glow"
             >
               <MessageSquare size={18} />
               <span className="font-medium">Join the Slack Discussion</span>
-            </button>
+            </a>
           </div>
         </div>
       </aside>
