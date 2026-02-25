@@ -580,7 +580,7 @@ export const rosterMembers = [
     "bio": "Chris is a Partner and Co-Founder of ATX Venture Partners, an Austin-based early-stage venture capital firm. A serial entrepreneur who started his first company at age fourteen, he was named the Special Operations Soldier of the Year during his military career. He co-founded Virtus Financial Group (now a $3.5B private equity fund), co-founded EZ Money Pawn, and co-founded Sneaky Games, which exited via IPO. Chris has been recognized as one of Austin's most influential leaders and holds an MBA from the Acton School of Business.",
     "linkedin": "https://www.linkedin.com/in/chrisshonk/",
     "tags": ["Venture Capital", "Entrepreneur", "FinTech"],
-    "imagePath": null
+    "imagePath": "/images/board/chris-shonk.jpg"
   },
   {
     "id": 9,
