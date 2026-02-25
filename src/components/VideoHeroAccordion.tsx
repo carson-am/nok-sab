@@ -38,13 +38,15 @@ export default function VideoHeroAccordion() {
               className="overflow-hidden"
             >
               <div className="px-6 pb-6 pt-0">
-                <div className="flex justify-center">
+                <div className="my-6 flex justify-center min-h-0">
                   <video
-                    className="w-full max-w-4xl rounded-lg"
+                    key="welcome-video"
+                    className="w-full max-w-4xl mx-auto aspect-video rounded-xl border border-white/10"
                     controls
-                    poster="/api/placeholder/800/450"
+                    playsInline
+                    preload="auto"
                   >
-                    <source src="" type="video/mp4" />
+                    <source src="/videos/welcome-video.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
