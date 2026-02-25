@@ -120,10 +120,10 @@ export default function Sidebar() {
               href="https://noktryout.slack.com/archives/C0AH2DG9PQD"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 glass-card border border-white/10 rounded-lg text-white hover:bg-white/5 transition-colors duration-200 cursor-pointer btn-glow"
+              className="w-full flex items-center justify-center gap-3 px-4 py-3 glass-card border border-white/10 rounded-lg text-white hover:bg-white/5 transition-colors duration-200 cursor-pointer btn-glow"
             >
-              <MessageSquare size={18} />
-              <span className="font-medium">Join the Slack Discussion</span>
+              <MessageSquare size={18} className="flex-shrink-0" />
+              <span className="font-medium text-sm whitespace-nowrap">Join the Slack Discussion</span>
             </a>
           </div>
         </div>
