@@ -62,7 +62,7 @@ export const teamMembers = [
     name: "Maddy McIntyre",
     title: "CEO",
     imagePath: "/images/team/maddy-mcIntyre.jpg",
-    bio: "Maddy serves as CEO of Nok, setting the company's vision and strategic direction. She focuses on building a platform that helps brands manage returns and secondary markets more effectively. Her work centers on aligning product, partnerships, and operations to support more circular commerce.",
+    bio: "Maddy brings a unique combination of leadership, business development, and sales as CEO of Nok. She served as Head of Partnerships at eGateway Capital and previously as Director of Business Development at InnoSource. Her career in athletics administration at The Ohio State University, where she founded and led the Eugene D. Smith Leadership Institute, shaped her expertise in building programs and forging strategic partnerships. A three-time captain of the OSU softball team and professional player in Italy, Maddy holds a bachelor's, master's, and MBA from The Ohio State University.",
     email: "maddy@nokrecommerce.com",
     phone: "+1 (858) 472-3361",
     linkedin: "https://www.linkedin.com/in/madeline-mcintyre-02359692/"
@@ -431,7 +431,7 @@ export const strategicRocks = [
       {
         category: "Resale Focus",
         items: [
-          "Introductions to high-level eCommerce talent.",
+          "Introductions to high-level ecommerce talent.",
           "Buyer introductions for bulk recommerce (e.g., Global/National Off-Price Retailers, Subscription Box Companies, Gifting Platforms, etc.).",
           "Insights on relevant tech players in the resale ecosystem worth knowing."
         ]
@@ -493,7 +493,7 @@ export const rosterMembers = [
     "company": "Garmin",
     "location": "Olathe, KS",
     "role": "Strategic Advisory Board",
-    "bio": "Bhubalan brings deep expertise in supply chain technology and ERP systems optimization, currently serving as a lead in supply chain technology and analytics at Garmin. With a career spanning PwC, GE Appliances, and Deckers Brands, he specializes in designing end-to-end allocation processes, order management tools, and advanced supply chain analytics. He holds advanced degrees from Georgia Tech and Arizona State University.",
+    "bio": "Bhubalan brings deep expertise in supply chain technology and ERP systems optimization, currently serving as a Supply Chain Technology & Analytics Lead at Garmin International. With a career spanning PwC, GE Appliances, Deckers Brands, and Fujitsu, he specializes in designing end-to-end allocation processes, order management tools, and advanced supply chain analytics. He holds a Master's degree from Arizona State University, a Bachelor of Engineering from the University of Madras, and is a Certified Supply Chain Professional (CSCP).",
     "linkedin": "https://www.linkedin.com/in/bhubalanmani/",
     "tags": ["Supply Chain", "ERP Systems", "Analytics"],
     "imagePath": "/images/board/bhubalan-mani.jpeg"
@@ -529,9 +529,9 @@ export const rosterMembers = [
     "company": "Omnilux",
     "location": "Santa Cruz, CA",
     "role": "Strategic Advisory Board",
-    "bio": "Caleb is the Director of Digital Acquisition and eCommerce at Omnilux, where he leads performance marketing and digital sales strategy for a leading medical-grade LED skincare brand. He previously served as Director of Acquisition and Paid Media at Caden Lane and held senior performance marketing roles at Group Nine Media. Caleb holds an M.S. from Parsons School of Design and a B.A. from Reed College.",
+    "bio": "Caleb is the Director of Digital Acquisition and ecommerce at Omnilux, where he leads performance marketing and digital sales strategy for a leading medical-grade LED skincare brand. He previously served as Director of Acquisition and Paid Media at Caden Lane and held senior performance marketing roles at Group Nine Media. Caleb holds an M.S. from Parsons School of Design and a B.A. from Reed College.",
     "linkedin": "https://www.linkedin.com/in/caleborion/",
-    "tags": ["eCommerce", "Digital Marketing", "Performance"],
+    "tags": ["Ecommerce", "Digital Marketing", "Performance"],
     "imagePath": "/images/board/caleb-orion.jpeg"
   },
   {
@@ -625,7 +625,7 @@ export const rosterMembers = [
     "company": "Nok",
     "location": "Denver, CO",
     "role": "Board of Directors",
-    "bio": "Maddy brings a unique combination of leadership, business development, and sales as CEO of Nok. She served as Head of Partnerships at eGateway Capital and previously as Director of Business Development at InnoSource. Her career in athletics administration at The Ohio State University, where she founded and led the Eugene D. Smith Leadership Institute, shaped her expertise in building programs and forging strategic partnerships. A three-time captain of the OSU softball team and professional player in Italy, Maddy holds a bachelor's, master's, and MBA from Ohio State.",
+    "bio": "Maddy brings a unique combination of leadership, business development, and sales as CEO of Nok. She served as Head of Partnerships at eGateway Capital and previously as Director of Business Development at InnoSource. Her career in athletics administration at The Ohio State University, where she founded and led the Eugene D. Smith Leadership Institute, shaped her expertise in building programs and forging strategic partnerships. A three-time captain of the OSU softball team and professional player in Italy, Maddy holds a bachelor's, master's, and MBA from The Ohio State University.",
     "linkedin": "https://www.linkedin.com/in/madeline-mcintyre-02359692/",
     "tags": ["Partnerships", "Business Development", "Sales"],
     "imagePath": "/images/team/maddy-mcIntyre.jpg"
@@ -649,9 +649,9 @@ export const rosterMembers = [
     "company": "Dupray",
     "location": "Montreal, Quebec",
     "role": "Strategic Advisory Board",
-    "bio": "Carlos brings hands-on experience in e-commerce logistics and supply chain management. He currently serves as a Supply Chain Logistics Manager at Dupray, managing inventory across 100+ SKUs. His career spans roles at MSC Mediterranean Shipping Company, Dollarama, and Traffic Tech, where he developed expertise in freight negotiation, inbound/outbound logistics, and international shipping operations across North America.",
+    "bio": "Carlos brings hands-on experience in ecommerce logistics and supply chain management. He currently serves as a Supply Chain Logistics Manager at Dupray, managing inventory across 100+ SKUs. His career spans roles at MSC Mediterranean Shipping Company, Dollarama, and Traffic Tech, where he developed expertise in freight negotiation, inbound/outbound logistics, and international shipping operations across North America.",
     "linkedin": "https://www.linkedin.com/in/carlos-david-granados-109068173/",
-    "tags": ["Logistics", "eCommerce", "Supply Chain"],
+    "tags": ["Logistics", "Ecommerce", "Supply Chain"],
     "imagePath": "/images/board/carlos-david-granados.jpeg"
   }
 ];
