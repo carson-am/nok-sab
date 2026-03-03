@@ -26,6 +26,7 @@ export async function sendTopicSuggestion(params: {
 <html>
 <head><meta charset="utf-8"></head>
 <body style="font-family: system-ui, sans-serif; line-height: 1.5; color: #1e293b;">
+  <p>Forwarded from the Strategic Advisory Board Portal.</p>
   <h2 style="margin-top: 0;">New SAB Topic Suggestion</h2>
   <p><strong>Selected topics:</strong></p>
   ${topicsHtml}
@@ -44,9 +45,9 @@ export async function sendTopicSuggestion(params: {
   try {
     const resend = new Resend(apiKey);
     const { data, error } = await resend.emails.send({
-      from: 'Nok SAB <onboarding@resend.dev>',
+      from: 'onboarding@resend.dev',
       to: ['carson.moore@nokrecommerce.com'],
-      subject: 'New SAB Topic Suggestion',
+      subject: 'SAB-PORTAL: New Topic Suggestion',
       html,
     });
 
