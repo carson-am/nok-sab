@@ -665,5 +665,17 @@ export const rosterMembers = [
     "linkedin": "https://www.linkedin.com/in/tpham2/",
     "tags": ["Ecommerce", "Digital Marketing", "Marketplaces"],
     "imagePath": "/images/board/thomas-pham.jpeg"
+  },
+  {
+    "id": 16,
+    "name": "Branden Joe",
+    "title": "Vice President, Banker",
+    "company": "J.P. Morgan Private Bank",
+    "location": "Columbus, OH",
+    "role": "Strategic Advisory Board",
+    "bio": "Branden is a Vice President and Banker at J.P. Morgan Private Bank, where he advises first-generation founders, corporate executives, athletes, and family-focused clients on wealth management strategies spanning trust and estate planning, investing, and lending. Prior to J.P. Morgan, he served as a Private Wealth Advisor at Bernstein Private Wealth Management. Based in Columbus, Ohio, he serves on the Executive Committee of the Greater Columbus Sports Commission and previously served as a Board Trustee of the Upper Arlington Education Foundation. He holds a B.S. from The Ohio State University and holds Series 66 and SIE certifications.",
+    "linkedin": "https://www.linkedin.com/in/brandenjoe/",
+    "tags": ["Private Banking", "Wealth Management", "Financial Planning"],
+    "imagePath": "/images/board/branden-joe.jpeg"
   }
 ];
