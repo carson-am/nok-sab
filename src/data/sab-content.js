@@ -529,7 +529,7 @@ export const rosterMembers = [
     "company": "Omnilux",
     "location": "Santa Cruz, CA",
     "role": "Strategic Advisory Board",
-    "bio": "Caleb is the Director of Digital Acquisition and ecommerce at Omnilux, where he leads performance marketing and digital sales strategy for a leading medical-grade LED skincare brand. He previously served as Director of Acquisition and Paid Media at Caden Lane and held senior performance marketing roles at Group Nine Media. Caleb holds an M.S. from Parsons School of Design and a B.A. from Reed College.",
+    "bio": "Caleb is the Director of Digital Acquisition and Ecommerce at Omnilux, where he leads performance marketing and digital sales strategy for a leading medical-grade LED skincare brand. He previously served as Director of Acquisition and Paid Media at Caden Lane and held senior performance marketing roles at Group Nine Media. Caleb holds an M.S. from Parsons School of Design and a B.A. from Reed College.",
     "linkedin": "https://www.linkedin.com/in/caleborion/",
     "tags": ["Ecommerce", "Digital Marketing", "Performance"],
     "imagePath": "/images/board/caleb-orion.jpeg"

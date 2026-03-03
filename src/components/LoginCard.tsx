@@ -25,7 +25,17 @@ export default function LoginCard() {
     });
 
     if (signInError) {
-      setError('Invalid credentials');
+      const message = (signInError.message || '').toLowerCase();
+      if (
+        message.includes('breach') ||
+        message.includes('compromised') ||
+        message.includes('weak') ||
+        message.includes('security')
+      ) {
+        setError('Please reset your password.');
+      } else {
+        setError('Invalid credentials');
+      }
       return;
     }
     router.push('/dashboard');
