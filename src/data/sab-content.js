@@ -653,5 +653,17 @@ export const rosterMembers = [
     "linkedin": "https://www.linkedin.com/in/carlos-david-granados-109068173/",
     "tags": ["Logistics", "Ecommerce", "Supply Chain"],
     "imagePath": "/images/board/carlos-david-granados.jpeg"
+  },
+  {
+    "id": 15,
+    "name": "Thomas Pham",
+    "title": "Ecommerce Sales Manager",
+    "company": "Wahl Clipper Corporation",
+    "location": "Miami, FL",
+    "role": "Strategic Advisory Board",
+    "bio": "Thomas brings over 14 years of ecommerce and brand retail experience, with a track record of generating $338M in attributable revenue for brands including Wahl, Samsung, Keurig Dr. Pepper, Pepsi, Gap, and Johnson & Johnson. Currently serving as Ecommerce Sales Manager at Wahl Clipper Corporation, he leads end-to-end management of DTC, marketplace, and pure play retail channels, and has driven 43% YOY sales growth within his first year. His expertise spans digital marketing, marketplace strategy, data warehousing, and P&L ownership across both enterprise clients and in-house brand roles. He holds a B.A. from UC Davis.",
+    "linkedin": "https://www.linkedin.com/in/tpham2/",
+    "tags": ["Ecommerce", "Digital Marketing", "Marketplaces"],
+    "imagePath": "/images/board/thomas-pham.jpeg"
   }
 ];
