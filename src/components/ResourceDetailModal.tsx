@@ -77,7 +77,7 @@ export default function ResourceDetailModal({
                     {resource.title}
                   </Dialog.Title>
 
-                  <div>
+                  <div className="text-center">
                     {resource.category && (
                       <p className="text-slate-400 text-sm font-medium mb-3">
                         {resource.category}
@@ -92,19 +92,21 @@ export default function ResourceDetailModal({
                       </p>
                     )}
                     {canDownload && (
-                      <a
-                        href={
-                          resource.downloadLink ||
-                          (resource.filename
-                            ? `/downloads/${resource.filename}`
-                            : '#')
-                        }
-                        download={resource.filename || undefined}
-                        className="inline-flex items-center justify-center gap-2 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-6 rounded-lg btn-glow transition-all duration-200 text-base w-full sm:w-auto"
-                      >
-                        <Download size={20} />
-                        Download
-                      </a>
+                      <div className="mt-2 flex justify-center">
+                        <a
+                          href={
+                            resource.downloadLink ||
+                            (resource.filename
+                              ? `/downloads/${resource.filename}`
+                              : '#')
+                          }
+                          download={resource.filename || undefined}
+                          className="inline-flex items-center justify-center gap-2 bg-nok-blue hover:bg-[#2563eb] text-white font-semibold py-3 px-6 rounded-lg btn-glow transition-all duration-200 text-base"
+                        >
+                          <Download size={20} />
+                          Download
+                        </a>
+                      </div>
                     )}
                   </div>
                 </motion.div>
