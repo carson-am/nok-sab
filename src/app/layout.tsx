@@ -25,6 +25,8 @@ export default function RootLayout({
         isSatellite={true}
         domain="nok-sab.vercel.app"
         signInUrl="/login"
+        afterSignInUrl="/dashboard"
+        afterSignUpUrl="/dashboard"
       >
         <body className={`${inter.variable} font-sans antialiased`}>
           <Providers>{children}</Providers>
