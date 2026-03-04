@@ -22,10 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClerkProvider
-        publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
-        proxyUrl={process.env.NEXT_PUBLIC_CLERK_PROXY_URL}
-        isSatellite
-        signInUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL}
+        isSatellite={true}
+        domain="nok-sab.vercel.app"
+        signInUrl="https://nok-referral-program.vercel.app/sign-in"
       >
         <body className={`${inter.variable} font-sans antialiased`}>
           <Providers>{children}</Providers>
