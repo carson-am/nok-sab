@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import { Home, Calendar, Video, FileText, Users, Menu, X, MessageSquare, LogOut, Handshake } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import Logo from './Logo';
-import ReferralPartnerModal from './ReferralPartnerModal';
 
 const navigation = [
   { name: 'Overview', href: '/dashboard', icon: Home },
@@ -18,7 +17,6 @@ const navigation = [
 
 export default function Sidebar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isReferralModalOpen, setIsReferralModalOpen] = useState(false);
   const pathname = usePathname();
   const { logout } = useAuth();
 
@@ -87,17 +85,16 @@ export default function Sidebar() {
 
           {/* Referral Partner Program */}
           <div className="p-4">
-            <button
-              type="button"
-              onClick={() => {
-                setIsReferralModalOpen(true);
-                setIsMobileMenuOpen(false);
-              }}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200"
+            <a
+              href="https://nok-referral-program.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200 cursor-pointer"
             >
               <Handshake size={20} />
               <span className="font-medium">Referral Partner Program</span>
-            </button>
+            </a>
           </div>
 
           {/* Sign Out Button */}
@@ -136,11 +133,6 @@ export default function Sidebar() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
-
-      <ReferralPartnerModal
-        isOpen={isReferralModalOpen}
-        onClose={() => setIsReferralModalOpen(false)}
-      />
     </>
   );
 }

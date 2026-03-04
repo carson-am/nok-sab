@@ -1,58 +1,36 @@
-import { createServerClient } from '@supabase/ssr';
-import { NextResponse, type NextRequest } from 'next/server';
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
 
-export async function middleware(req: NextRequest) {
-  let response = NextResponse.next({ request: req });
+const isProtectedRoute = createRouteMatcher(['/dashboard(.*)', '/']);
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return req.cookies.getAll();
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) =>
-            response.cookies.set(name, value, options)
-          );
-        },
-      },
+export default clerkMiddleware((auth, req) => {
+  const { userId, sessionClaims } = auth();
+  const url = req.nextUrl;
+
+  if (isProtectedRoute(req)) {
+    auth().protect();
+  }
+
+  // Advisor Guard: only allow advisors into dashboard routes
+  if (userId && url.pathname.startsWith('/dashboard')) {
+    const publicMetadata = (sessionClaims?.publicMetadata || {}) as any;
+    const role = publicMetadata?.role;
+
+    if (role !== 'advisor') {
+      const accessDeniedUrl = new URL('/access-denied', req.url);
+      return NextResponse.redirect(accessDeniedUrl);
     }
-  );
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  const pathname = req.nextUrl.pathname;
-
-  if (!user && (pathname === '/dashboard' || pathname.startsWith('/dashboard/'))) {
-    const redirect = NextResponse.redirect(new URL('/login', req.url));
-    response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
-    return redirect;
   }
 
-  if (user && pathname === '/login') {
-    const redirect = NextResponse.redirect(new URL('/dashboard', req.url));
-    response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
-    return redirect;
+  // If already signed in and hitting /login, send to dashboard
+  if (url.pathname === '/login' && userId) {
+    const dashboardUrl = new URL('/dashboard', req.url);
+    return NextResponse.redirect(dashboardUrl);
   }
 
-  if (pathname === '/') {
-    if (user) {
-      const redirect = NextResponse.redirect(new URL('/dashboard', req.url));
-      response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
-      return redirect;
-    }
-    const redirect = NextResponse.redirect(new URL('/login', req.url));
-    response.cookies.getAll().forEach((c) => redirect.cookies.set(c.name, c.value));
-    return redirect;
-  }
-
-  return response;
-}
+  return NextResponse.next();
+});
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/login', '/', '/auth/reset-password'],
+  matcher: ['/dashboard/:path*', '/', '/login', '/access-denied'],
 };

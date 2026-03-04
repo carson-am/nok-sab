@@ -1,9 +1,8 @@
 'use client';
 
-import { createContext, useContext, ReactNode, useEffect, useState, useMemo } from 'react';
+import { createContext, useContext, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '../lib/supabase/client';
-import type { User } from '@supabase/supabase-js';
+import { useAuth as useClerkAuth, useUser } from '@clerk/nextjs';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -16,40 +15,34 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
-  const supabase = useMemo(() => createClient(), []);
+  const { isLoaded, isSignedIn, signOut } = useClerkAuth();
+  const { user } = useUser();
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      setIsLoading(false);
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-
-    return () => subscription.unsubscribe();
-  }, [supabase]);
-
-  const isLoggedIn = !!user;
-  const userEmail = user?.email ?? null;
+  const isLoggedIn = !!isSignedIn;
+  const userEmail = user?.primaryEmailAddress?.emailAddress ?? null;
 
   const login = (_email: string, _password: string): boolean => {
+    // Login is handled via Clerk sign-in on the primary referral domain.
+    router.push('/login');
     return false;
   };
 
   const logout = async () => {
-    await supabase.auth.signOut();
+    await signOut();
     router.push('/login');
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, userEmail, login, logout, isLoading }}>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn,
+        userEmail,
+        login,
+        logout,
+        isLoading: !isLoaded,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

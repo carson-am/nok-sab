@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import "../styles/globals.css";
 import Providers from "../components/Providers";
 
@@ -20,13 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} font-sans antialiased`}
+      <ClerkProvider
+        publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+        proxyUrl={process.env.NEXT_PUBLIC_CLERK_PROXY_URL}
       >
-        <Providers>
-          {children}
-        </Providers>
-      </body>
+        <body className={`${inter.variable} font-sans antialiased`}>
+          <Providers>{children}</Providers>
+        </body>
+      </ClerkProvider>
     </html>
   );
 }

@@ -1,64 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { createClient } from '../lib/supabase/client';
+import { SignInButton } from '@clerk/nextjs';
 import Logo from './Logo';
 
 export default function LoginCard() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [showPasswordRecovery, setShowPasswordRecovery] = useState(false);
-  const [recoveryEmail, setRecoveryEmail] = useState('');
-  const [recoverySuccess, setRecoverySuccess] = useState(false);
-  const router = useRouter();
-  const supabase = createClient();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
-
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (signInError) {
-      const message = (signInError.message || '').toLowerCase();
-      if (
-        message.includes('breach') ||
-        message.includes('compromised') ||
-        message.includes('weak') ||
-        message.includes('security')
-      ) {
-        setError('Please reset your password.');
-      } else {
-        setError('Invalid credentials');
-      }
-      return;
-    }
-    router.push('/dashboard');
-  };
-
-  const handlePasswordRecovery = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
-    setRecoverySuccess(false);
-
-    const redirectTo = typeof window !== 'undefined' ? `${window.location.origin}/auth/reset-password` : '';
-
-    const { error: resetError } = await supabase.auth.resetPasswordForEmail(recoveryEmail, {
-      redirectTo,
-    });
-
-    if (resetError) {
-      setError(resetError.message);
-      return;
-    }
-    setRecoverySuccess(true);
-  };
-
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Column - Branding */}
@@ -79,123 +24,26 @@ export default function LoginCard() {
       {/* Right Column - Login Card */}
       <div className="lg:w-1/2 flex items-center justify-center p-8">
         <div className="glass-card p-8 w-full max-w-md rounded-xl">
-          {!showPasswordRecovery ? (
-            <>
-              <div className="mb-6 text-center">
-                <h2 className="text-2xl font-bold text-white mb-2">Welcome!</h2>
-                <p className="text-slate-400 text-sm">
-                  Sign in to access the portal.
-                </p>
-              </div>
+          <div className="mb-6 text-center">
+            <h2 className="text-2xl font-bold text-white mb-2">Welcome!</h2>
+            <p className="text-slate-400 text-sm">
+              Sign in to access the portal.
+            </p>
+          </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white focus:outline-none focus:border-nok-blue focus:ring-1 focus:ring-nok-blue"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
-                    Password
-                  </label>
-                  <input
-                    id="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white focus:outline-none focus:border-nok-blue focus:ring-1 focus:ring-nok-blue"
-                    required
-                  />
-                </div>
-
-                {error && (
-                  <div className="text-red-400 text-sm">{error}</div>
-                )}
-
-                <button
-                  type="submit"
-                  className="w-full bg-nok-blue text-white font-semibold py-3 px-4 rounded-lg btn-glow"
-                >
-                  Sign In
-                </button>
-
-                <div className="text-center">
-                  <button
-                    type="button"
-                    onClick={() => setShowPasswordRecovery(true)}
-                    className="text-slate-400 hover:text-white text-sm transition-colors duration-200"
-                  >
-                    Forgot Password?
-                  </button>
-                </div>
-              </form>
-            </>
-          ) : (
-            <>
-              <div className="mb-6 text-center">
-                <h2 className="text-2xl font-bold text-white mb-2">Reset Password</h2>
-                <p className="text-slate-400 text-sm">
-                  Enter your email address and we'll send you a link to reset your password.
-                </p>
-              </div>
-
-              <form onSubmit={handlePasswordRecovery} className="space-y-6">
-                <div>
-                  <label htmlFor="recovery-email" className="block text-sm font-medium text-white mb-2">
-                    Email
-                  </label>
-                  <input
-                    id="recovery-email"
-                    type="email"
-                    value={recoveryEmail}
-                    onChange={(e) => setRecoveryEmail(e.target.value)}
-                    className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white focus:outline-none focus:border-nok-blue focus:ring-1 focus:ring-nok-blue"
-                    required
-                  />
-                </div>
-
-                {error && (
-                  <div className="text-red-400 text-sm">{error}</div>
-                )}
-                {recoverySuccess && (
-                  <div className="text-green-400 text-sm">
-                    Check your email for a reset link.
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  className="w-full bg-nok-blue text-white font-semibold py-3 px-4 rounded-lg btn-glow"
-                >
-                  Send Reset Link
-                </button>
-
-                <div className="text-center">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowPasswordRecovery(false);
-                      setRecoveryEmail('');
-                      setError('');
-                      setRecoverySuccess(false);
-                    }}
-                    className="text-slate-400 hover:text-white text-sm transition-colors duration-200"
-                  >
-                    Back to Sign In
-                  </button>
-                </div>
-              </form>
-            </>
-          )}
+          <div className="space-y-6">
+            <SignInButton mode="redirect">
+              <button
+                type="button"
+                className="w-full bg-nok-blue text-white font-semibold py-3 px-4 rounded-lg btn-glow"
+              >
+                Sign In
+              </button>
+            </SignInButton>
+            <p className="text-slate-400 text-xs text-center">
+              You&apos;ll be redirected to the Nok Referral Portal to sign in securely.
+            </p>
+          </div>
         </div>
       </div>
     </div>
