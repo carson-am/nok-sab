@@ -8,18 +8,23 @@ import Logo from './Logo';
 export default function LoginCard() {
   const router = useRouter();
   const signInRes = useSignIn() as any;
-
-  // Clerk v5 signal guard – wait until the resource is loaded
-  if (!signInRes || !signInRes.isLoaded) {
-    return null;
-  }
-
-  const { signIn, setActive } = signInRes;
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Clerk v5 signal guard – show loading so the page mounts and isn't blank
+  if (!signInRes || !signInRes.isLoaded) {
+    return (
+      <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center p-8">
+        <div className="text-center text-slate-400 text-lg">
+          Loading Nok Portal...
+        </div>
+      </div>
+    );
+  }
+
+  const { signIn, setActive } = signInRes;
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();

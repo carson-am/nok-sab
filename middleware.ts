@@ -1,26 +1,33 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
+const isPublicRoute = createRouteMatcher(["/login", "/access-denied"]);
 const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
 
 export default clerkMiddleware(
   async (auth, req) => {
+    // Public routes: never protect; allow login and access-denied to render
+    if (isPublicRoute(req)) {
+      return NextResponse.next();
+    }
+
+    // Protected routes: require auth, then run Advisor Guard
     if (isProtectedRoute(req)) {
-      // 1. Require authentication (Clerk will handle redirect to sign-in)
       await auth.protect();
 
-      // 2. Advisor Guard: only allow advisors based on metadata/claims
+      // Advisor Guard: only after successful auth
       const session = await auth();
       const role =
         (session.sessionClaims as any)?.metadata?.role ??
         (session.sessionClaims as any)?.publicMetadata?.role;
 
       if (role !== "advisor") {
-        // Redirect non-advisors to local access-denied page
         const deniedUrl = new URL("/access-denied", req.url);
         return NextResponse.redirect(deniedUrl);
       }
     }
+
+    return NextResponse.next();
   },
   { debug: true }
 );
