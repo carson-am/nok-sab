@@ -112,7 +112,7 @@ export default function LoginCard() {
 
             <button
               type="submit"
-              disabled={!signIn.isLoaded || isSubmitting}
+              disabled={isSubmitting}
               className="w-full bg-nok-blue text-white font-semibold py-3 px-4 rounded-lg btn-glow disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Signing In...' : 'Sign In'}
