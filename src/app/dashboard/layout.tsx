@@ -17,7 +17,7 @@ export default function DashboardLayout({
   useEffect(() => {
     if (isLoading) return;
     if (!isLoggedIn) {
-      router.push('/');
+      router.push('/login');
     } else {
       // Fade in when logged in
       setTimeout(() => setIsVisible(true), 50);

@@ -1,8 +1,9 @@
 'use client';
 
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useContext, ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth as useClerkAuth, useUser } from '@clerk/nextjs';
+import { supabase } from '../lib/supabase/client';
+import type { Session } from '@supabase/supabase-js';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -16,12 +17,26 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const { isLoaded: authLoaded, isSignedIn, signOut } = useClerkAuth();
-  const { user } = useUser();
+  const [session, setSession] = useState<Session | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const isLoggedIn = !!isSignedIn;
-  const userEmail = user?.primaryEmailAddress?.emailAddress ?? null;
-  const isLoading = !authLoaded;
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session: s } }) => {
+      setSession(s);
+      setIsLoading(false);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const isLoggedIn = !!session;
+  const userEmail = session?.user?.email ?? null;
 
   const login = (_email: string, _password: string): boolean => {
     router.push('/login');
@@ -29,7 +44,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const logout = async () => {
-    await signOut({ redirectUrl: '/login' });
+    await supabase.auth.signOut();
     router.push('/login');
   };
 

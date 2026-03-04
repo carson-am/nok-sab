@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '../../../lib/supabase/client';
+import { supabase } from '../../../lib/supabase/client';
 import Logo from '../../../components/Logo';
 
 export default function ResetPasswordPage() {
@@ -11,7 +11,6 @@ export default function ResetPasswordPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const router = useRouter();
-  const supabase = createClient();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
