@@ -1,8 +1,8 @@
 'use client';
 
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useContext, ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth as useClerkAuth, useUser } from '@clerk/nextjs';
+import { createClient } from '../lib/supabase/client';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -16,20 +16,51 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const { isLoaded, isSignedIn, signOut } = useClerkAuth();
-  const { user } = useUser();
+  const supabase = createClient();
 
-  const isLoggedIn = !!isSignedIn;
-  const userEmail = user?.primaryEmailAddress?.emailAddress ?? null;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const init = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (!isMounted) return;
+
+      const session = data.session;
+      setIsLoggedIn(!!session);
+      setUserEmail(session?.user?.email ?? null);
+      setIsLoading(false);
+    };
+
+    void init();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!isMounted) return;
+      setIsLoggedIn(!!session);
+      setUserEmail(session?.user?.email ?? null);
+    });
+
+    return () => {
+      isMounted = false;
+      subscription.unsubscribe();
+    };
+  }, [supabase]);
 
   const login = (_email: string, _password: string): boolean => {
-    // Login is handled via Clerk sign-in on the primary referral domain.
+    // Supabase login is handled in LoginCard; this remains for compatibility.
     router.push('/login');
     return false;
   };
 
   const logout = async () => {
-    await signOut();
+    await supabase.auth.signOut();
+    setIsLoggedIn(false);
+    setUserEmail(null);
     router.push('/login');
   };
 
@@ -40,7 +71,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         userEmail,
         login,
         logout,
-        isLoading: !isLoaded,
+        isLoading,
       }}
     >
       {children}

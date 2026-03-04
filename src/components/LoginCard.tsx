@@ -2,41 +2,35 @@
 
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSignIn } from '@clerk/nextjs';
+import { createClient } from '../lib/supabase/client';
 import Logo from './Logo';
 
 export default function LoginCard() {
   const router = useRouter();
-  const signIn = useSignIn() as any;
+  const supabase = createClient();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Clerk v5 signal guard – wait until the resource is loaded
-  if (!signIn || !signIn.isLoaded) {
-    return null;
-  }
-
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    if (!signIn.isLoaded || !signIn.signIn) return;
 
     setIsSubmitting(true);
     setError(null);
 
     try {
-      const result = await signIn.signIn.create({
-        identifier: email,
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
         password,
       });
 
-      if (result.status === 'complete') {
-        await signIn.setActive?.({ session: result.createdSessionId, redirectUrl: '/dashboard' });
-        router.push('/dashboard');
-      } else {
-        setError('Unable to complete sign in. Please try again.');
+      if (signInError) {
+        setError('Invalid email or password');
+        return;
       }
+
+      router.push('/dashboard');
     } catch (err) {
       setError('Invalid email or password');
     } finally {
