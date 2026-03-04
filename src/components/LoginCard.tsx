@@ -3,13 +3,16 @@
 import { FormEvent, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSignIn, useUser, useClerk } from '@clerk/nextjs';
+import { useAuth } from '../context/AuthContext';
 import Logo from './Logo';
 
 export default function LoginCard() {
   const router = useRouter();
   const { signOut } = useClerk();
   const { user: clerkUser } = useUser();
-  const signIn = useSignIn() as any;
+  const { isLoggedIn } = useAuth();
+  const signInRes = useSignIn() as any;
+  const signIn = signInRes;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,6 +26,13 @@ export default function LoginCard() {
   const [resetStep, setResetStep] = useState<'email' | 'code'>('email');
   const [resetSuccess, setResetSuccess] = useState(false);
 
+  // Force "login every time": if user lands on /login already authenticated, sign out so they must enter credentials
+  useEffect(() => {
+    if (isLoggedIn) {
+      signOut?.();
+    }
+  }, [isLoggedIn, signOut]);
+
   useEffect(() => {
     if (!pendingAdvisorCheck || !clerkUser) return;
     const role = (clerkUser.publicMetadata as { role?: string })?.role;
@@ -35,7 +45,8 @@ export default function LoginCard() {
     router.push('/dashboard');
   }, [pendingAdvisorCheck, clerkUser, signOut, router]);
 
-  if (!signIn || !signIn.isLoaded) {
+  // Only show loading when Clerk hook has not returned; once signInRes exists, show form to avoid hang
+  if (!signInRes) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-slate-400 text-lg">Loading...</div>
