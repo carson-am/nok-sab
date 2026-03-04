@@ -24,6 +24,8 @@ export default function RootLayout({
       <ClerkProvider
         publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
         proxyUrl={process.env.NEXT_PUBLIC_CLERK_PROXY_URL}
+        isSatellite
+        signInUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL}
       >
         <body className={`${inter.variable} font-sans antialiased`}>
           <Providers>{children}</Providers>

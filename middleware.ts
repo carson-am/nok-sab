@@ -1,37 +1,29 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-import { NextResponse } from 'next/server';
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
-const isProtectedRoute = createRouteMatcher(['/dashboard(.*)', '/']);
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
-  const authObject = await auth();
-  const { userId, sessionClaims } = authObject;
-  const url = req.nextUrl;
-
   if (isProtectedRoute(req)) {
-    await authObject.protect();
-  }
+    // 1. Require authentication (Clerk will handle redirect to sign-in)
+    await auth.protect();
 
-  // Advisor Guard: only allow advisors into dashboard routes
-  if (userId && url.pathname.startsWith('/dashboard')) {
-    const publicMetadata = (sessionClaims?.publicMetadata || {}) as any;
-    const role = publicMetadata?.role;
+    // 2. Advisor Guard: only allow advisors based on metadata/claims
+    const session = await auth();
+    const role =
+      // Prefer a generic metadata path; adjust if your claims differ
+      (session.sessionClaims as any)?.metadata?.role ??
+      (session.sessionClaims as any)?.publicMetadata?.role;
 
-    if (role !== 'advisor') {
-      const accessDeniedUrl = new URL('/access-denied', req.url);
-      return NextResponse.redirect(accessDeniedUrl);
+    if (role !== "advisor") {
+      // Redirect non-advisors back to the primary referral tool
+      return NextResponse.redirect(
+        "https://nok-referral-program.vercel.app"
+      );
     }
   }
-
-  // If already signed in and hitting /login, send to dashboard
-  if (url.pathname === '/login' && userId) {
-    const dashboardUrl = new URL('/dashboard', req.url);
-    return NextResponse.redirect(dashboardUrl);
-  }
-
-  return NextResponse.next();
 });
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/', '/login', '/access-denied'],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
 };
