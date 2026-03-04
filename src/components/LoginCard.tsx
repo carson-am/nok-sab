@@ -32,7 +32,7 @@ export default function LoginCard() {
       });
 
       if (result.status === 'complete') {
-        await signIn.setActive?.({ session: result.createdSessionId });
+        await signIn.setActive?.({ session: result.createdSessionId, redirectUrl: '/dashboard' });
         router.push('/dashboard');
       } else {
         setError('Unable to complete sign in. Please try again.');
