@@ -24,7 +24,7 @@ export default function RootLayout({
       <ClerkProvider
         isSatellite={true}
         domain="nok-sab.vercel.app"
-        signInUrl="https://nok-referral-program.vercel.app/sign-in"
+        signInUrl="/login"
       >
         <body className={`${inter.variable} font-sans antialiased`}>
           <Providers>{children}</Providers>

@@ -16,10 +16,9 @@ export default clerkMiddleware(
         (session.sessionClaims as any)?.publicMetadata?.role;
 
       if (role !== "advisor") {
-        // Redirect non-advisors back to the primary referral tool
-        return NextResponse.redirect(
-          "https://nok-referral-program.vercel.app"
-        );
+        // Redirect non-advisors to local access-denied page
+        const deniedUrl = new URL("/access-denied", req.url);
+        return NextResponse.redirect(deniedUrl);
       }
     }
   },
