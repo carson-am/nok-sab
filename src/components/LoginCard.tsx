@@ -7,7 +7,7 @@ import Logo from './Logo';
 
 export default function LoginCard() {
   const router = useRouter();
-  const signInRes = useSignIn();
+  const signInRes = useSignIn() as any;
 
   // Clerk v5 signal guard – wait until the resource is loaded
   if (!signInRes || !signInRes.isLoaded) {
