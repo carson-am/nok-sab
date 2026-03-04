@@ -1,8 +1,8 @@
 'use client';
 
-import { createContext, useContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, useContext, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '../lib/supabase/client';
+import { useAuth as useClerkAuth, useUser } from '@clerk/nextjs';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -16,51 +16,20 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const supabase = createClient();
+  const { isLoaded: authLoaded, isSignedIn, signOut } = useClerkAuth();
+  const { user } = useUser();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userEmail, setUserEmail] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const init = async () => {
-      const { data } = await supabase.auth.getSession();
-      if (!isMounted) return;
-
-      const session = data.session;
-      setIsLoggedIn(!!session);
-      setUserEmail(session?.user?.email ?? null);
-      setIsLoading(false);
-    };
-
-    void init();
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!isMounted) return;
-      setIsLoggedIn(!!session);
-      setUserEmail(session?.user?.email ?? null);
-    });
-
-    return () => {
-      isMounted = false;
-      subscription.unsubscribe();
-    };
-  }, [supabase]);
+  const isLoggedIn = !!isSignedIn;
+  const userEmail = user?.primaryEmailAddress?.emailAddress ?? null;
+  const isLoading = !authLoaded;
 
   const login = (_email: string, _password: string): boolean => {
-    // Supabase login is handled in LoginCard; this remains for compatibility.
     router.push('/login');
     return false;
   };
 
   const logout = async () => {
-    await supabase.auth.signOut();
-    setIsLoggedIn(false);
-    setUserEmail(null);
+    await signOut({ redirectUrl: '/login' });
     router.push('/login');
   };
 

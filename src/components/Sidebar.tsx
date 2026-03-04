@@ -86,11 +86,11 @@ export default function Sidebar() {
           {/* Referral Partner Program */}
           <div className="p-4">
             <a
-              href="https://nok-referral-program.vercel.app"
+              href="https://nok-referral-program.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200 cursor-pointer"
+              className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200 cursor-pointer"
             >
               <Handshake size={20} />
               <span className="font-medium">Referral Partner Program</span>

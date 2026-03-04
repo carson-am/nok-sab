@@ -10,21 +10,22 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isLoading } = useAuth();
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    if (isLoading) return;
     if (!isLoggedIn) {
       router.push('/');
     } else {
       // Fade in when logged in
       setTimeout(() => setIsVisible(true), 50);
     }
-  }, [isLoggedIn, router]);
+  }, [isLoggedIn, isLoading, router]);
 
-  if (!isLoggedIn) {
-    return null; // Will redirect
+  if (isLoading || !isLoggedIn) {
+    return null; // Loading or will redirect
   }
 
   return (
