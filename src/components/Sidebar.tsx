@@ -83,7 +83,7 @@ export default function Sidebar() {
             <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           </div>
 
-          {/* Referral Partner Program — icon + text centered as a unit, matches Sign Out */}
+          {/* Referral Partner Program — stacked text, centered to match Sign Out */}
           <div className="p-4">
             <a
               href="https://nok-referral-program.vercel.app/"
@@ -92,8 +92,11 @@ export default function Sidebar() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200 cursor-pointer"
             >
-              <Handshake size={20} />
-              <span className="font-medium">Referral Partner Program</span>
+              <Handshake size={20} className="flex-shrink-0" />
+              <span className="font-medium text-center">
+                <span className="block">Referral Partner</span>
+                <span className="block">Program</span>
+              </span>
             </a>
           </div>
 
