@@ -4,11 +4,12 @@ import { NextResponse } from 'next/server';
 const isProtectedRoute = createRouteMatcher(['/dashboard(.*)', '/']);
 
 export default clerkMiddleware(async (auth, req) => {
-  const { userId, sessionClaims } = await auth();
+  const authObject = await auth();
+  const { userId, sessionClaims } = authObject;
   const url = req.nextUrl;
 
   if (isProtectedRoute(req)) {
-    await auth().protect();
+    await authObject.protect();
   }
 
   // Advisor Guard: only allow advisors into dashboard routes
