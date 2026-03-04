@@ -5,9 +5,17 @@ import { useRouter } from 'next/navigation';
 import { useSignIn } from '@clerk/nextjs';
 import Logo from './Logo';
 
+/** Type narrowing for Clerk v5+ useSignIn return (avoids SignInSignalValue union issues) */
+interface SignInHookResult {
+  isLoaded: boolean;
+  signIn: { create: (args: { identifier: string; password: string }) => Promise<{ status: string; createdSessionId?: string }> } | null;
+  setActive: ((args: { session: string }) => Promise<void>) | undefined;
+}
+
 export default function LoginCard() {
   const router = useRouter();
-  const signInRes = useSignIn();
+  const raw = useSignIn();
+  const signInRes = raw as SignInHookResult | undefined;
 
   if (!signInRes) {
     return null;
