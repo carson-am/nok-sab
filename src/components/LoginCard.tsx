@@ -7,7 +7,13 @@ import Logo from './Logo';
 
 export default function LoginCard() {
   const router = useRouter();
-  const { isLoaded, signIn, setActive } = useSignIn();
+  const signInRes = useSignIn();
+
+  if (!signInRes) {
+    return null;
+  }
+
+  const { isLoaded, signIn, setActive } = signInRes;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
