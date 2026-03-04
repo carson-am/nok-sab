@@ -83,7 +83,7 @@ export default function Sidebar() {
             <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           </div>
 
-          {/* Referral Partner Program */}
+          {/* Referral Partner Program — icon + text centered as a unit, matches Sign Out */}
           <div className="p-4">
             <a
               href="https://nok-referral-program.vercel.app/"
@@ -97,14 +97,14 @@ export default function Sidebar() {
             </a>
           </div>
 
-          {/* Sign Out Button */}
+          {/* Sign Out — same flex alignment and gap as Referral above */}
           <div className="p-4 border-t border-white/10">
             <button
               onClick={() => {
                 logout();
                 setIsMobileMenuOpen(false);
               }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 transition-colors duration-200"
+              className="w-full flex items-center justify-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 transition-colors duration-200"
             >
               <LogOut size={18} />
               <span className="font-medium">Sign Out</span>
