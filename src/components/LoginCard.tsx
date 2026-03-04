@@ -7,12 +7,14 @@ import Logo from './Logo';
 
 export default function LoginCard() {
   const router = useRouter();
-  const signIn = useSignIn();
+  const signInRes = useSignIn();
 
-  // Clerk v5+: guard against unresolved sign-in resource
-  if (!signIn || !signIn.isLoaded) {
+  // Clerk v5 signal guard – wait until the resource is loaded
+  if (!signInRes || !signInRes.isLoaded) {
     return null;
   }
+
+  const { signIn, setActive } = signInRes;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,19 +23,19 @@ export default function LoginCard() {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    if (!signIn.isLoaded || !signIn.signIn) return;
+    if (!signInRes.isLoaded || !signIn) return;
 
     setIsSubmitting(true);
     setError(null);
 
     try {
-      const result = await signIn.signIn.create({
+      const result = await signIn.create({
         identifier: email,
         password,
       });
 
       if (result.status === 'complete') {
-        await signIn.setActive?.({ session: result.createdSessionId });
+        await setActive?.({ session: result.createdSessionId });
         router.push('/dashboard');
       } else {
         setError('Unable to complete sign in. Please try again.');
@@ -119,7 +121,7 @@ export default function LoginCard() {
 
             <button
               type="submit"
-              disabled={!signIn.isLoaded || isSubmitting}
+              disabled={!signInRes.isLoaded || isSubmitting}
               className="w-full bg-nok-blue text-white font-semibold py-3 px-4 rounded-lg btn-glow disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Signing In...' : 'Sign In'}
