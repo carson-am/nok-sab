@@ -44,6 +44,39 @@ interface Rock {
   status?: string;
 }
 
+function getStatusDisplay(status: unknown): string {
+  if (status == null || status === '') return 'On Track';
+  if (typeof status === 'string') {
+    const s = status.trim();
+    if (!s) return 'On Track';
+    if (s.startsWith('{') || s.startsWith('[')) {
+      try {
+        const parsed = JSON.parse(s) as Record<string, unknown>;
+        if (typeof parsed?.text === 'string' && parsed.text.trim()) return parsed.text.trim();
+        if (typeof parsed?.label === 'string' && parsed.label.trim()) return parsed.label.trim();
+        if (typeof parsed?.index === 'number' && parsed.index === 5) return 'Board Input Impactful';
+      } catch {
+        return 'Board Input Impactful';
+      }
+      return 'Board Input Impactful';
+    }
+    return s;
+  }
+  if (typeof status === 'object') {
+    const o = status as Record<string, unknown>;
+    if (typeof o.text === 'string' && o.text.trim()) return o.text.trim();
+    if (typeof o.label === 'string' && o.label.trim()) return o.label.trim();
+    if (typeof o.index === 'number' && o.index === 5) return 'Board Input Impactful';
+    return 'On Track';
+  }
+  return 'On Track';
+}
+
+/** Never render JSON - final safety for status badge */
+function cleanStatusForDisplay(display: string): string {
+  return display.startsWith('{') ? 'Board Input Impactful' : display;
+}
+
 function getStatusBadgeClass(status: string): string {
   if (status === 'Board Input Impactful') {
     return 'text-nok-blue font-medium shadow-[0_0_12px_rgba(59,130,246,0.4)]';
@@ -214,7 +247,7 @@ export default function HowYouCanHelpView() {
                               <QuarterlyNeedsList needs={section.quarterlyNeeds} />
                             )}
                             {section.leaderId === 1 && leader ? (
-                              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-3">
+                              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-3 flex-shrink-0">
                                 <a
                                   href="/nok-icp.pdf"
                                   target="_blank"
@@ -240,7 +273,7 @@ export default function HowYouCanHelpView() {
                                 </button>
                               </div>
                             ) : leader ? (
-                              <div className="flex flex-col items-center text-center pt-3">
+                              <div className="flex flex-col items-center text-center pt-3 flex-shrink-0">
                                 <button
                                   type="button"
                                   onClick={() => setSelectedMember(leader)}
@@ -265,7 +298,7 @@ export default function HowYouCanHelpView() {
 
                                   if (isMetricFunnel && 'task' in rock && 'metric' in rock && 'why' in rock && 'progress' in rock && 'status' in rock) {
                                     const progress = Number(rock.progress);
-                                    const status = String(rock.status);
+                                    const status = cleanStatusForDisplay(getStatusDisplay(rock.status));
                                     return (
                                       <li key={i} className="flex items-start gap-2">
                                         <span className="w-2 h-2 rounded-full bg-nok-blue flex-shrink-0 mt-1.5" aria-hidden />
@@ -279,7 +312,7 @@ export default function HowYouCanHelpView() {
                                                 className="h-full rounded-full bg-nok-blue"
                                                 initial={{ width: 0 }}
                                                 animate={{ width: `${Math.min(100, Math.max(0, progress))}%` }}
-                                                transition={{ duration: 0.5, ease: 'easeOut' }}
+                                                transition={{ duration: 0.6, ease: 'easeOut' }}
                                               />
                                             </div>
                                             <div className="flex flex-wrap items-center gap-2">
