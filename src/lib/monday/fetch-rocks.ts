@@ -125,17 +125,25 @@ function getColumnById(
   return col ? { text: col.text, value: col.value, display_value: col.display_value } : null;
 }
 
+/** Remove emojis and special symbols from status text for clean display. */
+function stripEmojis(str: string): string {
+  return str
+    .replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E6}-\u{1F1FF}\u{203C}\u{2049}\u{26A0}\u{26A1}\u{FE00}-\u{FE0F}]/gu, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 /** Extract clean status label from Monday Status column. Never returns raw JSON. */
 function extractStatusLabel(statusCv: { text?: string; value?: string } | null): string {
   if (!statusCv) return 'On Track';
   const text = typeof statusCv.text === 'string' ? statusCv.text.trim() : '';
-  if (text && !text.startsWith('{') && !text.startsWith('[')) return text;
+  if (text && !text.startsWith('{') && !text.startsWith('[')) return stripEmojis(text);
   const val = typeof statusCv.value === 'string' ? statusCv.value.trim() : '';
-  if (!val || (!val.startsWith('{') && !val.startsWith('['))) return val || 'On Track';
+  if (!val || (!val.startsWith('{') && !val.startsWith('['))) return stripEmojis(val || 'On Track');
   try {
     const parsed = JSON.parse(val) as Record<string, unknown>;
-    if (typeof parsed?.text === 'string' && !parsed.text.startsWith('{')) return parsed.text.trim();
-    if (typeof parsed?.label === 'string' && !parsed.label.startsWith('{')) return parsed.label.trim();
+    if (typeof parsed?.text === 'string' && !parsed.text.startsWith('{')) return stripEmojis(parsed.text.trim());
+    if (typeof parsed?.label === 'string' && !parsed.label.startsWith('{')) return stripEmojis(parsed.label.trim());
     if (typeof parsed?.index === 'number' && parsed.index === 5) return 'Board Input Impactful';
   } catch {
     return 'On Track';

@@ -52,29 +52,39 @@ function getStatusDisplay(status: unknown): string {
     if (s.startsWith('{') || s.startsWith('[')) {
       try {
         const parsed = JSON.parse(s) as Record<string, unknown>;
-        if (typeof parsed?.text === 'string' && parsed.text.trim()) return parsed.text.trim();
-        if (typeof parsed?.label === 'string' && parsed.label.trim()) return parsed.label.trim();
+        if (typeof parsed?.text === 'string' && parsed.text.trim()) return stripEmojis(parsed.text.trim());
+        if (typeof parsed?.label === 'string' && parsed.label.trim()) return stripEmojis(parsed.label.trim());
         if (typeof parsed?.index === 'number' && parsed.index === 5) return 'Board Input Impactful';
       } catch {
         return 'Board Input Impactful';
       }
       return 'Board Input Impactful';
     }
-    return s;
+    return stripEmojis(s);
   }
   if (typeof status === 'object') {
     const o = status as Record<string, unknown>;
-    if (typeof o.text === 'string' && o.text.trim()) return o.text.trim();
-    if (typeof o.label === 'string' && o.label.trim()) return o.label.trim();
+    if (typeof o.text === 'string' && o.text.trim()) return stripEmojis(o.text.trim());
+    if (typeof o.label === 'string' && o.label.trim()) return stripEmojis(o.label.trim());
     if (typeof o.index === 'number' && o.index === 5) return 'Board Input Impactful';
     return 'On Track';
   }
   return 'On Track';
 }
 
-/** Never render JSON - final safety for status badge */
+/** Remove emojis and extra whitespace for professional status display. */
+function stripEmojis(str: string): string {
+  return str
+    .replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E6}-\u{1F1FF}\u{203C}\u{2049}\u{26A0}\u{26A1}\u{FE00}-\u{FE0F}]/gu, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Never render JSON - final safety for status badge. Also strips emojis. */
 function cleanStatusForDisplay(display: string): string {
-  return display.startsWith('{') ? 'Board Input Impactful' : display;
+  if (display.startsWith('{')) return 'Board Input Impactful';
+  const stripped = stripEmojis(display);
+  return stripped || 'On Track';
 }
 
 function getStatusBadgeClass(status: string): string {
