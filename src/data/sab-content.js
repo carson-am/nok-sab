@@ -106,6 +106,7 @@ export const strategicRocks = [
     rocks: [
       {
         task: "Validate RFP Program Funnel",
+        slug: "rfp_validation",
         metric: "10 target brand trials → 5 completed assessments → 2 Q2 launch commits",
         why: "To create a measurable, self-serve entry point that converts brand interest into platform revenue.",
         progress: 0,
@@ -114,6 +115,7 @@ export const strategicRocks = [
       },
       {
         task: "Enterprise KPI Adoption",
+        slug:"kpi_adoption",
         metric: "100% of top 5 brand partners utilizing core recovery and speed KPIs in-platform",
         why: "To ensure our product value is validated by the metrics that drive enterprise contract renewals.",
         progress: 0,
@@ -130,6 +132,7 @@ export const strategicRocks = [
       },
       {
         task: "Self-Serve Analytics Migration",
+        slug:"self_serve_analytics",
         metric: "0 manual report requests from existing accounts; 100% of data accessed via self-serve dashboard",
         why: "To eliminate operational friction and provide brands with real-time visibility.",
         progress: 0,
@@ -138,6 +141,7 @@ export const strategicRocks = [
       },
       {
         task: "Canadian Market Technical Scoping",
+        slug:"canadian_market",
         metric: "1 complete technical audit of cross-border tax, customs, and logistics requirements",
         why: "To prepare the infrastructure for immediate expansion with our existing multi-national partners.",
         progress: 0,
@@ -146,6 +150,7 @@ export const strategicRocks = [
       },
       {
         task: "3PL SLA Transparency Engine",
+        slug:"3pl_sla",
         metric: "100% of active nodes reporting real-time data into the SLA visibility dashboard",
         why: "To drive network-wide accountability and surface \"SLA leakage\" before it impacts brand trust.",
         progress: 0,
@@ -181,6 +186,7 @@ export const strategicRocks = [
     rocks: [
       {
         task: "Formalize 3PL Network SLAs",
+        slug:"3pl_network_sla",
         metric: "5 active nodes → 5 signed SLAs → 100% compliance tracking in-platform",
         why: "To drive warehouse accountability and establish performance thresholds that protect brand satisfaction.",
         progress: 0,
@@ -189,6 +195,7 @@ export const strategicRocks = [
       },
       {
         task: "Standardize Onboarding SOPs",
+        slug:"standardize_sop",
         metric: "1 core operational playbook → 3 brand-specific pilots → 100% SOP coverage for new Q2 cohorts",
         why: "To create a repeatable system for brand onboarding, ensuring operational excellence remains consistent as we scale.",
         progress: 0,
@@ -197,6 +204,7 @@ export const strategicRocks = [
       },
       {
         task: "Secure National Recycling Partnerships",
+        slug:"recycling_partner",
         metric: "3 provider audits → 1 signed national partner → 0 backlog for non-resalable units",
         why: "To guarantee responsible end-of-life disposition that meets both brand sustainability goals and regulatory requirements.",
         progress: 0,
@@ -248,6 +256,7 @@ export const strategicRocks = [
     rocks: [
       {
         task: "Sign 10 individuals to Referral Agreements",
+        slug:"referral_agreements",
         metric: "20 target individuals identified → 15 outreach sessions → 10 signed agreements",
         why: "Make our small but mighty team feel bigger than we are, filling our top of funnel with leads from close-in individuals that believe in our process.",
         progress: 0,
@@ -256,6 +265,7 @@ export const strategicRocks = [
       },
       {
         task: "Conduct 60 Top of Funnel Meetings in Q1",
+        slug:"funnel_meetings",
         metric: "100 leads qualified → 80 outreach attempts → 60 held meetings",
         why: "Start building our top of funnel pipeline.",
         progress: 0,
@@ -264,6 +274,7 @@ export const strategicRocks = [
       },
       {
         task: "Secure 2 clients that will launch in Q2",
+        slug:"brand_launch",
         metric: "10 qualified proposals → 5 late-stage negotiations → 2 signed Q2 launch commits",
         why: "To hit revenue goals, given the time it takes to fully launch and realize value from brands.",
         progress: 0,
@@ -272,6 +283,7 @@ export const strategicRocks = [
       },
       {
         task: "Create a formal sales process",
+        slug:"sales_process",
         metric: "Internal workflow audit → 1 documented sales playbook → 1 junior sales onboarding plan completed",
         why: "To build process into the sales cycle, so we can hire a junior sales role in Q2.",
         progress: 0,
@@ -280,6 +292,7 @@ export const strategicRocks = [
       },
       {
         task: "Identify key conferences for Beauty, Sport, and Home categories",
+        slug:"key_conferences",
         metric: "15 industry events audited → 5 high-value events selected → 1 cohesive Q2-Q4 attendance roadmap",
         why: "Aware that conferences can be a waste if we're not targeting the right ones with the most value.",
         progress: 0,
@@ -316,6 +329,7 @@ export const strategicRocks = [
     rocks: [
       {
         task: "Execute legacy technology decommissioning",
+        slug:"tech_decomission",
         metric: "Audit 100% of legacy apps → Transition all active brands to new platform → Complete server shutdown.",
         why: "To eliminate technical debt and capture significant operational cost savings, refocusing engineering resources on our primary scalable platform.",
         progress: 0,
@@ -324,6 +338,7 @@ export const strategicRocks = [
       },
       {
         task: "Deploy automated resolution engine for shipment delays",
+        slug:"shipment_delay",
         metric: "Identify top 3 delay scenarios → Code resolution logic → 100% automated handling for exceptions.",
         why: "To improve brand trust and customer experience by proactively managing logistics exceptions through intelligent automation.",
         progress: 0,
@@ -332,6 +347,7 @@ export const strategicRocks = [
       },
       {
         task: "Launch production instance of 'Resale-Only' module",
+        slug:"resale_module",
         metric: "Complete beta testing → Deploy production instance → Validate first standalone brand client.",
         why: "To validate our modular technology approach, enabling brands to utilize Nok's resale engine as a standalone strategic lever.",
         progress: 0,
@@ -340,6 +356,7 @@ export const strategicRocks = [
       },
       {
         task: "Formalize Product and Engineering strategic alignment",
+        slug:"strategic_alignment",
         metric: "Shared roadmap finalized → Weekly cross-functional syncs established → 100% team buy-in achieved.",
         why: "To ensure high-velocity execution of our technical vision and maintain total team alignment on our long-term roadmap.",
         progress: 0,
@@ -383,6 +400,7 @@ export const strategicRocks = [
       },
       {
         task: "Implement Data-Driven Disposition Plans",
+        slug:"disposition_plan",
         metric: "Baseline recovery KPIs per brand → 5 strategic plans created → 100% brand-approved implementation.",
         why: "To align our resale strategies with real-time data, ensuring we capture the maximum possible recovery value for our clients.",
         progress: 0,
@@ -391,6 +409,7 @@ export const strategicRocks = [
       },
       {
         task: "Execute Strategic Amazon FBA Roadmap",
+        slug:"amazon_fba",
         metric: "North America tax/regulatory audit → 1 pilot brand launch → Validated multi-channel FBA playbook.",
         why: "To establish a defensible, brand-approved approach to one of the most critical and complex secondary market channels.",
         progress: 0,
@@ -399,6 +418,7 @@ export const strategicRocks = [
       },
       {
         task: "Secure Strategic Liquidation Partners",
+        slug:"liquidation_partner",
         metric: "6 category audits → 3 final negotiations → 1 signed partner per major bulk category (USA/Canada).",
         why: "To guarantee a profitable \"last-resort\" outlet for inventory while maintaining strict channel integrity.",
         progress: 0,
@@ -407,6 +427,7 @@ export const strategicRocks = [
       },
       {
         task: "Automate Financial Reporting and Data Integration",
+        slug:"automate_reporting",
         metric: "Map QBO-Nok data schema → Automate 5 core reports → Real-time unit economic visibility.",
         why: "To provide the leadership team with instant visibility into margins and accelerate the speed of financial decision-making.",
         progress: 0,

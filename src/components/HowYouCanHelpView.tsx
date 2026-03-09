@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -8,9 +8,10 @@ import {
   howYouCanHelpIntroTitle,
   howYouCanHelpIntroBody,
   gettingStarted,
-  strategicRocks,
+  strategicRocks as staticStrategicRocks,
   teamMembers,
 } from '../data/sab-content';
+import { getRocksWithMondayData } from '../lib/monday/fetch-rocks';
 import TeamMemberModal, { type TeamMemberModalMember } from './TeamMemberModal';
 
 function IntroWithRocksHighlight({ text }: { text: string }) {
@@ -105,6 +106,15 @@ function QuarterlyNeedsList({ needs }: { needs: QuarterlyNeedsCategory[] }) {
 export default function HowYouCanHelpView() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [selectedMember, setSelectedMember] = useState<TeamMemberModalMember | null>(null);
+  const [strategicRocks, setStrategicRocks] = useState(staticStrategicRocks);
+
+  useEffect(() => {
+    getRocksWithMondayData().then((merged) => {
+      setStrategicRocks(merged);
+    }).catch(() => {
+      // Fallback to static data on error
+    });
+  }, []);
 
   return (
     <>
@@ -265,9 +275,11 @@ export default function HowYouCanHelpView() {
                                           <div className="text-nok-blue/80 text-sm italic leading-relaxed">{rock.why}</div>
                                           <div className="space-y-1.5 pt-1">
                                             <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
-                                              <div
-                                                className="h-full rounded-full bg-nok-blue transition-all duration-300"
-                                                style={{ width: `${Math.min(100, Math.max(0, progress))}%` }}
+                                              <motion.div
+                                                className="h-full rounded-full bg-nok-blue"
+                                                initial={{ width: 0 }}
+                                                animate={{ width: `${Math.min(100, Math.max(0, progress))}%` }}
+                                                transition={{ duration: 0.5, ease: 'easeOut' }}
                                               />
                                             </div>
                                             <div className="flex flex-wrap items-center gap-2">
